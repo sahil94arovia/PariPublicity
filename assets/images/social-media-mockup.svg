@@ -1,0 +1,90 @@
+<svg width="800" height="520" viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgSocial" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="postGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5E3A"/>
+      <stop offset="50%" stop-color="#FF2A6D"/>
+      <stop offset="100%" stop-color="#05D5FA"/>
+    </linearGradient>
+    <linearGradient id="festiveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0A192F"/>
+      <stop offset="60%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#0B132B"/>
+    </linearGradient>
+    <filter id="phoneShadow" x="-15%" y="-10%" width="130%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="22" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="520" rx="12" fill="url(#bgSocial)"/>
+
+  <!-- Center Smartphone Mockup -->
+  <g filter="url(#phoneShadow)">
+    <!-- Phone Chassis -->
+    <rect x="250" y="30" width="300" height="460" rx="36" fill="#0B0F19" stroke="#334155" stroke-width="4"/>
+    <!-- Speaker & Camera Notch -->
+    <rect x="350" y="42" width="100" height="14" rx="7" fill="#1E293B"/>
+    <circle cx="430" cy="49" r="3.5" fill="#475569"/>
+
+    <!-- Screen Display Area -->
+    <rect x="265" y="66" width="270" height="400" rx="12" fill="#FFFFFF"/>
+
+    <!-- Social App Header -->
+    <rect x="265" y="66" width="270" height="45" fill="#FFFFFF"/>
+    <circle cx="285" cy="88" r="14" fill="#0B1E3D"/>
+    <text x="285" y="93" fill="#FBBF24" font-family="'Outfit', sans-serif" font-size="11" font-weight="900" text-anchor="middle">P</text>
+
+    <text x="306" y="85" fill="#0F172A" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">pari_publicity_morena</text>
+    <text x="306" y="98" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="500">Morena, Madhya Pradesh</text>
+    <text x="515" y="92" fill="#64748B" font-family="'Outfit', sans-serif" font-size="14" font-weight="900">•••</text>
+
+    <!-- Post Creative Graphic (1:1 Ratio) -->
+    <rect x="265" y="111" width="270" height="270" fill="url(#festiveGrad)"/>
+
+    <!-- Festive Vector Artwork (Diwali / Festival Wishes in Morena) -->
+    <circle cx="400" cy="220" r="75" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.4"/>
+    <!-- Glowing Diya / Lamp Symbol -->
+    <path d="M 370 235 Q 400 255 430 235 Z" fill="#F59E0B"/>
+    <path d="M 400 233 Q 407 215 400 205 Q 393 215 400 233 Z" fill="#FBBF24"/>
+    <circle cx="400" cy="216" r="10" fill="#FEF08A" opacity="0.3"/>
+
+    <text x="400" y="165" fill="#FBBF24" font-family="'Outfit', sans-serif" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="2">
+      HAPPY FESTIVE GREETINGS
+    </text>
+
+    <text x="400" y="192" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="22" font-weight="900" text-anchor="middle">
+      CHAMBAL AGRO
+    </text>
+
+    <text x="400" y="275" fill="#FDE047" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" text-anchor="middle">
+      May This Festival Bring Wealth &amp; Joy!
+    </text>
+
+    <rect x="335" y="325" width="130" height="20" rx="10" fill="#FF6B00"/>
+    <text x="400" y="339" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="9" font-weight="800" text-anchor="middle">
+      MORENA, M.P.
+    </text>
+
+    <text x="400" y="365" fill="#93C5FD" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="500" text-anchor="middle">
+      Creative by Pari Publicity • 98XXX XXXXX
+    </text>
+
+    <!-- Social Action Icons (Heart, Comment, Share) -->
+    <rect x="265" y="381" width="270" height="40" fill="#FFFFFF"/>
+    <text x="285" y="405" fill="#EF4444" font-size="16">❤️</text>
+    <text x="312" y="405" fill="#475569" font-size="15">💬</text>
+    <text x="338" y="405" fill="#475569" font-size="15">↗️</text>
+    <text x="505" y="405" fill="#475569" font-size="15">🔖</text>
+
+    <!-- Likes & Caption preview -->
+    <text x="280" y="435" fill="#0F172A" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700">1,248 likes</text>
+    <text x="280" y="450" fill="#334155" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="500">pari_publicity Festival creative design for...</text>
+  </g>
+
+  <!-- Tag -->
+  <rect x="590" y="60" width="160" height="28" rx="4" fill="#FF6B00"/>
+  <text x="670" y="79" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="11" font-weight="800" text-anchor="middle">SOCIAL MEDIA CREATIVES</text>
+</svg>

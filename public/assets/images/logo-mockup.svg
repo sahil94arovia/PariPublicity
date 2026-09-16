@@ -1,0 +1,84 @@
+<svg width="800" height="520" viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="linenDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071224"/>
+      <stop offset="50%" stop-color="#0C1E3C"/>
+      <stop offset="100%" stop-color="#050B17"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="25%" stop-color="#F59E0B"/>
+      <stop offset="50%" stop-color="#FEF08A"/>
+      <stop offset="75%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="goldEmboss" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.5"/>
+    </linearGradient>
+    <filter id="goldGlow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#F59E0B" flood-opacity="0.3"/>
+    </filter>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="520" rx="12" fill="#030712"/>
+
+  <!-- Linen Textured Card Stack -->
+  <g filter="url(#cardShadow)">
+    <rect x="100" y="60" width="600" height="400" rx="16" fill="url(#linenDark)" stroke="#1E293B" stroke-width="2"/>
+
+    <!-- Subtle Jaali / Mandala Background Watermark -->
+    <g opacity="0.06" stroke="#F59E0B" stroke-width="1.2" fill="none">
+      <circle cx="400" cy="260" r="180"/>
+      <circle cx="400" cy="260" r="140"/>
+      <circle cx="400" cy="260" r="100"/>
+      <circle cx="400" cy="260" r="60"/>
+      <polygon points="400,80 580,260 400,440 220,260"/>
+      <polygon points="400,120 540,260 400,400 260,260"/>
+    </g>
+
+    <!-- Luxury Gold Corner Accents -->
+    <!-- Top Left -->
+    <path d="M120 90 L160 90 M120 90 L120 130" stroke="url(#goldShine)" stroke-width="2"/>
+    <!-- Top Right -->
+    <path d="M680 90 L640 90 M680 90 L680 130" stroke="url(#goldShine)" stroke-width="2"/>
+    <!-- Bottom Left -->
+    <path d="M120 430 L160 430 M120 430 L120 390" stroke="url(#goldShine)" stroke-width="2"/>
+    <!-- Bottom Right -->
+    <path d="M680 430 L640 430 M680 430 L680 390" stroke="url(#goldShine)" stroke-width="2"/>
+
+    <!-- Center Luxury Foil Logo Emblem -->
+    <g filter="url(#goldGlow)">
+      <!-- Royal Wing / Sun Rays Crest -->
+      <circle cx="400" cy="180" r="42" stroke="url(#goldShine)" stroke-width="3" fill="#0B1E3D" fill-opacity="0.8"/>
+      <!-- Inner Geometric Diamond -->
+      <polygon points="400,148 424,180 400,212 376,180" fill="url(#goldShine)"/>
+      <circle cx="400" cy="180" r="6" fill="#071224"/>
+
+      <!-- Hindi Subtitle -->
+      <text x="400" y="248" fill="#FDE047" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="4">
+        परी पब्लिसिटी • मोरेना
+      </text>
+
+      <!-- Brand Heading -->
+      <text x="400" y="300" fill="url(#goldShine)" font-family="'Outfit', sans-serif" font-size="46" font-weight="900" text-anchor="middle" letter-spacing="6">
+        PARI PUBLICITY
+      </text>
+
+      <!-- Subtitle -->
+      <text x="400" y="335" fill="#E2E8F0" font-family="'Outfit', sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="6">
+        CREATIVE DESIGN • LARGE FORMAT PRINTING • HOARDINGS
+      </text>
+
+      <line x1="260" y1="355" x2="540" y2="355" stroke="url(#goldShine)" stroke-width="1.5"/>
+      <circle cx="400" cy="355" r="4" fill="url(#goldShine)"/>
+
+      <text x="400" y="385" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="2">
+        ESTD. MORENA, MADHYA PRADESH
+      </text>
+    </g>
+  </g>
+</svg>

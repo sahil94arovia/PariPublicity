@@ -1,0 +1,80 @@
+<svg width="800" height="520" viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="roadGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="vanBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="wrapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B2545"/>
+      <stop offset="100%" stop-color="#134074"/>
+    </linearGradient>
+    <linearGradient id="saffronStripe" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF6B00"/>
+      <stop offset="100%" stop-color="#FFA800"/>
+    </linearGradient>
+    <filter id="vanShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="15" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="520" rx="12" fill="#0B132B"/>
+
+  <!-- Road and Ground -->
+  <rect x="0" y="410" width="800" height="110" fill="url(#roadGrad)"/>
+  <line x1="0" y1="465" x2="800" y2="465" stroke="#FBBF24" stroke-width="4" stroke-dasharray="30 20"/>
+
+  <!-- Commercial Van Illustration with Full Side Vinyl Wrap -->
+  <g filter="url(#vanShadow)">
+    <!-- Cabin and Cargo Body Outline -->
+    <path d="M 120 370 L 120 220 L 220 220 L 280 150 L 680 150 L 680 370 Z" fill="url(#vanBody)" stroke="#475569" stroke-width="3"/>
+
+    <!-- Front Windshield & Windows -->
+    <path d="M 230 215 L 285 160 L 340 160 L 340 215 Z" fill="#1E293B" stroke="#64748B" stroke-width="2"/>
+    <rect x="140" y="240" width="30" height="20" rx="3" fill="#F59E0B"/> <!-- Headlight -->
+    <rect x="120" y="310" width="50" height="40" rx="4" fill="#334155"/> <!-- Front Bumper -->
+
+    <!-- Cargo Box Large Vinyl Wrap Panel -->
+    <rect x="355" y="160" width="315" height="195" rx="4" fill="url(#wrapGrad)" stroke="#1E3A8A" stroke-width="2"/>
+
+    <!-- Dynamic Saffron Swoosh Graphic Across Van -->
+    <path d="M 355 310 Q 480 270 670 180 L 670 220 Q 480 320 355 355 Z" fill="url(#saffronStripe)"/>
+
+    <!-- Branding Text on Van Wrap -->
+    <rect x="375" y="180" width="130" height="22" rx="11" fill="#FFFFFF"/>
+    <text x="440" y="195" fill="#0B2545" font-family="'Outfit', sans-serif" font-size="10" font-weight="900" text-anchor="middle">DELIVERY FLEET</text>
+
+    <text x="375" y="240" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="28" font-weight="900">
+      MORENA FRESH
+    </text>
+    <text x="375" y="268" fill="#FBBF24" font-family="'Outfit', sans-serif" font-size="20" font-weight="800">
+      AGRO FOODS &amp; SPICES
+    </text>
+
+    <text x="375" y="295" fill="#E2E8F0" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">
+      100% Pure Mustard Oil • Gwalior-Chambal Supply
+    </text>
+
+    <text x="375" y="340" fill="#CBD5E1" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700">
+      📞 Order Helpline: +91 98XXX XXXXX
+    </text>
+
+    <!-- Wheels and Rims -->
+    <!-- Front Wheel -->
+    <circle cx="230" cy="380" r="45" fill="#1F2937" stroke="#111827" stroke-width="6"/>
+    <circle cx="230" cy="380" r="24" fill="#94A3B8"/>
+    <circle cx="230" cy="380" r="8" fill="#1F2937"/>
+
+    <!-- Rear Wheel -->
+    <circle cx="580" cy="380" r="45" fill="#1F2937" stroke="#111827" stroke-width="6"/>
+    <circle cx="580" cy="380" r="24" fill="#94A3B8"/>
+    <circle cx="580" cy="380" r="8" fill="#1F2937"/>
+  </g>
+
+  <!-- Tag on Top Right -->
+  <rect x="580" y="50" width="160" height="28" rx="4" fill="#FF6B00"/>
+  <text x="660" y="69" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="11" font-weight="800" text-anchor="middle">VEHICLE VINYL WRAP</text>
+</svg>

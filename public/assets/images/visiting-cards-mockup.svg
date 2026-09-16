@@ -1,0 +1,82 @@
+<svg width="800" height="520" viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgCardMock" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E1726"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="cardFront" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1E3D"/>
+      <stop offset="100%" stop-color="#071224"/>
+    </linearGradient>
+    <linearGradient id="cardBack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+    <linearGradient id="goldText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <filter id="stackShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="12" dy="20" stdDeviation="18" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="520" rx="12" fill="url(#bgCardMock)"/>
+
+  <!-- Back Card (White Minimalist Back) -->
+  <g filter="url(#stackShadow)" transform="rotate(-8 280 260)">
+    <rect x="140" y="140" width="380" height="230" rx="8" fill="url(#cardBack)" stroke="#CBD5E1" stroke-width="1.5"/>
+    <!-- Jaali subtle corner -->
+    <circle cx="170" cy="170" r="18" stroke="#F59E0B" stroke-width="1" stroke-dasharray="3 2" fill="none" opacity="0.3"/>
+
+    <text x="180" y="210" fill="#0B1E3D" font-family="'Outfit', sans-serif" font-size="20" font-weight="900">
+      Dr. R.K. Sharma
+    </text>
+    <text x="180" y="230" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">
+      MBBS, MD (Medicine) • Senior Consultant
+    </text>
+
+    <line x1="180" y1="248" x2="460" y2="248" stroke="#E2E8F0" stroke-width="1.5"/>
+
+    <text x="180" y="275" fill="#334155" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">
+      📞 +91 98XXX XXXXX
+    </text>
+    <text x="180" y="295" fill="#334155" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">
+      📍 Station Road Clinic, Morena (M.P.)
+    </text>
+    <text x="180" y="315" fill="#334155" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">
+      ⏰ Timings: 10:00 AM - 2:00 PM | 5:00 PM - 8:30 PM
+    </text>
+  </g>
+
+  <!-- Front Card (Navy & Gold Spot UV) -->
+  <g filter="url(#stackShadow)" transform="rotate(6 480 270)">
+    <rect x="290" y="150" width="380" height="230" rx="8" fill="url(#cardFront)" stroke="#1E3A8A" stroke-width="1.5"/>
+
+    <!-- Gold Foil Edge Accent -->
+    <path d="M 290 150 L 315 150 L 290 175 Z" fill="url(#goldText)"/>
+    <path d="M 670 380 L 645 380 L 670 355 Z" fill="url(#goldText)"/>
+
+    <!-- Center Emblem -->
+    <circle cx="480" cy="235" r="28" fill="#071224" stroke="url(#goldText)" stroke-width="2"/>
+    <text x="480" y="244" fill="url(#goldText)" font-family="'Outfit', sans-serif" font-size="22" font-weight="900" text-anchor="middle">
+      ✚
+    </text>
+
+    <text x="480" y="290" fill="url(#goldText)" font-family="'Outfit', sans-serif" font-size="18" font-weight="900" text-anchor="middle" letter-spacing="2">
+      SHARMA CLINIC &amp; RESEARCH
+    </text>
+
+    <text x="480" y="312" fill="#93C5FD" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" text-anchor="middle" letter-spacing="1">
+      ADVANCED HEALTHCARE IN MORENA
+    </text>
+
+    <!-- Spot UV Gloss Sheen -->
+    <path d="M 330 150 L 410 150 L 310 380 L 290 380 Z" fill="#FFFFFF" fill-opacity="0.04"/>
+  </g>
+
+  <!-- Tag -->
+  <rect x="580" y="60" width="170" height="28" rx="4" fill="#FF6B00"/>
+  <text x="665" y="79" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="11" font-weight="800" text-anchor="middle">PREMIUM VISITING CARDS</text>
+</svg>

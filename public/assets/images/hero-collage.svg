@@ -1,0 +1,184 @@
+<svg width="900" height="700" viewBox="0 0 900 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A8A" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#FF6B00" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0B1E3D" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="hoardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A192F"/>
+      <stop offset="100%" stop-color="#142850"/>
+    </linearGradient>
+    <linearGradient id="brochureGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FF6B00"/>
+    </linearGradient>
+    <filter id="floatShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#050B17" flood-opacity="0.45"/>
+    </filter>
+    <filter id="cardGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#FF6B00" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Ambient Glow Behind Collage -->
+  <ellipse cx="450" cy="350" rx="380" ry="260" fill="url(#bgGlow)"/>
+
+  <!-- Subtle Jaali / Mandala Background Watermark -->
+  <g opacity="0.08" stroke="#F59E0B" stroke-width="1.5" fill="none">
+    <circle cx="450" cy="350" r="280"/>
+    <circle cx="450" cy="350" r="220"/>
+    <circle cx="450" cy="350" r="160"/>
+    <circle cx="450" cy="350" r="100"/>
+    <polygon points="450,70 730,350 450,630 170,350"/>
+    <polygon points="450,130 670,350 450,570 230,350"/>
+  </g>
+
+  <!-- 1. BACK LAYER: Outdoor Highway Hoarding (Large Billboard) -->
+  <g filter="url(#floatShadow)" transform="translate(60, 40)">
+    <!-- Steel Structure Frame -->
+    <rect x="0" y="0" width="560" height="290" rx="10" fill="#1E293B" stroke="#475569" stroke-width="4"/>
+    <rect x="10" y="10" width="540" height="270" rx="6" fill="url(#hoardGrad)"/>
+
+    <!-- Hoarding Content -->
+    <rect x="35" y="35" width="150" height="24" rx="12" fill="url(#goldAccent)"/>
+    <text x="110" y="51" fill="#0A192F" font-family="'Outfit', sans-serif" font-size="11" font-weight="900" text-anchor="middle">OUTDOOR HOARDING</text>
+
+    <text x="35" y="105" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="30" font-weight="900" letter-spacing="-0.5">
+      MORENA HIGHWAY
+    </text>
+    <text x="35" y="140" fill="#FBBF24" font-family="'Outfit', sans-serif" font-size="24" font-weight="800">
+      PRIME BILLBOARD MEDIA
+    </text>
+    <text x="35" y="175" fill="#CBD5E1" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600">
+      Chambal Expressway &amp; AB Road • High Footfall Guaranteed
+    </text>
+
+    <!-- Visual Graph / Impact meter -->
+    <rect x="35" y="205" width="220" height="38" rx="6" fill="#0A1128" stroke="#1E40AF" stroke-width="1"/>
+    <text x="48" y="228" fill="#38BDF8" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">50,000+ Daily Views</text>
+    <text x="180" y="228" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">Morena Hub</text>
+
+    <!-- Top Spotlight Fixtures -->
+    <rect x="120" y="-12" width="24" height="12" rx="2" fill="#334155"/>
+    <circle cx="132" cy="-2" r="5" fill="#FEF08A"/>
+    <rect x="320" y="-12" width="24" height="12" rx="2" fill="#334155"/>
+    <circle cx="332" cy="-2" r="5" fill="#FEF08A"/>
+  </g>
+
+  <!-- 2. MIDDLE LAYER: Star Flex Banner (Admissions / Commercial) -->
+  <g filter="url(#floatShadow)" transform="translate(380, 180)">
+    <rect x="0" y="0" width="460" height="280" rx="8" fill="#0B2545" stroke="#1E40AF" stroke-width="3"/>
+    
+    <!-- Grommet corners -->
+    <circle cx="16" cy="16" r="4" fill="#94A3B8" stroke="#1E293B"/>
+    <circle cx="444" cy="16" r="4" fill="#94A3B8" stroke="#1E293B"/>
+    <circle cx="16" cy="264" r="4" fill="#94A3B8" stroke="#1E293B"/>
+    <circle cx="444" cy="264" r="4" fill="#94A3B8" stroke="#1E293B"/>
+
+    <!-- Flex Content -->
+    <rect x="30" y="25" width="130" height="22" rx="4" fill="#FF6B00"/>
+    <text x="95" y="40" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="10" font-weight="900" text-anchor="middle">STAR FLEX PRINT</text>
+
+    <text x="30" y="90" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="24" font-weight="900">
+      VIBRANT COLOR
+    </text>
+    <text x="30" y="118" fill="#FBBF24" font-family="'Outfit', sans-serif" font-size="20" font-weight="800">
+      WEATHERPROOF FLEX
+    </text>
+
+    <text x="30" y="152" fill="#E2E8F0" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="600">
+      Sharp DPI • Sun &amp; Rain Resistant • Heavy GSM
+    </text>
+
+    <!-- Badge -->
+    <rect x="30" y="175" width="210" height="34" rx="6" fill="#071326" stroke="#3B82F6" stroke-width="1"/>
+    <text x="45" y="196" fill="#FDE047" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700">
+      ✓ In-house Printing Setup
+    </text>
+
+    <text x="30" y="240" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600">
+      Printed at Pari Publicity, Morena
+    </text>
+  </g>
+
+  <!-- 3. FOREGROUND LEFT: Luxury Tri-Fold Brochure Mockup -->
+  <g filter="url(#floatShadow)" transform="translate(80, 310)">
+    <!-- Brochure 3D angle spread -->
+    <path d="M 0 30 L 160 0 L 160 300 L 0 270 Z" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+    <path d="M 160 0 L 320 15 L 320 315 L 160 300 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+
+    <!-- Left Flap Content -->
+    <text x="25" y="60" fill="#0B1E3D" font-family="'Outfit', sans-serif" font-size="12" font-weight="800">CORPORATE</text>
+    <text x="25" y="80" fill="#FF6B00" font-family="'Outfit', sans-serif" font-size="14" font-weight="900">BROCHURE</text>
+    <line x1="25" y1="95" x2="135" y2="95" stroke="#CBD5E1"/>
+    <rect x="25" y="110" width="110" height="12" rx="2" fill="#E2E8F0"/>
+    <rect x="25" y="130" width="90" height="12" rx="2" fill="#E2E8F0"/>
+    <rect x="25" y="150" width="105" height="12" rx="2" fill="#E2E8F0"/>
+    <rect x="25" y="180" width="110" height="60" rx="4" fill="#0B2545"/>
+    <text x="80" y="215" fill="#FBBF24" font-family="'Outfit', sans-serif" font-size="10" font-weight="800" text-anchor="middle">REAL ESTATE</text>
+
+    <!-- Right Flap Cover Content -->
+    <rect x="180" y="40" width="115" height="18" rx="3" fill="#0B1E3D"/>
+    <text x="237" y="53" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="9" font-weight="800" text-anchor="middle">EXCLUSIVE DESIGN</text>
+    <text x="180" y="90" fill="#0F172A" font-family="'Outfit', sans-serif" font-size="18" font-weight="900">ROYAL</text>
+    <text x="180" y="112" fill="#FF6B00" font-family="'Outfit', sans-serif" font-size="16" font-weight="900">TOWNSHIP</text>
+    <text x="180" y="140" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="500">Morena, M.P.</text>
+    <rect x="180" y="170" width="115" height="90" rx="4" fill="#F1F5F9" stroke="#CBD5E1"/>
+    <circle cx="237" cy="215" r="22" fill="#0B2545"/>
+    <text x="237" y="220" fill="#F59E0B" font-family="'Outfit', sans-serif" font-size="13" font-weight="900" text-anchor="middle">R</text>
+  </g>
+
+  <!-- 4. FOREGROUND FRONT: Luxury Gold Embossed Logo Card -->
+  <g filter="url(#cardGlow)" transform="translate(360, 420)">
+    <rect x="0" y="0" width="450" height="230" rx="12" fill="#071224" stroke="#1E3A8A" stroke-width="2"/>
+    
+    <!-- Gold Border Accent -->
+    <rect x="10" y="10" width="430" height="210" rx="8" fill="none" stroke="url(#goldAccent)" stroke-width="1.5" stroke-opacity="0.6"/>
+
+    <!-- Mandala corner touches -->
+    <circle cx="30" cy="30" r="12" stroke="#F59E0B" stroke-width="0.8" fill="none" opacity="0.4"/>
+    <circle cx="420" cy="30" r="12" stroke="#F59E0B" stroke-width="0.8" fill="none" opacity="0.4"/>
+
+    <!-- Center Crest -->
+    <circle cx="225" cy="70" r="26" fill="#0B1E3D" stroke="url(#goldAccent)" stroke-width="2"/>
+    <polygon points="225,52 238,70 225,88 212,70" fill="url(#goldAccent)"/>
+
+    <text x="225" y="125" fill="#FDE047" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="3">
+      परी पब्लिसिटी • मोरेना
+    </text>
+
+    <text x="225" y="160" fill="url(#goldAccent)" font-family="'Outfit', sans-serif" font-size="28" font-weight="900" text-anchor="middle" letter-spacing="4">
+      PARI PUBLICITY
+    </text>
+
+    <text x="225" y="185" fill="#E2E8F0" font-family="'Outfit', sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="3">
+      BRAND IDENTITY &amp; DESIGN STUDIO
+    </text>
+
+    <line x1="120" y1="198" x2="330" y2="198" stroke="url(#goldAccent)" stroke-width="1"/>
+    <circle cx="225" cy="198" r="3" fill="#F59E0B"/>
+  </g>
+
+  <!-- Floating Trust Badges with Floating Animation Vibe -->
+  <g filter="url(#floatShadow)" transform="translate(40, 230)">
+    <rect x="0" y="0" width="165" height="46" rx="23" fill="#0B1E3D" stroke="#3B82F6" stroke-width="1.5"/>
+    <circle cx="24" cy="23" r="12" fill="#10B981"/>
+    <text x="24" y="27" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="12" font-weight="900" text-anchor="middle">✓</text>
+    <text x="46" y="22" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="11" font-weight="800">100% QUALITY</text>
+    <text x="46" y="34" fill="#93C5FD" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600">GUARANTEED</text>
+  </g>
+
+  <g filter="url(#floatShadow)" transform="translate(690, 110)">
+    <rect x="0" y="0" width="175" height="46" rx="23" fill="#0B1E3D" stroke="#FF6B00" stroke-width="1.5"/>
+    <circle cx="24" cy="23" r="12" fill="#FF6B00"/>
+    <text x="24" y="27" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="13" font-weight="900" text-anchor="middle">★</text>
+    <text x="46" y="22" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="11" font-weight="800">MORENA'S BEST</text>
+    <text x="46" y="34" fill="#FBBF24" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600">Outdoor &amp; Print</text>
+  </g>
+</svg>

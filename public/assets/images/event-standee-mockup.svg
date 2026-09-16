@@ -1,0 +1,87 @@
+<svg width="800" height="520" viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgStandee" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="standeeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0B1E3D"/>
+      <stop offset="40%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#081020"/>
+    </linearGradient>
+    <linearGradient id="aluminumGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E2E8F0"/>
+      <stop offset="50%" stop-color="#94A3B8"/>
+      <stop offset="100%" stop-color="#64748B"/>
+    </linearGradient>
+    <filter id="standeeShadow" x="-15%" y="-10%" width="130%" height="120%">
+      <feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="520" rx="12" fill="url(#bgStandee)"/>
+
+  <!-- Event Stage Floor with reflection line -->
+  <rect x="0" y="450" width="800" height="70" fill="#090E17"/>
+  <line x1="0" y1="450" x2="800" y2="450" stroke="#1E293B" stroke-width="2"/>
+
+  <!-- Center Roll-up Standee Mockup -->
+  <g filter="url(#standeeShadow)">
+    <!-- Top Aluminum Hanger Rail -->
+    <rect x="290" y="45" width="220" height="12" rx="2" fill="url(#aluminumGrad)"/>
+
+    <!-- Banner Graphic Surface (2ft x 6ft standard proportion) -->
+    <rect x="294" y="55" width="212" height="385" fill="url(#standeeGrad)" stroke="#334155" stroke-width="1"/>
+
+    <!-- Geometric Jaali Pattern Accents on Banner -->
+    <circle cx="400" cy="180" r="70" stroke="#F59E0B" stroke-width="1" stroke-dasharray="4 3" opacity="0.25"/>
+    <circle cx="400" cy="180" r="50" stroke="#F59E0B" stroke-width="0.8" opacity="0.2"/>
+
+    <!-- Standee Graphic Design Content -->
+    <rect x="330" y="75" width="140" height="20" rx="10" fill="#FF6B00"/>
+    <text x="400" y="89" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="9" font-weight="900" text-anchor="middle" letter-spacing="1">ANNUAL TRADE SUMMIT</text>
+
+    <!-- Logo / Crest -->
+    <circle cx="400" cy="135" r="22" fill="#FBBF24"/>
+    <text x="400" y="142" fill="#0B1E3D" font-family="'Outfit', sans-serif" font-size="18" font-weight="900" text-anchor="middle">M</text>
+
+    <text x="400" y="180" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="20" font-weight="900" text-anchor="middle">
+      MORENA BUSINESS
+    </text>
+    <text x="400" y="202" fill="#FBBF24" font-family="'Outfit', sans-serif" font-size="16" font-weight="800" text-anchor="middle">
+      &amp; STARTUP EXPO
+    </text>
+
+    <text x="400" y="235" fill="#93C5FD" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" text-anchor="middle">
+      Connecting 200+ Industries
+    </text>
+    <text x="400" y="250" fill="#E2E8F0" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="500" text-anchor="middle">
+      Chambal Division Development
+    </text>
+
+    <line x1="330" y1="270" x2="470" y2="270" stroke="#F59E0B" stroke-width="1"/>
+
+    <!-- Event Highlights -->
+    <text x="320" y="295" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600">📅 15-17 OCTOBER 2026</text>
+    <text x="320" y="315" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600">📍 Community Hall, Morena</text>
+    <text x="320" y="335" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" font-weight="600">🎟️ Free Entry for Traders</text>
+
+    <!-- QR Code / Contact box -->
+    <rect x="330" y="360" width="140" height="35" rx="4" fill="#0A1128" stroke="#3B82F6" stroke-width="1"/>
+    <text x="400" y="377" fill="#FBBF24" font-family="'Outfit', sans-serif" font-size="9" font-weight="800" text-anchor="middle">REGISTER ONLINE</text>
+    <text x="400" y="388" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="500" text-anchor="middle">www.morenaexpo.org</text>
+
+    <text x="400" y="425" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="600" text-anchor="middle">
+      Display Standee by Pari Publicity
+    </text>
+
+    <!-- Aluminum Cassette Base & Feet -->
+    <rect x="270" y="438" width="260" height="22" rx="4" fill="url(#aluminumGrad)" stroke="#475569" stroke-width="1"/>
+    <rect x="290" y="456" width="30" height="8" rx="2" fill="#475569"/>
+    <rect x="480" y="456" width="30" height="8" rx="2" fill="#475569"/>
+  </g>
+
+  <!-- Side info badge -->
+  <rect x="580" y="80" width="160" height="28" rx="4" fill="#FF6B00"/>
+  <text x="660" y="99" fill="#FFFFFF" font-family="'Outfit', sans-serif" font-size="11" font-weight="800" text-anchor="middle">ROLL-UP STANDEE</text>
+</svg>
