@@ -7,9 +7,12 @@
  * ================================================================
  */
 
-import './config.js';
+import { PARI_CONFIG } from './config.js';
+import { initThreeWorld, goTo3DChapter } from './three-world.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThreeWorld();
+  initChapterHud();
   initConfigBindings();
   initStickyHeader();
   initMobileNav();
@@ -122,30 +125,44 @@ function initMobileNav() {
   const drawer = document.getElementById('mobileNavDrawer');
   if (!menuBtn || !drawer) return;
 
+  const closeDrawer = () => {
+    drawer.classList.remove('open');
+    menuBtn.classList.remove('active');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
+
+  const openDrawer = () => {
+    drawer.classList.add('open');
+    menuBtn.classList.add('active');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  };
+
   const toggleDrawer = () => {
-    const isOpen = drawer.classList.contains('open');
-    if (isOpen) {
-      drawer.classList.remove('open');
-      menuBtn.classList.remove('active');
-      menuBtn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+    if (drawer.classList.contains('open')) {
+      closeDrawer();
     } else {
-      drawer.classList.add('open');
-      menuBtn.classList.add('active');
-      menuBtn.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
+      openDrawer();
     }
   };
 
   menuBtn.addEventListener('click', toggleDrawer);
 
   drawer.querySelectorAll('.mobile-nav-link, .btn').forEach(link => {
-    link.addEventListener('click', () => {
-      drawer.classList.remove('open');
-      menuBtn.classList.remove('active');
-      menuBtn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    });
+    link.addEventListener('click', closeDrawer);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) {
+      closeDrawer();
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (drawer.classList.contains('open') && !drawer.contains(e.target) && !menuBtn.contains(e.target)) {
+      closeDrawer();
+    }
   });
 }
 
@@ -217,6 +234,11 @@ function initServiceFilters() {
             card.style.transition = 'opacity 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1)';
             card.style.opacity = '1';
             card.style.transform = 'translateY(0)';
+            // Clear inline transform and transition after animation so CSS :hover takes over cleanly
+            setTimeout(() => {
+              card.style.transform = '';
+              card.style.transition = '';
+            }, 360);
           }, 20);
         } else {
           card.style.display = 'none';
@@ -249,6 +271,9 @@ function initWorkFilters() {
           setTimeout(() => {
             item.style.transition = 'opacity 0.35s ease';
             item.style.opacity = '1';
+            setTimeout(() => {
+              item.style.transition = '';
+            }, 360);
           }, 20);
         } else {
           item.style.display = 'none';
@@ -392,8 +417,9 @@ function initCostEstimator() {
 
     resultDisplay.textContent = `₹${totalPrice.toLocaleString('en-IN')}`;
 
-    if (sendWaBtn && typeof PARI_CONFIG !== 'undefined') {
-      const serviceTitle = serviceSelect.options[serviceSelect.selectedIndex].text;
+    if (sendWaBtn) {
+      const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
+      const serviceTitle = selectedOption ? selectedOption.text : serviceType;
       const waMsg = `Hello Pari Publicity! I checked your instant cost calculator on your website:
 • Service: ${serviceTitle}
 • Details: ${detailsText}
@@ -401,7 +427,8 @@ function initCostEstimator() {
 
 Please share your best final price and timeline for Morena.`;
 
-      sendWaBtn.href = `https://wa.me/${PARI_CONFIG.whatsappNumber}?text=${encodeURIComponent(waMsg)}`;
+      const cfgNumber = (typeof PARI_CONFIG !== 'undefined' && PARI_CONFIG.whatsappNumber) ? PARI_CONFIG.whatsappNumber : '919755812374';
+      sendWaBtn.href = `https://wa.me/${cfgNumber}?text=${encodeURIComponent(waMsg)}`;
       sendWaBtn.target = '_blank';
       sendWaBtn.rel = 'noopener noreferrer';
     }
@@ -428,7 +455,10 @@ function initQuoteForm() {
     const phone = document.getElementById('quotePhone')?.value.trim() || 'Not provided';
     const business = document.getElementById('quoteBusiness')?.value.trim() || 'Local Business';
     const serviceSelect = document.getElementById('quoteService');
-    const service = serviceSelect ? serviceSelect.options[serviceSelect.selectedIndex].text : 'Printing & Advertising';
+    let service = 'Printing & Advertising';
+    if (serviceSelect && serviceSelect.selectedIndex > 0) {
+      service = serviceSelect.options[serviceSelect.selectedIndex]?.text || service;
+    }
     const message = document.getElementById('quoteMessage')?.value.trim() || 'Please provide quotation and specifications.';
 
     return `*New Flagship Inquiry - Pari Publicity Website*
@@ -546,20 +576,28 @@ function initHero3DTilt() {
   const stage = document.querySelector('.hero-stage-card');
   if (!stage) return;
 
-  stage.addEventListener('mousemove', (e) => {
-    const rect = stage.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
+  // Only enable 3D mouse tracking on devices with hover/pointer capability
+  if (window.matchMedia('(hover: hover)').matches) {
+    stage.addEventListener('mousemove', (e) => {
+      const rect = stage.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
 
-    const rotX = -(y / (rect.height / 2)) * 8; // max 8 deg
-    const rotY = (x / (rect.width / 2)) * 8;
+      const rotX = -(y / (rect.height / 2)) * 8; // max 8 deg
+      const rotY = (x / (rect.width / 2)) * 8;
 
-    stage.style.transform = `perspective(1000px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
-  });
+      stage.style.transform = `perspective(1000px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
+    });
 
-  stage.addEventListener('mouseleave', () => {
+    stage.addEventListener('mouseleave', () => {
+      stage.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    });
+  }
+
+  // Ensure card resets cleanly on touch devices
+  stage.addEventListener('touchend', () => {
     stage.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-  });
+  }, { passive: true });
 }
 
 /* --------------------------------------------------------------------------
@@ -586,4 +624,40 @@ function showToast(message) {
   setTimeout(() => {
     toast.classList.remove('show');
   }, 4000);
+}
+
+/* --------------------------------------------------------------------------
+   14. 3D REALM CHAPTER HUD NAVIGATION
+   -------------------------------------------------------------------------- */
+function initChapterHud() {
+  const hudBtns = document.querySelectorAll('.hud-btn');
+  if (!hudBtns.length) return;
+
+  hudBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.getAttribute('data-chapter') || '0', 10);
+      goTo3DChapter(idx);
+    });
+  });
+
+  const onScrollHud = () => {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    if (maxScroll <= 0) return;
+    const p = window.scrollY / maxScroll;
+
+    // Active chapter threshold mapping
+    let activeIdx = 0;
+    if (p >= 0.85) activeIdx = 4;
+    else if (p >= 0.62) activeIdx = 3;
+    else if (p >= 0.38) activeIdx = 2;
+    else if (p >= 0.18) activeIdx = 1;
+
+    hudBtns.forEach((b, i) => {
+      if (i === activeIdx) b.classList.add('active');
+      else b.classList.remove('active');
+    });
+  };
+
+  window.addEventListener('scroll', onScrollHud, { passive: true });
+  onScrollHud();
 }

@@ -204,6 +204,33 @@
   .cta-text {
     font-size: 1.05rem;
   }
+
+  /* Prevent floating tooltip horizontal clipping on mobile */
+  .floating-whatsapp-tooltip {
+    display: none !important;
+  }
+
+  /* Mobile Lightbox Optimizations */
+  .lightbox-modal {
+    padding: 1rem;
+  }
+
+  .lightbox-content-box {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .lightbox-img-wrap {
+    max-height: 280px;
+  }
+
+  .lightbox-details {
+    padding: 1.25rem;
+  }
+
+  .lightbox-title {
+    font-size: 1.35rem;
+  }
 }
 
 /* --- Small Mobile Phones (max-width: 480px) --- */
@@ -241,5 +268,16 @@
 
   .dimension-inputs {
     grid-template-columns: 1fr;
+  }
+
+  .lightbox-action-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .lightbox-action-row .btn {
+    width: 100%;
+    justify-content: center;
   }
 }

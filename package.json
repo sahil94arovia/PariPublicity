@@ -1,6 +1,7 @@
 {
   "name": "pari-publicity-website",
   "version": "1.0.0",
+  "type": "module",
   "description": "Modern, premium responsive website for Pari Publicity - Advertising & Printing Agency in Morena, MP",
   "scripts": {
     "dev": "vite",
@@ -20,5 +21,8 @@
   "license": "ISC",
   "devDependencies": {
     "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "three": "^0.186.0"
   }
 }

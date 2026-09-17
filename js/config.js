@@ -85,7 +85,10 @@ const PARI_CONFIG = {
   }
 };
 
-// Export to window for browser use
+// Export for ES module and browser global
 if (typeof window !== "undefined") {
   window.PARI_CONFIG = PARI_CONFIG;
 }
+
+export default PARI_CONFIG;
+export { PARI_CONFIG };

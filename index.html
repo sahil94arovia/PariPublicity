@@ -86,6 +86,42 @@
 <body>
 
   <!-- ========================================================================
+       AUTHORED 3D WEBGL UNIVERSE CANVAS & ATMOSPHERIC OVERLAYS
+       ======================================================================== -->
+  <canvas id="gl"></canvas>
+  <div id="vignette"></div>
+
+  <!-- 3D Realm Chapter HUD Navigator -->
+  <aside class="chapter-hud" aria-label="3D Scene Navigation">
+    <div class="hud-pill">
+      <div class="hud-live-dot"></div>
+      <span class="hud-live-title">3D REALM</span>
+      <div class="hud-items">
+        <button class="hud-btn active" data-chapter="0" title="Scene 0: Brand Horizon">
+          <span class="hud-num">01</span>
+          <span class="hud-name">Horizon</span>
+        </button>
+        <button class="hud-btn" data-chapter="1" title="Scene 1: Print & Flex Arena">
+          <span class="hud-num">02</span>
+          <span class="hud-name">Print Arena</span>
+        </button>
+        <button class="hud-btn" data-chapter="2" title="Scene 2: Prime Highway Hoardings">
+          <span class="hud-num">03</span>
+          <span class="hud-name">Hoardings</span>
+        </button>
+        <button class="hud-btn" data-chapter="3" title="Scene 3: 3D Acrylic LED Signage">
+          <span class="hud-num">04</span>
+          <span class="hud-name">LED Signage</span>
+        </button>
+        <button class="hud-btn" data-chapter="4" title="Scene 4: Hotline Nexus">
+          <span class="hud-num">05</span>
+          <span class="hud-name">Hotline</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================================
        TOP ANNOUNCEMENT BAR
        ======================================================================== -->
   <div class="top-announcement-bar">
@@ -862,6 +898,7 @@
           <button class="work-filter-btn" data-work-filter="Shop Branding">Shop Branding</button>
           <button class="work-filter-btn" data-work-filter="Vinyl &amp; Vehicle Branding">Vinyl &amp; Vehicle</button>
           <button class="work-filter-btn" data-work-filter="Event Branding">Event Branding</button>
+          <button class="work-filter-btn" data-work-filter="Social Media">Social Media</button>
         </div>
 
         <!-- Portfolio Items Grid -->
@@ -1060,7 +1097,7 @@
           </div>
 
           <!-- 9. Social Media Creative Item -->
-          <div class="work-item" data-work-cat="Logo Designs">
+          <div class="work-item" data-work-cat="Social Media">
             <div class="work-thumb-wrap">
               <img src="assets/images/social-media-mockup.svg" alt="Festival Social Media Creatives Morena" loading="lazy">
               <div class="work-overlay">
@@ -1069,7 +1106,7 @@
             </div>
             <div class="work-info">
               <div class="work-meta">
-                <span class="work-cat">Logo Designs</span>
+                <span class="work-cat">Social Media</span>
                 <span class="work-loc">📍 Digital Campaign, Morena</span>
               </div>
               <h3 class="work-title">Festival &amp; Business Social Creatives</h3>
@@ -1554,7 +1591,7 @@
     <div class="lightbox-content-box">
       <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close modal">✕</button>
       <div class="lightbox-img-wrap">
-        <img src="" alt="" id="lightboxModalImg">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E" alt="Pari Publicity Project Preview" id="lightboxModalImg">
       </div>
       <div class="lightbox-details">
         <span class="lightbox-cat-badge" id="lightboxCategory">Category</span>
