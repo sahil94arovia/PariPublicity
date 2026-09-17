@@ -1,12 +1,13 @@
 /**
  * Pari Publicity - High-End 3D Three.js WebGL Universe Engine
  * ============================================================================
- * An authored, interactive scroll-driven 3D WebGL experience featuring:
- * 1. Scene 0: 3D Dual-P Brand Monolith & Gyro Orbital Rings (Hero)
- * 2. Scene 1: High-Speed Industrial Flex Rollers & Flowing Banner Ribbon
- * 3. Scene 2: Prime Highway Uni-Pole Billboard with Spotlights & Traffic Trails
- * 4. Scene 3: 3D Acrylic LED Signage ("PARI") with Polished Floor Reflections
- * 5. Scene 4: VIP Hotline Nexus with Glowing WhatsApp Beacon & Particle Vortex
+ * Aesthetic Faded Pastel Luxury Edition (Zero Harsh Neon)
+ * Features:
+ * 1. Scene 0: 3D Dual-P Brand Monolith & Gyro Orbital Rings (Soft Satin Pastels)
+ * 2. Scene 1: High-Speed Industrial Flex Rollers & Pastel Star Flex Ribbon
+ * 3. Scene 2: Prime Highway Uni-Pole Billboard with Soft Ambient Floodlights
+ * 4. Scene 3: 3D Acrylic Glow Signage ("PARI") in Aesthetic Pastel Tones
+ * 5. Scene 4: VIP Hotline Nexus with Sage/Mint WhatsApp Beacon & Pastel Vortex
  * ============================================================================
  */
 
@@ -78,18 +79,18 @@ export function initThreeWorld() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.4;
+    renderer.toneMappingExposure = 1.35;
 
-    // 2. Scene & Subtle Atmospheric Fog
+    // 2. Scene & Subtle Atmospheric Fog (Calm Twilight Slate)
     scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x030712, 0.008);
+    scene.fog = new THREE.FogExp2(0x0b0e17, 0.007);
 
     // 3. Camera
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.3, 200);
     camera.position.copy(currentCamPos);
     camera.lookAt(currentLookAt);
 
-    // 4. Global Lighting Rig
+    // 4. Soft Aesthetic Lighting Rig
     setupLighting();
 
     // 5. Build 3D Feature Scenes
@@ -100,7 +101,7 @@ export function initThreeWorld() {
     buildScene3AcrylicSign();
     buildScene4HotlineNexus();
 
-    // 6. Background Particle Cosmos
+    // 6. Background Aesthetic Pastel Particle Cosmos
     buildParticleCosmos();
 
     // 7. Event Listeners & Interaction
@@ -118,32 +119,32 @@ export function initThreeWorld() {
 }
 
 /* --------------------------------------------------------------------------
-   LIGHTING RIG (VIBRANT NEON & SPECULAR KEY LIGHTS)
+   SOFT AESTHETIC LIGHTING RIG (PASTEL PERIWINKLE, BLUSH & CHAMPAGNE)
    -------------------------------------------------------------------------- */
 function setupLighting() {
-  // Ambient fill
-  const ambient = new THREE.AmbientLight(0x18284d, 2.5);
+  // Gentle ambient fill
+  const ambient = new THREE.AmbientLight(0x1a2238, 2.8);
   scene.add(ambient);
 
-  // Directional moonlight key light
-  const keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
+  // Directional moonlight key light with warm undertone
+  const keyLight = new THREE.DirectionalLight(0xfff7f2, 2.8);
   keyLight.position.set(10, 20, 15);
   scene.add(keyLight);
 
-  // Electric Cobalt Blue rim light
-  const blueRim = new THREE.DirectionalLight(0x2b7fff, 4.0);
-  blueRim.position.set(-14, 5, 10);
-  scene.add(blueRim);
+  // Soft Pastel Periwinkle rim light
+  const periwinkleRim = new THREE.DirectionalLight(0x9ab4e8, 2.4);
+  periwinkleRim.position.set(-14, 5, 10);
+  scene.add(periwinkleRim);
 
-  // Neon Hot Magenta rim light
-  const magentaRim = new THREE.DirectionalLight(0xff007a, 3.8);
-  magentaRim.position.set(14, -10, 8);
-  scene.add(magentaRim);
+  // Soft Dusty Blush Rose rim light
+  const blushRim = new THREE.DirectionalLight(0xe5a4b5, 2.2);
+  blushRim.position.set(14, -10, 8);
+  scene.add(blushRim);
 
-  // Warm Gold fill light
-  const goldLight = new THREE.PointLight(0xffb800, 2.5, 30);
-  goldLight.position.set(0, 4, 6);
-  scene.add(goldLight);
+  // Warm Champagne fill light
+  const champagneLight = new THREE.PointLight(0xf0d6bf, 1.8, 30);
+  champagneLight.position.set(0, 4, 6);
+  scene.add(champagneLight);
 }
 
 /* --------------------------------------------------------------------------
@@ -188,24 +189,24 @@ function buildScene0Emblem() {
   groupEmblem = new THREE.Group();
   groupEmblem.position.set(2.6, 0.4, 0);
 
-  // Radiant Glowing Materials
+  // Satin Finish Pastel Materials (No Harsh Neon Flare)
   const pMatBlue = new THREE.MeshStandardMaterial({
-    color: 0x2b7fff,
-    emissive: 0x1a56db,
-    emissiveIntensity: 0.95,
-    metalness: 0.25,
-    roughness: 0.15
+    color: 0x6b8fd9,
+    emissive: 0x2a3e6e,
+    emissiveIntensity: 0.45,
+    metalness: 0.22,
+    roughness: 0.35
   });
 
   const pMatMagenta = new THREE.MeshStandardMaterial({
-    color: 0xff007a,
-    emissive: 0xd90066,
-    emissiveIntensity: 0.95,
-    metalness: 0.25,
-    roughness: 0.15
+    color: 0xc96d87,
+    emissive: 0x612838,
+    emissiveIntensity: 0.45,
+    metalness: 0.22,
+    roughness: 0.35
   });
 
-  // Left 'P' (Electric Cobalt Blue)
+  // Left 'P' (Pastel Periwinkle Satin)
   const leftP = new THREE.Group();
   const stemGeom = new THREE.CylinderGeometry(0.32, 0.32, 3.2, 28);
   const stemL = new THREE.Mesh(stemGeom, pMatBlue);
@@ -219,7 +220,7 @@ function buildScene0Emblem() {
   leftP.add(loopL);
   groupEmblem.add(leftP);
 
-  // Right 'P' (Hot Neon Magenta - Interlocked & Offset)
+  // Right 'P' (Dusty Rose Blush - Interlocked & Offset)
   const rightP = new THREE.Group();
   const stemR = new THREE.Mesh(stemGeom, pMatMagenta);
   stemR.position.set(0.65, -0.2, 0.4);
@@ -231,16 +232,17 @@ function buildScene0Emblem() {
   rightP.add(loopR);
   groupEmblem.add(rightP);
 
-  // 3 Triad Petals Crowning the Top (Cobalt, Magenta, Amber Gold)
-  const petalColors = [0x00e5ff, 0xff007a, 0xffb800];
+  // 3 Triad Petals Crowning the Top (Pastel Periwinkle, Dusty Blush, Warm Champagne)
+  const petalColors = [0x9ab4e8, 0xe5a4b5, 0xf0d6bf];
   const petalAngles = [-0.4, 0, 0.4];
   petalColors.forEach((col, idx) => {
     const petalGeom = new THREE.ConeGeometry(0.28, 1.1, 16);
     const petalMat = new THREE.MeshStandardMaterial({
       color: col,
       emissive: col,
-      emissiveIntensity: 1.2,
-      roughness: 0.15
+      emissiveIntensity: 0.65,
+      roughness: 0.25,
+      metalness: 0.15
     });
     const petal = new THREE.Mesh(petalGeom, petalMat);
     petal.position.set(-0.25 + idx * 0.4, 2.2 + (idx === 1 ? 0.2 : 0), 0.2);
@@ -248,26 +250,26 @@ function buildScene0Emblem() {
     groupEmblem.add(petal);
   });
 
-  // Concentric Gyro Orbital Rings
-  const ringGeom1 = new THREE.TorusGeometry(3.6, 0.06, 16, 90);
-  const ringMat1 = new THREE.MeshBasicMaterial({ color: 0x2b7fff, transparent: true, opacity: 0.85 });
+  // Concentric Gyro Orbital Rings (Soft Translucent Pastel Glow)
+  const ringGeom1 = new THREE.TorusGeometry(3.6, 0.05, 16, 90);
+  const ringMat1 = new THREE.MeshBasicMaterial({ color: 0x9ab4e8, transparent: true, opacity: 0.55 });
   orbitalRing1 = new THREE.Mesh(ringGeom1, ringMat1);
   orbitalRing1.rotation.x = Math.PI / 3.2;
   groupEmblem.add(orbitalRing1);
 
-  const ringGeom2 = new THREE.TorusGeometry(4.3, 0.05, 16, 90);
-  const ringMat2 = new THREE.MeshBasicMaterial({ color: 0xff007a, transparent: true, opacity: 0.85 });
+  const ringGeom2 = new THREE.TorusGeometry(4.3, 0.045, 16, 90);
+  const ringMat2 = new THREE.MeshBasicMaterial({ color: 0xe5a4b5, transparent: true, opacity: 0.55 });
   orbitalRing2 = new THREE.Mesh(ringGeom2, ringMat2);
   orbitalRing2.rotation.y = Math.PI / 4;
   orbitalRing2.rotation.z = Math.PI / 6;
   groupEmblem.add(orbitalRing2);
 
-  // Dedicated Local Spotlights on Emblem
-  const emblemLight1 = new THREE.PointLight(0x2b7fff, 4.0, 9.0);
+  // Local Soft Pastel Spotlights on Emblem
+  const emblemLight1 = new THREE.PointLight(0x9ab4e8, 2.2, 9.0);
   emblemLight1.position.set(-2, 1, 2);
   groupEmblem.add(emblemLight1);
 
-  const emblemLight2 = new THREE.PointLight(0xff007a, 4.0, 9.0);
+  const emblemLight2 = new THREE.PointLight(0xe5a4b5, 2.2, 9.0);
   emblemLight2.position.set(2, 1, 2);
   groupEmblem.add(emblemLight2);
 
@@ -275,7 +277,7 @@ function buildScene0Emblem() {
 }
 
 /* --------------------------------------------------------------------------
-   TEXTURE GENERATOR: STAR FLEX RIBBON BANNER STRIP
+   TEXTURE GENERATOR: AESTHETIC PASTEL STAR FLEX RIBBON
    -------------------------------------------------------------------------- */
 function createFlexRibbonTexture() {
   const c = document.createElement('canvas');
@@ -283,20 +285,20 @@ function createFlexRibbonTexture() {
   c.height = 128;
   const ctx = c.getContext('2d');
 
-  // CMYK gradient background
+  // Aesthetic Faded Pastel Gradient Strip
   const grad = ctx.createLinearGradient(0, 0, 1024, 0);
-  grad.addColorStop(0.0, '#00E5FF');
-  grad.addColorStop(0.25, '#FF007A');
-  grad.addColorStop(0.5, '#FFEB3B');
-  grad.addColorStop(0.75, '#1E293B');
-  grad.addColorStop(1.0, '#2B7FFF');
+  grad.addColorStop(0.0, '#9AB4E8'); // Soft Periwinkle
+  grad.addColorStop(0.25, '#BFAEE0'); // Pastel Lavender
+  grad.addColorStop(0.5, '#E5A4B5'); // Dusty Blush
+  grad.addColorStop(0.75, '#F0D6BF'); // Champagne
+  grad.addColorStop(1.0, '#A8CEBE'); // Gentle Sage
   ctx.fillStyle = grad;
   ctx.fillRect(0, 0, 1024, 128);
 
-  ctx.fillStyle = '#FFFFFF';
-  ctx.font = 'bold 30px sans-serif';
+  ctx.fillStyle = '#1E293B';
+  ctx.font = 'bold 26px sans-serif';
   ctx.textAlign = 'center';
-  ctx.fillText('★ 10-COLOR JAPANESE HIGH-SPEED STAR FLEX PRINTING • PARI PUBLICITY ★', 512, 75);
+  ctx.fillText('★ 10-COLOR ECO-SOLVENT STAR FLEX PRINTING • PARI PUBLICITY MORENA ★', 512, 75);
 
   const tex = new THREE.CanvasTexture(c);
   tex.wrapS = THREE.RepeatWrapping;
@@ -313,14 +315,14 @@ function buildScene1PrintArena() {
   groupPrintMachine = new THREE.Group();
   groupPrintMachine.position.set(0, -13, 0);
 
-  // Heavy-Duty Industrial Printing Rollers (Bright Polished Steel)
+  // Heavy-Duty Industrial Printing Rollers (Sleek Slate Steel)
   const rollerGeom = new THREE.CylinderGeometry(0.75, 0.75, 9.5, 32);
   const rollerMat = new THREE.MeshStandardMaterial({
-    color: 0x4a6999,
-    metalness: 0.35,
-    roughness: 0.25,
-    emissive: 0x1a3a6b,
-    emissiveIntensity: 0.55
+    color: 0x3e4e6b,
+    metalness: 0.3,
+    roughness: 0.35,
+    emissive: 0x162136,
+    emissiveIntensity: 0.35
   });
 
   const roller1 = new THREE.Mesh(rollerGeom, rollerMat);
@@ -335,13 +337,13 @@ function buildScene1PrintArena() {
   groupPrintMachine.add(roller2);
   printRollers.push(roller2);
 
-  // Industrial Machine Chassis Frame
+  // Industrial Machine Chassis Frame (Deep Slate)
   const chassisMat = new THREE.MeshStandardMaterial({
-    color: 0x1e3359,
-    emissive: 0x0a162b,
-    emissiveIntensity: 0.45,
-    metalness: 0.35,
-    roughness: 0.3
+    color: 0x182238,
+    emissive: 0x0c1322,
+    emissiveIntensity: 0.35,
+    metalness: 0.25,
+    roughness: 0.4
   });
   const pillarL = new THREE.Mesh(new THREE.BoxGeometry(1.0, 4.8, 2.8), chassisMat);
   pillarL.position.set(-5.1, 0, -0.8);
@@ -363,39 +365,39 @@ function buildScene1PrintArena() {
   const ribbonGeom = new THREE.TubeGeometry(curve, 64, 1.1, 16, false);
   const flexMat = new THREE.MeshStandardMaterial({
     map: createFlexRibbonTexture(),
-    emissive: 0x1a3a6b,
-    emissiveIntensity: 0.4,
-    metalness: 0.25,
-    roughness: 0.2
+    emissive: 0x22324f,
+    emissiveIntensity: 0.3,
+    metalness: 0.15,
+    roughness: 0.3
   });
   flexRibbonMesh = new THREE.Mesh(ribbonGeom, flexMat);
   groupPrintMachine.add(flexRibbonMesh);
 
-  // CMYK Ink Beacons & Glowing Injection Beams
-  const cmyk = [
-    { col: 0x00e5ff, x: -2.7 },
-    { col: 0xff007a, x: -0.9 },
-    { col: 0xffeb3b, x: 0.9 },
-    { col: 0x2b7fff, x: 2.7 }
+  // Pastel Ink Beacons & Soft Luminescent Projector Beams
+  const pastelInks = [
+    { col: 0x88c9d0, x: -2.7 }, // Soft Mist Cyan
+    { col: 0xe5a4b5, x: -0.9 }, // Dusty Blush
+    { col: 0xf3e3a2, x: 0.9 },  // Buttercream Yellow
+    { col: 0x9ab4e8, x: 2.7 }   // Soft Periwinkle
   ];
 
-  cmyk.forEach(item => {
+  pastelInks.forEach(item => {
     const emitter = new THREE.Mesh(
-      new THREE.SphereGeometry(0.32, 16, 16),
+      new THREE.SphereGeometry(0.3, 16, 16),
       new THREE.MeshBasicMaterial({ color: item.col })
     );
     emitter.position.set(item.x, 2.6, 0.6);
     groupPrintMachine.add(emitter);
 
     const laser = new THREE.Mesh(
-      new THREE.CylinderGeometry(0.04, 0.04, 2.2, 8),
-      new THREE.MeshBasicMaterial({ color: item.col, transparent: true, opacity: 0.85 })
+      new THREE.CylinderGeometry(0.035, 0.035, 2.2, 8),
+      new THREE.MeshBasicMaterial({ color: item.col, transparent: true, opacity: 0.55 })
     );
     laser.position.set(item.x, 1.5, 0.6);
     groupPrintMachine.add(laser);
 
-    // Local ink glow light
-    const inkLight = new THREE.PointLight(item.col, 2.0, 5.0);
+    // Soft local glow light
+    const inkLight = new THREE.PointLight(item.col, 1.5, 4.5);
     inkLight.position.set(item.x, 2.0, 0.9);
     groupPrintMachine.add(inkLight);
   });
@@ -404,7 +406,7 @@ function buildScene1PrintArena() {
 }
 
 /* --------------------------------------------------------------------------
-   TEXTURE GENERATOR: AUTHENTIC 3D HIGHWAY BILLBOARD FACEPLATE
+   TEXTURE GENERATOR: EDITORIAL LUXURY 3D HIGHWAY BILLBOARD FACEPLATE
    -------------------------------------------------------------------------- */
 function createBillboardTexture() {
   const canvas = document.createElement('canvas');
@@ -412,67 +414,67 @@ function createBillboardTexture() {
   canvas.height = 512;
   const ctx = canvas.getContext('2d');
 
-  // Deep Navy background
+  // Deep Twilight Slate background
   const bgGrad = ctx.createLinearGradient(0, 0, 1024, 512);
-  bgGrad.addColorStop(0, '#040b1a');
-  bgGrad.addColorStop(0.5, '#0b1b3d');
-  bgGrad.addColorStop(1, '#07122a');
+  bgGrad.addColorStop(0, '#0c101c');
+  bgGrad.addColorStop(0.5, '#131b2e');
+  bgGrad.addColorStop(1, '#0e1424');
   ctx.fillStyle = bgGrad;
   ctx.fillRect(0, 0, 1024, 512);
 
-  // Glowing borders
-  ctx.strokeStyle = '#2B7FFF';
-  ctx.lineWidth = 14;
-  ctx.strokeRect(10, 10, 1004, 492);
+  // Soft Pastel Periwinkle Outer Frame
+  ctx.strokeStyle = '#9AB4E8';
+  ctx.lineWidth = 10;
+  ctx.strokeRect(12, 12, 1000, 488);
 
-  // Outer Neon accent line
-  ctx.strokeStyle = '#FF007A';
-  ctx.lineWidth = 4;
-  ctx.strokeRect(24, 24, 976, 464);
+  // Fine Dusty Blush Accent Line
+  ctx.strokeStyle = '#E5A4B5';
+  ctx.lineWidth = 2.5;
+  ctx.strokeRect(26, 26, 972, 460);
 
   // Top Badge
-  ctx.fillStyle = '#FF007A';
+  ctx.fillStyle = '#E5A4B5';
   ctx.beginPath();
-  ctx.roundRect(360, 44, 304, 40, 20);
+  ctx.roundRect(360, 44, 304, 38, 19);
   ctx.fill();
 
-  ctx.fillStyle = '#FFFFFF';
-  ctx.font = 'bold 16px sans-serif';
+  ctx.fillStyle = '#0B0E17';
+  ctx.font = 'bold 15px sans-serif';
   ctx.textAlign = 'center';
-  ctx.fillText('PRIME OUTDOOR MEDIA NETWORK', 512, 70);
+  ctx.fillText('PRIME OUTDOOR MEDIA NETWORK', 512, 69);
 
   // Main Brand Name
   ctx.fillStyle = '#FFFFFF';
-  ctx.font = '900 64px sans-serif';
-  ctx.fillText('PARI PUBLICITY', 512, 180);
+  ctx.font = '900 62px sans-serif';
+  ctx.fillText('PARI PUBLICITY', 512, 175);
 
   // Subtitle
-  const gradText = ctx.createLinearGradient(200, 0, 800, 0);
-  gradText.addColorStop(0, '#2B7FFF');
-  gradText.addColorStop(0.5, '#FF007A');
-  gradText.addColorStop(1, '#FFB800');
+  const gradText = ctx.createLinearGradient(220, 0, 780, 0);
+  gradText.addColorStop(0, '#9AB4E8');
+  gradText.addColorStop(0.5, '#BFAEE0');
+  gradText.addColorStop(1, '#F0D6BF');
   ctx.fillStyle = gradText;
-  ctx.font = 'bold 36px sans-serif';
-  ctx.fillText('HIGHWAY UNIPOLES & HOARDINGS', 512, 242);
+  ctx.font = 'bold 34px sans-serif';
+  ctx.fillText('HIGHWAY UNIPOLES & HOARDINGS', 512, 238);
 
   // Highlights
   ctx.fillStyle = '#94A3B8';
-  ctx.font = '500 24px sans-serif';
-  ctx.fillText('NH-44 MORENA • GWALIOR ROAD • PRIME CORRIDORS', 512, 308);
+  ctx.font = '500 23px sans-serif';
+  ctx.fillText('NH-44 MORENA • GWALIOR ROAD • PRIME CORRIDORS', 512, 305);
 
-  // CTA Pill
-  ctx.fillStyle = '#25D366';
+  // CTA Pill (Gentle Sage)
+  ctx.fillStyle = '#A8CEBE';
   ctx.beginPath();
-  ctx.roundRect(320, 355, 384, 62, 31);
+  ctx.roundRect(320, 355, 384, 58, 29);
   ctx.fill();
 
-  ctx.fillStyle = '#030712';
-  ctx.font = 'bold 24px sans-serif';
-  ctx.fillText('CALL / WHATSAPP: 97558 12374', 512, 395);
+  ctx.fillStyle = '#0B0E17';
+  ctx.font = 'bold 22px sans-serif';
+  ctx.fillText('CALL / WHATSAPP: 97558 12374', 512, 392);
 
   // Bottom trust mark
   ctx.fillStyle = '#64748B';
-  ctx.font = '16px sans-serif';
+  ctx.font = '15px sans-serif';
   ctx.fillText('Direct Machine Rates • 100% In-House • Ganeshpura, Morena', 512, 465);
 
   const texture = new THREE.CanvasTexture(canvas);
@@ -487,13 +489,13 @@ function buildScene2HighwayHoarding() {
   groupHoarding = new THREE.Group();
   groupHoarding.position.set(0, -26, 0);
 
-  // Uni-Pole Towering Column
+  // Uni-Pole Towering Column (Muted Slate)
   const poleMat = new THREE.MeshStandardMaterial({
-    color: 0x3a4f75,
-    metalness: 0.35,
-    roughness: 0.3,
-    emissive: 0x111c33,
-    emissiveIntensity: 0.4
+    color: 0x2e3c54,
+    metalness: 0.3,
+    roughness: 0.35,
+    emissive: 0x111724,
+    emissiveIntensity: 0.35
   });
   const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.65, 9.6, 24), poleMat);
   pole.position.set(0, -1.8, -1.6);
@@ -501,56 +503,56 @@ function buildScene2HighwayHoarding() {
 
   // Rear Lattice Support Truss
   const trussMat = new THREE.MeshStandardMaterial({
-    color: 0x223659,
-    metalness: 0.3,
-    roughness: 0.35
+    color: 0x1d273a,
+    metalness: 0.25,
+    roughness: 0.4
   });
   const truss = new THREE.Mesh(new THREE.BoxGeometry(10.2, 4.8, 0.4), trussMat);
   truss.position.set(0, 2.4, -1.5);
   groupHoarding.add(truss);
 
-  // Giant Billboard Face Plate (16:9 Display with High-Res Texture)
+  // Giant Billboard Face Plate
   const boardMat = new THREE.MeshStandardMaterial({
     map: createBillboardTexture(),
-    emissive: 0x162c54,
-    emissiveIntensity: 0.5,
-    roughness: 0.25,
-    metalness: 0.15
+    emissive: 0x151e30,
+    emissiveIntensity: 0.4,
+    roughness: 0.3,
+    metalness: 0.12
   });
   const board = new THREE.Mesh(new THREE.PlaneGeometry(9.6, 4.8), boardMat);
   board.position.set(0, 2.4, -1.25);
   groupHoarding.add(board);
 
-  // Neon Illuminated Bezel Frame
+  // Soft Periwinkle Bezel Frame
   const frameBorder = new THREE.Mesh(
-    new THREE.BoxGeometry(9.8, 0.14, 0.2),
-    new THREE.MeshBasicMaterial({ color: 0x2b7fff })
+    new THREE.BoxGeometry(9.8, 0.12, 0.2),
+    new THREE.MeshBasicMaterial({ color: 0x9ab4e8 })
   );
   frameBorder.position.set(0, 4.85, -1.2);
   groupHoarding.add(frameBorder);
 
-  // Overhead Floodlights & Conical Light Beams
+  // Overhead Floodlights & Soft Ambient Light Cones
   for (let i = -3.4; i <= 3.4; i += 2.25) {
     const fixture = new THREE.Mesh(
       new THREE.BoxGeometry(0.45, 0.25, 0.5),
-      new THREE.MeshStandardMaterial({ color: 0x3a4f75, metalness: 0.4 })
+      new THREE.MeshStandardMaterial({ color: 0x2e3c54, metalness: 0.3 })
     );
     fixture.position.set(i, 5.15, -0.6);
     groupHoarding.add(fixture);
 
     const lightBulb = new THREE.Mesh(
       new THREE.SphereGeometry(0.12, 12, 12),
-      new THREE.MeshBasicMaterial({ color: 0xffffff })
+      new THREE.MeshBasicMaterial({ color: 0xfffbf5 })
     );
     lightBulb.position.set(i, 5.0, -0.6);
     groupHoarding.add(lightBulb);
 
-    // Volumetric Spotlight Cones
+    // Soft Pastel Light Cones
     const coneGeom = new THREE.ConeGeometry(1.6, 3.8, 24, 1, true);
     const coneMat = new THREE.MeshBasicMaterial({
-      color: 0x2b7fff,
+      color: 0x9ab4e8,
       transparent: true,
-      opacity: 0.18,
+      opacity: 0.09,
       side: THREE.DoubleSide,
       depthWrite: false
     });
@@ -559,27 +561,27 @@ function buildScene2HighwayHoarding() {
     cone.rotation.x = 0.28;
     groupHoarding.add(cone);
 
-    const floodPoint = new THREE.PointLight(0x2b7fff, 2.2, 7.0);
+    const floodPoint = new THREE.PointLight(0x9ab4e8, 1.6, 6.5);
     floodPoint.position.set(i, 4.8, -0.5);
     groupHoarding.add(floodPoint);
   }
 
-  // Highway Ground Surface with Animated Light Trails
-  const roadMat = new THREE.MeshStandardMaterial({ color: 0x050a16, roughness: 0.6, metalness: 0.2 });
+  // Highway Ground Surface with Soft Light Trails
+  const roadMat = new THREE.MeshStandardMaterial({ color: 0x090d16, roughness: 0.6, metalness: 0.15 });
   const road = new THREE.Mesh(new THREE.PlaneGeometry(36, 14), roadMat);
   road.rotation.x = -Math.PI / 2;
   road.position.set(0, -6.0, 2.5);
   groupHoarding.add(road);
 
-  // Dynamic Highway Traffic Light Trails
+  // Dynamic Highway Traffic Light Trails (Muted Ruby & Champagne Amber)
   highwayTrails = new THREE.Group();
   for (let i = 0; i < 28; i++) {
     const isRed = i % 2 === 0;
-    const trailGeom = new THREE.CylinderGeometry(0.04, 0.04, 2.5 + Math.random() * 3.5, 8);
+    const trailGeom = new THREE.CylinderGeometry(0.035, 0.035, 2.5 + Math.random() * 3.5, 8);
     const trailMat = new THREE.MeshBasicMaterial({
-      color: isRed ? 0xff1744 : 0xffd600,
+      color: isRed ? 0xd46875 : 0xe8c77b,
       transparent: true,
-      opacity: 0.75
+      opacity: 0.55
     });
     const trail = new THREE.Mesh(trailGeom, trailMat);
     trail.rotation.z = Math.PI / 2;
@@ -588,7 +590,7 @@ function buildScene2HighwayHoarding() {
       -5.9,
       -2 + Math.random() * 9
     );
-    trail.userData = { speed: (isRed ? -0.16 : 0.20) * (0.8 + Math.random() * 0.4) };
+    trail.userData = { speed: (isRed ? -0.14 : 0.18) * (0.8 + Math.random() * 0.4) };
     highwayTrails.add(trail);
   }
   groupHoarding.add(highwayTrails);
@@ -597,7 +599,7 @@ function buildScene2HighwayHoarding() {
 }
 
 /* --------------------------------------------------------------------------
-   SCENE 3: 3D ACRYLIC LED GLOW SIGNBOARD (Y = -39)
+   SCENE 3: 3D ACRYLIC GLOW SIGNBOARD (Y = -39) - AESTHETIC PASTEL TONES
    -------------------------------------------------------------------------- */
 function buildScene3AcrylicSign() {
   groupGlowSign = new THREE.Group();
@@ -605,35 +607,35 @@ function buildScene3AcrylicSign() {
 
   // Storefront Backplate
   const backMat = new THREE.MeshStandardMaterial({
-    color: 0x162445,
-    emissive: 0x0c152a,
-    emissiveIntensity: 0.45,
-    metalness: 0.35,
-    roughness: 0.3
+    color: 0x141b2c,
+    emissive: 0x0a0f1c,
+    emissiveIntensity: 0.35,
+    metalness: 0.25,
+    roughness: 0.35
   });
   const backplate = new THREE.Mesh(new THREE.BoxGeometry(11.5, 4.6, 0.3), backMat);
   backplate.position.set(0, 0, -1);
   groupGlowSign.add(backplate);
 
-  // Polished Reflective Ground Floor
+  // Reflective Ground Floor
   const floorMat = new THREE.MeshStandardMaterial({
-    color: 0x081329,
-    metalness: 0.45,
-    roughness: 0.2,
-    emissive: 0x040a17,
-    emissiveIntensity: 0.3
+    color: 0x090d18,
+    metalness: 0.35,
+    roughness: 0.3,
+    emissive: 0x050810,
+    emissiveIntensity: 0.25
   });
   const floor = new THREE.Mesh(new THREE.PlaneGeometry(30, 15), floorMat);
   floor.rotation.x = -Math.PI / 2;
   floor.position.set(0, -2.4, 0);
   groupGlowSign.add(floor);
 
-  // 3D Extruded Acrylic Letter Blocks ("P A R I")
+  // 3D Extruded Acrylic Letter Blocks ("P A R I") in Aesthetic Faded Pastels
   const letters = [
-    { char: 'P', x: -3.4, color: 0x2b7fff },
-    { char: 'A', x: -1.15, color: 0xff007a },
-    { char: 'R', x: 1.15, color: 0x00e5ff },
-    { char: 'I', x: 3.4, color: 0xffb800 }
+    { char: 'P', x: -3.4, color: 0x9ab4e8 }, // Soft Periwinkle
+    { char: 'A', x: -1.15, color: 0xe5a4b5 }, // Dusty Blush
+    { char: 'R', x: 1.15, color: 0xbfaee0 },  // Pastel Lavender
+    { char: 'I', x: 3.4, color: 0xf0d6bf }   // Champagne Cream
   ];
 
   letters.forEach(item => {
@@ -642,31 +644,31 @@ function buildScene3AcrylicSign() {
     const letterMat = new THREE.MeshStandardMaterial({
       color: item.color,
       emissive: item.color,
-      emissiveIntensity: 0.95,
-      metalness: 0.25,
-      roughness: 0.15
+      emissiveIntensity: 0.65,
+      metalness: 0.2,
+      roughness: 0.25
     });
     const letterMesh = new THREE.Mesh(letterGeom, letterMat);
     letterMesh.position.set(item.x, 0.2, -0.6);
     groupGlowSign.add(letterMesh);
 
-    // Front Bright Glowing Faceplate
+    // Front Soft Translucent Faceplate
     const faceGeom = new THREE.BoxGeometry(1.5, 2.1, 0.1);
-    const faceMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    const faceMat = new THREE.MeshBasicMaterial({ color: 0xfffcf7 });
     const faceMesh = new THREE.Mesh(faceGeom, faceMat);
     faceMesh.position.set(item.x, 0.2, -0.3);
     groupGlowSign.add(faceMesh);
 
-    // Intense Point Light Casting Colored Bloom
-    const pointL = new THREE.PointLight(item.color, 3.2, 8.0);
+    // Soft Ambient Point Light
+    const pointL = new THREE.PointLight(item.color, 2.0, 7.0);
     pointL.position.set(item.x, 0.2, 0.6);
     groupGlowSign.add(pointL);
   });
 
-  // Architectural Under-Cabinet Neon Light Bar
+  // Architectural Under-Cabinet Accent Bar
   const neonBar = new THREE.Mesh(
     new THREE.BoxGeometry(10.6, 0.08, 0.25),
-    new THREE.MeshBasicMaterial({ color: 0xff007a })
+    new THREE.MeshBasicMaterial({ color: 0xe5a4b5, transparent: true, opacity: 0.75 })
   );
   neonBar.position.set(0, -1.95, -0.65);
   groupGlowSign.add(neonBar);
@@ -675,7 +677,7 @@ function buildScene3AcrylicSign() {
 }
 
 /* --------------------------------------------------------------------------
-   SCENE 4: VIP ORDER & HOTLINE NEXUS (Y = -52)
+   SCENE 4: VIP ORDER & HOTLINE NEXUS (Y = -52) - SAGE & BLUSH HARMONY
    -------------------------------------------------------------------------- */
 function buildScene4HotlineNexus() {
   groupHotline = new THREE.Group();
@@ -683,11 +685,11 @@ function buildScene4HotlineNexus() {
 
   // Multi-Tier Metallic Dais
   const tierMat = new THREE.MeshStandardMaterial({
-    color: 0x1e3563,
-    emissive: 0x0b1730,
-    emissiveIntensity: 0.5,
-    metalness: 0.35,
-    roughness: 0.25
+    color: 0x182138,
+    emissive: 0x0c1322,
+    emissiveIntensity: 0.35,
+    metalness: 0.25,
+    roughness: 0.3
   });
   const tier1 = new THREE.Mesh(new THREE.CylinderGeometry(4.4, 4.8, 0.45, 36), tierMat);
   tier1.position.set(0, -2.2, 0);
@@ -697,33 +699,33 @@ function buildScene4HotlineNexus() {
   tier2.position.set(0, -1.8, 0);
   groupHotline.add(tier2);
 
-  // Glowing Green Edge Ring
+  // Gentle Sage Edge Ring
   const ringGeom = new THREE.TorusGeometry(3.22, 0.05, 16, 64);
-  const ringMat = new THREE.MeshBasicMaterial({ color: 0x25d366 });
+  const ringMat = new THREE.MeshBasicMaterial({ color: 0xa8cebe });
   const edgeRing = new THREE.Mesh(ringGeom, ringMat);
   edgeRing.rotation.x = Math.PI / 2;
   edgeRing.position.set(0, -1.6, 0);
   groupHotline.add(edgeRing);
 
-  // Floating 3D WhatsApp Beacon Crystal
+  // Floating 3D WhatsApp Beacon Crystal (Soft Mint Jade)
   const crystalGeom = new THREE.IcosahedronGeometry(1.2, 1);
   const crystalMat = new THREE.MeshStandardMaterial({
-    color: 0x25d366,
-    emissive: 0x128c7e,
-    emissiveIntensity: 1.1,
-    metalness: 0.2,
-    roughness: 0.1
+    color: 0x48b685,
+    emissive: 0x225942,
+    emissiveIntensity: 0.65,
+    metalness: 0.15,
+    roughness: 0.2
   });
   const crystal = new THREE.Mesh(crystalGeom, crystalMat);
   crystal.position.set(0, 0.8, 0);
   groupHotline.add(crystal);
 
-  // Orbiting Data Nodes
+  // Orbiting Data Nodes (Dusty Blush)
   for (let i = 0; i < 6; i++) {
     const angle = (i / 6) * Math.PI * 2;
     const node = new THREE.Mesh(
       new THREE.SphereGeometry(0.2, 16, 16),
-      new THREE.MeshStandardMaterial({ color: 0xff007a, emissive: 0xff007a, emissiveIntensity: 1.4 })
+      new THREE.MeshStandardMaterial({ color: 0xe5a4b5, emissive: 0xe5a4b5, emissiveIntensity: 0.85 })
     );
     node.position.set(Math.cos(angle) * 2.3, 0.8 + Math.sin(angle * 2) * 0.35, Math.sin(angle) * 2.3);
     groupHotline.add(node);
@@ -732,9 +734,9 @@ function buildScene4HotlineNexus() {
   // Upward Volumetric Beacon Beam
   const beamGeom = new THREE.CylinderGeometry(0.9, 1.6, 14, 32, 1, true);
   const beamMat = new THREE.MeshBasicMaterial({
-    color: 0x25d366,
+    color: 0xa8cebe,
     transparent: true,
-    opacity: 0.2,
+    opacity: 0.12,
     side: THREE.DoubleSide,
     depthWrite: false
   });
@@ -742,8 +744,8 @@ function buildScene4HotlineNexus() {
   beam.position.set(0, 5.0, 0);
   groupHotline.add(beam);
 
-  // Local WhatsApp green point light
-  const waLight = new THREE.PointLight(0x25d366, 3.5, 9.0);
+  // Local WhatsApp soft sage point light
+  const waLight = new THREE.PointLight(0xa8cebe, 2.2, 8.0);
   waLight.position.set(0, 1.5, 1.0);
   groupHotline.add(waLight);
 
@@ -751,19 +753,20 @@ function buildScene4HotlineNexus() {
 }
 
 /* --------------------------------------------------------------------------
-   PARTICLE COSMOS (FLOATING CMYK & NEON PARTICLES)
+   PARTICLE COSMOS (FLOATING AESTHETIC FADED PASTEL STARDUST)
    -------------------------------------------------------------------------- */
 function buildParticleCosmos() {
   const count = window.innerWidth < 768 ? 700 : 1600;
   const positions = new Float32Array(count * 3);
   const colors = new Float32Array(count * 3);
 
+  // 5 Calibrated Aesthetic Faded Pastels (Zero Neon)
   const palette = [
-    new THREE.Color(0x2b7fff), // Cobalt Blue
-    new THREE.Color(0xff007a), // Hot Magenta
-    new THREE.Color(0x00e5ff), // Cyan
-    new THREE.Color(0xffeb3b), // Yellow
-    new THREE.Color(0xffb800)  // Gold
+    new THREE.Color(0xbfaee0), // Muted Lavender
+    new THREE.Color(0xe5a4b5), // Dusty Blush Rose
+    new THREE.Color(0x9ab4e8), // Soft Periwinkle Mist
+    new THREE.Color(0xf0d6bf), // Warm Champagne Cream
+    new THREE.Color(0xa8cebe)  // Gentle Sage
   ];
 
   for (let i = 0; i < count; i++) {
@@ -783,10 +786,10 @@ function buildParticleCosmos() {
   geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
   const material = new THREE.PointsMaterial({
-    size: 0.24,
+    size: 0.22,
     vertexColors: true,
     transparent: true,
-    opacity: 0.9,
+    opacity: 0.65,
     blending: THREE.AdditiveBlending,
     depthWrite: false
   });
@@ -988,7 +991,7 @@ function animate() {
     particleSystem.rotation.y = time * 0.025;
     const positions = particleSystem.geometry.attributes.position.array;
     for (let i = 1; i < positions.length; i += 3) {
-      positions[i] -= delta * 0.9;
+      positions[i] -= delta * 0.8;
       if (positions[i] < -62) positions[i] = 8;
     }
     particleSystem.geometry.attributes.position.needsUpdate = true;
