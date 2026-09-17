@@ -187,7 +187,8 @@ function updateEmblemPositionToDOM() {
    -------------------------------------------------------------------------- */
 function buildScene0Emblem() {
   groupEmblem = new THREE.Group();
-  groupEmblem.position.set(2.6, 0.4, 0);
+  groupEmblem.position.set(0, 0.4, 0);
+  groupEmblem.visible = false; // Hidden in hero so Grand Hoarding & 2D Van take center stage
 
   // Satin Finish Pastel Materials (No Harsh Neon Flare)
   const pMatBlue = new THREE.MeshStandardMaterial({

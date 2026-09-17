@@ -9,9 +9,11 @@
 
 import { PARI_CONFIG } from './config.js';
 import { initThreeWorld, goTo3DChapter } from './three-world.js';
+import { initHoardingJourney } from './hoarding-journey.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initThreeWorld();
+  initHoardingJourney();
   initChapterHud();
   initConfigBindings();
   initStickyHeader();
@@ -570,34 +572,33 @@ function initCardSpotlights() {
 }
 
 /* --------------------------------------------------------------------------
-   12. 3D TILT EFFECT ON HERO STAGE
+   12. 3D TILT EFFECT ON GRAND HOARDING BOARD
    -------------------------------------------------------------------------- */
 function initHero3DTilt() {
-  const stage = document.querySelector('.hero-stage-card');
+  const stage = document.getElementById('grandHoardingBoard') || document.querySelector('.hero-stage-card');
   if (!stage) return;
 
   // Only enable 3D mouse tracking on devices with hover/pointer capability
   if (window.matchMedia('(hover: hover)').matches) {
-    stage.addEventListener('mousemove', (e) => {
+    const track = document.getElementById('heroHoardingViewport') || stage;
+    track.addEventListener('mousemove', (e) => {
+      // If user has scrolled down, skip tilt to preserve scroll transform
+      if (window.scrollY > 300) return;
+
       const rect = stage.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
 
-      const rotX = -(y / (rect.height / 2)) * 8; // max 8 deg
-      const rotY = (x / (rect.width / 2)) * 8;
+      const rotX = -(y / (rect.height / 2)) * 3.5; // subtle 3.5 deg max
+      const rotY = (x / (rect.width / 2)) * 3.5;
 
-      stage.style.transform = `perspective(1000px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
+      stage.style.transform = `perspective(1200px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
     });
 
-    stage.addEventListener('mouseleave', () => {
-      stage.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    track.addEventListener('mouseleave', () => {
+      stage.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg)';
     });
   }
-
-  // Ensure card resets cleanly on touch devices
-  stage.addEventListener('touchend', () => {
-    stage.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-  }, { passive: true });
 }
 
 /* --------------------------------------------------------------------------

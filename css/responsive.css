@@ -80,38 +80,107 @@
     font-size: 2.25rem;
   }
 
-  .hero-section {
-    padding-top: 9rem;
-    padding-bottom: 4.5rem;
-    text-align: center;
+  .hero-hoarding-track {
+    height: 230vh;
   }
 
-  .hero-headline {
-    font-size: 2.45rem;
+  .grand-hoarding-assembly {
+    padding-top: 4.8rem;
   }
 
-  .hero-subheadline {
-    font-size: 1.05rem;
+  .grand-hoarding-board {
+    width: 96%;
+    border-width: 4px;
+    border-radius: 12px;
+  }
+
+  .hoarding-faceplate-content {
+    padding: 1.2rem 1rem 1rem;
+  }
+
+  .hoarding-logo-img {
+    height: 48px;
+    max-width: 180px;
+  }
+
+  .hoarding-headline {
+    font-size: 1.85rem;
+    line-height: 1.2;
+    margin-bottom: 0.6rem;
+  }
+
+  .hoarding-subheadline {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-bottom: 1.1rem;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .hero-cta-group {
+  .hoarding-cta-group {
+    gap: 0.6rem;
+    margin-bottom: 1.1rem;
     justify-content: center;
   }
 
-  .hero-trust-line {
-    font-size: 0.8rem;
-    padding: 0.75rem 1.1rem;
+  .btn-hoarding {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8125rem;
   }
 
-  .hero-stage-card {
-    padding: 1.75rem;
+  .hoarding-spec-pills {
+    gap: 0.4rem;
   }
 
-  .stage-spec-grid {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
+  .spec-pill {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.625rem;
+  }
+
+  .hoarding-floodlights-rig {
+    width: 95%;
+  }
+
+  .floodlight-cone {
+    width: 110px;
+    height: 190px;
+  }
+
+  .unipole-column {
+    width: 52px;
+    height: 460px;
+  }
+
+  .pole-signplate {
+    width: 150px;
+    padding: 0.35rem 0.5rem;
+    top: 140px;
+  }
+
+  .signplate-header {
+    font-size: 0.5rem;
+  }
+
+  .signplate-id {
+    font-size: 0.55rem;
+  }
+
+  .signplate-phone {
+    font-size: 0.5rem;
+  }
+
+  .cartoon-van-wrapper {
+    width: 290px;
+    height: 152px;
+    bottom: 8px;
+  }
+
+  .highway-road {
+    height: 80px;
+  }
+
+  .morena-skyline-silhouette {
+    height: 60px;
   }
 
   .services-grid {
@@ -235,8 +304,16 @@
 
 /* --- Small Mobile Phones (max-width: 480px) --- */
 @media (max-width: 480px) {
-  .hero-headline {
-    font-size: 2rem;
+  .hoarding-headline {
+    font-size: 1.55rem;
+  }
+  .hoarding-subheadline {
+    font-size: 0.8125rem;
+  }
+  .cartoon-van-wrapper {
+    width: 250px;
+    height: 130px;
+    bottom: 6px;
   }
 
   .section-title {
