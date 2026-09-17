@@ -83,14 +83,14 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  background-color: var(--bg-space);
+  background-color: #030712;
   color-scheme: dark;
 }
 
 body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: var(--text-muted);
-  background-color: var(--bg-space);
+  background-color: transparent !important;
   line-height: 1.6;
   overflow-x: hidden;
   position: relative;
@@ -103,21 +103,21 @@ body {
    ========================================================================== */
 #gl {
   position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   display: block;
-  z-index: -3;
+  z-index: 0;
   pointer-events: none;
-  background: #030712;
 }
 
 #vignette {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
   pointer-events: none;
-  background: radial-gradient(130% 100% at 50% 50%, transparent 45%, rgba(3, 7, 18, 0.72) 100%);
+  background: radial-gradient(130% 100% at 50% 50%, transparent 55%, rgba(3, 7, 18, 0.65) 100%);
 }
 
 /* ==========================================================================
@@ -236,36 +236,10 @@ body {
   }
 }
 
-/* Subtle Cosmic Background Ambient Glow Mesh */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: 
-    radial-gradient(circle at 15% 15%, rgba(43, 127, 255, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 85% 25%, rgba(255, 0, 122, 0.1) 0%, transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(255, 184, 0, 0.06) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: -2;
-}
-
-/* Keynote Subtle Grid Texture */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 64px 64px;
-  pointer-events: none;
-  z-index: -1;
+/* Content Stacking Wrapper */
+.site-content-wrapper, main, header, footer, section {
+  position: relative;
+  z-index: 5;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -810,14 +784,15 @@ button {
 /* 3D Hero Keynote Showcase Card */
 .hero-stage-card {
   position: relative;
-  background: radial-gradient(circle at 50% 30%, rgba(30, 60, 130, 0.3) 0%, rgba(9, 17, 39, 0.75) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(8, 15, 33, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-xl);
-  padding: 2.5rem;
-  backdrop-filter: blur(28px);
+  padding: 1.6rem 1.8rem 1.8rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   box-shadow: 
-    0 30px 70px -15px rgba(0, 0, 0, 0.8),
-    0 0 50px rgba(43, 127, 255, 0.2);
+    0 30px 80px -15px rgba(0, 0, 0, 0.7),
+    0 0 45px rgba(43, 127, 255, 0.18);
   transition: transform 0.4s var(--ease-spring);
   overflow: hidden;
 }
@@ -829,32 +804,134 @@ button {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle at center, rgba(255, 0, 122, 0.15) 0%, transparent 60%);
+  background: radial-gradient(circle at center, rgba(43, 127, 255, 0.08) 0%, transparent 60%);
   pointer-events: none;
 }
 
-/* The Official 3D Pari Logo Floating on Stage */
-.hero-floating-logo-wrap {
-  position: relative;
-  display: flex;
+/* Stage Interactive Status Pill */
+.stage-interactive-badge {
+  display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-full);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  color: var(--text-platinum);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.live-dot-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00E5FF;
+  box-shadow: 0 0 10px #00E5FF;
+  animation: pulseLiveDot 2s infinite ease-in-out;
+}
+
+/* 3D WebGL Viewport Portal Window */
+.hero-3d-stage-viewport {
+  position: relative;
+  width: 100%;
+  height: 330px;
+  display: flex;
+  align-items: flex-end;
   justify-content: center;
-  padding: 1rem 0 2rem 0;
+  padding-bottom: 0.9rem;
+  cursor: grab;
+  user-select: none;
 }
 
-.hero-main-logo-3d {
-  width: 82%;
-  max-width: 420px;
-  height: auto;
-  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 35px rgba(43, 127, 255, 0.35));
-  animation: floatLogo 6s infinite ease-in-out;
-  transform-style: preserve-3d;
+.hero-3d-stage-viewport:active {
+  cursor: grabbing;
 }
 
-@keyframes floatLogo {
-  0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(0.8deg); }
-  100% { transform: translateY(0px) rotate(0deg); }
+/* CAD / Keynote Crosshairs */
+.stage-crosshair {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: rgba(43, 127, 255, 0.45);
+  pointer-events: none;
+}
+
+.stage-crosshair.top-left {
+  top: 10px;
+  left: 10px;
+  border-top: 1.5px solid;
+  border-left: 1.5px solid;
+}
+
+.stage-crosshair.top-right {
+  top: 10px;
+  right: 10px;
+  border-top: 1.5px solid;
+  border-right: 1.5px solid;
+}
+
+.stage-crosshair.bottom-left {
+  bottom: 10px;
+  left: 10px;
+  border-bottom: 1.5px solid;
+  border-left: 1.5px solid;
+}
+
+.stage-crosshair.bottom-right {
+  bottom: 10px;
+  right: 10px;
+  border-bottom: 1.5px solid;
+  border-right: 1.5px solid;
+}
+
+/* Subtle Gyro Reticle in center */
+.stage-gyro-reticle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 240px;
+  height: 240px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  animation: rotateReticle 24s linear infinite;
+}
+
+@keyframes rotateReticle {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.stage-interact-tip {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(3, 7, 18, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.stage-interact-tip svg {
+  color: var(--brand-magenta-bright);
+  animation: spinTip 8s linear infinite;
+}
+
+@keyframes spinTip {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Keynote Hologram Badges on Hero Stage */
