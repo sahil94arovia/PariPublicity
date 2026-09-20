@@ -119,32 +119,32 @@ export function initThreeWorld() {
 }
 
 /* --------------------------------------------------------------------------
-   SOFT AESTHETIC LIGHTING RIG (PASTEL PERIWINKLE, BLUSH & CHAMPAGNE)
+   VIBRANT HIGH-CONTRAST PROFESSIONAL LIGHTING RIG (SAPPHIRE, MAGENTA & GOLD)
    -------------------------------------------------------------------------- */
 function setupLighting() {
-  // Gentle ambient fill
-  const ambient = new THREE.AmbientLight(0x1a2238, 2.8);
+  // Rich deep ambient fill
+  const ambient = new THREE.AmbientLight(0x1e293b, 3.2);
   scene.add(ambient);
 
-  // Directional moonlight key light with warm undertone
-  const keyLight = new THREE.DirectionalLight(0xfff7f2, 2.8);
+  // Crisp directional key light with brilliant white illumination
+  const keyLight = new THREE.DirectionalLight(0xffffff, 3.2);
   keyLight.position.set(10, 20, 15);
   scene.add(keyLight);
 
-  // Soft Pastel Periwinkle rim light
-  const periwinkleRim = new THREE.DirectionalLight(0x9ab4e8, 2.4);
-  periwinkleRim.position.set(-14, 5, 10);
-  scene.add(periwinkleRim);
+  // Vibrant Electric Sapphire rim light
+  const sapphireRim = new THREE.DirectionalLight(0x2563eb, 3.0);
+  sapphireRim.position.set(-14, 5, 10);
+  scene.add(sapphireRim);
 
-  // Soft Dusty Blush Rose rim light
-  const blushRim = new THREE.DirectionalLight(0xe5a4b5, 2.2);
-  blushRim.position.set(14, -10, 8);
-  scene.add(blushRim);
+  // Vibrant Crimson Magenta rim light
+  const magentaRim = new THREE.DirectionalLight(0xf43f5e, 2.8);
+  magentaRim.position.set(14, -10, 8);
+  scene.add(magentaRim);
 
-  // Warm Champagne fill light
-  const champagneLight = new THREE.PointLight(0xf0d6bf, 1.8, 30);
-  champagneLight.position.set(0, 4, 6);
-  scene.add(champagneLight);
+  // Radiant Golden Amber fill light
+  const amberLight = new THREE.PointLight(0xfbbf24, 2.2, 35);
+  amberLight.position.set(0, 4, 6);
+  scene.add(amberLight);
 }
 
 /* --------------------------------------------------------------------------

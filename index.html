@@ -137,6 +137,9 @@
         </span>
       </div>
       <div class="announcement-right">
+        <button class="announcement-leads-btn" id="openAdminLeadsBtn" title="View Customer Inquiries Received">
+          📥 Leads (<span id="topLeadsCount">0</span>)
+        </button>
         <span class="announcement-badge">⚡ Anoop Jain</span>
         <a href="tel:+919755812374" data-config="phone-tel" class="announcement-item" style="color: #FEF08A; font-weight:700;">
           📞 <span data-config="phone">+91 97558 12374</span>
@@ -1981,6 +1984,48 @@
             <span>Inquire About This Work</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.585 1.761.889 2.79.889h.001c3.182 0 5.768-2.587 5.769-5.766.001-3.182-2.585-5.775-5.77-5.775zm0-2c4.28 0 7.768 3.488 7.769 7.771 0 4.284-3.488 7.771-7.77 7.771-1.321 0-2.569-.344-3.666-.948l-4.364 1.144 1.168-4.263c-.689-1.157-1.077-2.502-1.076-3.704 0-4.283 3.488-7.771 7.939-7.771z"/></svg>
           </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       OWNER / ADMIN CUSTOMER INQUIRIES & LEADS CRM MODAL
+       ======================================================================== -->
+  <div class="leads-modal" id="adminLeadsModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="leads-modal-backdrop" id="adminLeadsBackdrop"></div>
+    <div class="leads-modal-container">
+      <div class="leads-modal-header">
+        <div class="leads-modal-title-wrap">
+          <div class="leads-badge-pulse"></div>
+          <div>
+            <h3 class="leads-modal-title">Customer Enquiries &amp; Leads</h3>
+            <p class="leads-modal-subtitle">Inquiries received from Pari Publicity website visitors</p>
+          </div>
+        </div>
+        <div class="leads-modal-actions">
+          <button class="leads-btn-action export" id="exportLeadsCsvBtn" title="Download all leads as CSV file">
+            📥 Export CSV
+          </button>
+          <button class="leads-btn-action clear" id="clearAllLeadsBtn" title="Clear inquiries history">
+            🗑️ Clear
+          </button>
+          <button class="leads-modal-close" id="closeAdminLeadsBtn" aria-label="Close modal">✕</button>
+        </div>
+      </div>
+
+      <div class="leads-modal-body">
+        <div class="leads-stats-row">
+          <div class="leads-stat-pill">Total Enquiries: <strong id="totalLeadsCount">0</strong></div>
+          <div class="leads-stat-pill">Anoop Jain Hotline: <strong>+91 97558 12374</strong></div>
+        </div>
+
+        <div class="leads-search-box">
+          <input type="text" id="leadsSearchInput" placeholder="🔍 Search inquiries by name, phone, or service...">
+        </div>
+
+        <div class="leads-list" id="leadsListContainer">
+          <!-- Dynamic Lead Cards injected via JS -->
         </div>
       </div>
     </div>

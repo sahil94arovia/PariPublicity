@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCardSpotlights();
   initHero3DTilt();
   initServiceEnquiryClicks();
+  initLeadsCRM();
 });
 
 /* --------------------------------------------------------------------------
@@ -481,6 +482,10 @@ Please reply with mockup proofs and quotation.`;
       e.preventDefault();
       const name = document.getElementById('quoteName')?.value.trim();
       const phone = document.getElementById('quotePhone')?.value.trim();
+      const business = document.getElementById('quoteBusiness')?.value.trim() || '';
+      const serviceSelect = document.getElementById('quoteService');
+      const service = serviceSelect && serviceSelect.selectedIndex > 0 ? serviceSelect.options[serviceSelect.selectedIndex]?.text : 'General Printing';
+      const message = document.getElementById('quoteMessage')?.value.trim() || '';
 
       if (!name || !phone) {
         showToast("⚠️ Please enter your Name and Phone Number first.");
@@ -488,11 +493,14 @@ Please reply with mockup proofs and quotation.`;
         return;
       }
 
+      // Automatically log to CRM
+      saveCustomerLeadToCRM({ name, phone, business, service, message, channel: 'WhatsApp Direct' });
+
       const msg = buildQuoteMessage();
       const waNumber = typeof PARI_CONFIG !== 'undefined' ? PARI_CONFIG.whatsappNumber : '919755812374';
       const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
       window.open(waUrl, '_blank');
-      showToast("🚀 Opening WhatsApp with your formatted inquiry!");
+      showToast("🚀 Inquiry saved & opening WhatsApp with Anoop Jain!");
     });
   }
 
@@ -500,17 +508,24 @@ Please reply with mockup proofs and quotation.`;
     e.preventDefault();
     const name = document.getElementById('quoteName')?.value.trim();
     const phone = document.getElementById('quotePhone')?.value.trim();
+    const business = document.getElementById('quoteBusiness')?.value.trim() || '';
+    const serviceSelect = document.getElementById('quoteService');
+    const service = serviceSelect && serviceSelect.selectedIndex > 0 ? serviceSelect.options[serviceSelect.selectedIndex]?.text : 'General Printing';
+    const message = document.getElementById('quoteMessage')?.value.trim() || '';
 
     if (!name || !phone) {
       showToast("⚠️ Please fill in required fields: Name and Phone.");
       return;
     }
 
+    // Automatically log to CRM
+    saveCustomerLeadToCRM({ name, phone, business, service, message, channel: 'Website Online Form' });
+
     const submitBtn = quoteForm.querySelector('button[type="submit"]');
     const originalText = submitBtn ? submitBtn.innerHTML : '';
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Sending Inquiry...</span>`;
+      submitBtn.innerHTML = `<span>Saving Inquiry...</span>`;
     }
 
     setTimeout(() => {
@@ -519,8 +534,8 @@ Please reply with mockup proofs and quotation.`;
         submitBtn.innerHTML = originalText;
       }
       quoteForm.reset();
-      showToast("✅ Thank you! Your inquiry is logged. Our Morena team will get back to you shortly.");
-    }, 700);
+      showToast("✅ Inquiry received & saved to Leads! Click WhatsApp button for instant discussion.");
+    }, 600);
   });
 }
 
@@ -695,4 +710,212 @@ function initServiceEnquiryClicks() {
       }
     });
   });
+}
+
+/* --------------------------------------------------------------------------
+   16. CUSTOMER INQUIRIES & LEADS CRM ENGINE (LOCALSTORAGE + CSV EXPORT)
+   -------------------------------------------------------------------------- */
+const LEADS_STORAGE_KEY = 'pari_customer_inquiries';
+
+function getStoredCustomerLeads() {
+  try {
+    return JSON.parse(localStorage.getItem(LEADS_STORAGE_KEY) || '[]');
+  } catch (err) {
+    return [];
+  }
+}
+
+function saveCustomerLeadToCRM(lead) {
+  const leads = getStoredCustomerLeads();
+  const newLead = {
+    id: 'lead_' + Date.now(),
+    date: new Date().toLocaleString('en-IN', {
+      timeZone: 'Asia/Kolkata',
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    }),
+    status: 'New Inquiry',
+    ...lead
+  };
+  leads.unshift(newLead);
+  localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(leads));
+  updateLeadsUI();
+  return newLead;
+}
+
+function updateLeadsUI() {
+  const leads = getStoredCustomerLeads();
+  const topBadge = document.getElementById('topLeadsCount');
+  const totalBadge = document.getElementById('totalLeadsCount');
+  if (topBadge) topBadge.textContent = leads.length.toString();
+  if (totalBadge) totalBadge.textContent = leads.length.toString();
+  renderLeadsList();
+}
+
+function renderLeadsList(searchQuery = '') {
+  const container = document.getElementById('leadsListContainer');
+  if (!container) return;
+
+  const leads = getStoredCustomerLeads();
+  const q = (searchQuery || '').toLowerCase().trim();
+  const filtered = q
+    ? leads.filter(l =>
+        (l.name && l.name.toLowerCase().includes(q)) ||
+        (l.phone && l.phone.toLowerCase().includes(q)) ||
+        (l.service && l.service.toLowerCase().includes(q)) ||
+        (l.business && l.business.toLowerCase().includes(q))
+      )
+    : leads;
+
+  if (!filtered.length) {
+    container.innerHTML = `
+      <div class="leads-empty-state">
+        <div class="leads-empty-icon">📭</div>
+        <h4 style="color: #FFFFFF; margin-bottom: 0.5rem; font-weight: 700;">No Customer Inquiries Yet</h4>
+        <p style="font-size: 0.85rem;">When a client submits an inquiry through the website or taps WhatsApp, it will be automatically logged right here in real-time!</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered.map(lead => {
+    const cleanPhone = (lead.phone || '').replace(/[^0-9]/g, '');
+    const waPhone = cleanPhone.length === 10 ? '91' + cleanPhone : cleanPhone;
+    const waReplyMsg = encodeURIComponent(`Namaste ${lead.name || ''}! Thank you for contacting Pari Publicity regarding ${lead.service || 'our services'}. How can we assist you today?`);
+
+    return `
+      <div class="lead-item-card" data-lead-id="${lead.id}">
+        <div class="lead-item-top">
+          <div class="lead-customer-name">${escapeLeadHtml(lead.name || 'Anonymous Client')}</div>
+          <span class="lead-timestamp">🕒 ${escapeLeadHtml(lead.date || '')}</span>
+        </div>
+        <div class="lead-item-details">
+          <div>📞 <strong>Phone:</strong> <a href="tel:${cleanPhone}" style="color: #38BDF8; font-weight:700;">${escapeLeadHtml(lead.phone || 'N/A')}</a></div>
+          ${lead.business ? `<div>🏢 <strong>Business:</strong> ${escapeLeadHtml(lead.business)}</div>` : ''}
+          <div>🎯 <strong>Service:</strong> <span style="color: #F43F5E; font-weight: 700;">${escapeLeadHtml(lead.service || 'General Printing')}</span></div>
+          ${lead.message ? `<div style="margin-top: 0.4rem; padding: 0.5rem; background: rgba(0,0,0,0.25); border-radius: 6px; border-left: 3px solid #38BDF8;">📝 <strong>Details:</strong> ${escapeLeadHtml(lead.message)}</div>` : ''}
+        </div>
+        <div class="lead-actions-row">
+          <a href="https://wa.me/${waPhone}?text=${waReplyMsg}" target="_blank" class="lead-btn-wa">
+            💬 WhatsApp Client
+          </a>
+          <a href="tel:${cleanPhone}" class="lead-btn-call">
+            📞 Call Client
+          </a>
+          <button type="button" class="lead-btn-del" data-action="delete" data-id="${lead.id}">
+            ✕ Delete
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Attach delete handlers
+  container.querySelectorAll('[data-action="delete"]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = btn.getAttribute('data-id');
+      if (confirm('Are you sure you want to delete this inquiry?')) {
+        const remaining = getStoredCustomerLeads().filter(l => l.id !== id);
+        localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(remaining));
+        updateLeadsUI();
+        showToast('🗑️ Inquiry deleted from records.');
+      }
+    });
+  });
+}
+
+function escapeLeadHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function exportLeadsToCsv() {
+  const leads = getStoredCustomerLeads();
+  if (!leads.length) {
+    showToast('⚠️ No inquiries to export yet.');
+    return;
+  }
+
+  const headers = ['Date', 'Customer Name', 'Phone', 'Business', 'Service', 'Requirement Details', 'Channel'];
+  const rows = leads.map(l => [
+    `"${l.date || ''}"`,
+    `"${(l.name || '').replace(/"/g, '""')}"`,
+    `"${(l.phone || '').replace(/"/g, '""')}"`,
+    `"${(l.business || '').replace(/"/g, '""')}"`,
+    `"${(l.service || '').replace(/"/g, '""')}"`,
+    `"${(l.message || '').replace(/"/g, '""')}"`,
+    `"${l.channel || 'Website'}"`
+  ]);
+
+  const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `pari_publicity_inquiries_${new Date().toISOString().slice(0, 10)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('📥 Exported all inquiries to CSV successfully!');
+}
+
+function initLeadsCRM() {
+  const modal = document.getElementById('adminLeadsModal');
+  const openBtn = document.getElementById('openAdminLeadsBtn');
+  const closeBtn = document.getElementById('closeAdminLeadsBtn');
+  const backdrop = document.getElementById('adminLeadsBackdrop');
+  const exportBtn = document.getElementById('exportLeadsCsvBtn');
+  const clearBtn = document.getElementById('clearAllLeadsBtn');
+  const searchInput = document.getElementById('leadsSearchInput');
+
+  if (openBtn && modal) {
+    openBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      renderLeadsList();
+    });
+  }
+
+  const closeModal = () => {
+    if (modal) {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+  };
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
+
+  if (exportBtn) exportBtn.addEventListener('click', exportLeadsToCsv);
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      if (confirm('Clear all customer inquiries from local records?')) {
+        localStorage.removeItem(LEADS_STORAGE_KEY);
+        updateLeadsUI();
+        showToast('🗑️ All inquiries cleared.');
+      }
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      renderLeadsList(e.target.value);
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  updateLeadsUI();
 }

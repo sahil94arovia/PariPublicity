@@ -5,67 +5,72 @@
    Level: 50K Agency / Flagship Keynote Grade • Ultra-Smooth Animations
    ========================================================================== */
 
-/* --- CSS Variables: Aesthetic Faded Pastel & Twilight Slate --- */
+/* --- CSS Variables: Vibrant Luxury Keynote Palette (Professional, High-Contrast, Rich) --- */
 :root {
-  /* Twilight Slate Backgrounds (Soft, calming, zero pure pitch-black) */
-  --bg-space: #0B0E17;
-  --bg-deep: #0E1322;
-  --bg-surface-1: #12182B;
-  --bg-surface-2: #161F36;
-  --bg-surface-3: #1C2744;
+  /* Rich Obsidian Midnight Backgrounds */
+  --bg-space: #060913;
+  --bg-deep: #0A0F20;
+  --bg-surface-1: #0E162B;
+  --bg-surface-2: #141F3D;
+  --bg-surface-3: #1B2950;
   
   /* Glassmorphism Layers */
-  --glass-bg: rgba(14, 19, 34, 0.72);
-  --glass-card: rgba(18, 25, 46, 0.50);
-  --glass-card-hover: rgba(24, 34, 62, 0.68);
-  --glass-header: rgba(11, 14, 23, 0.85);
+  --glass-bg: rgba(10, 15, 32, 0.78);
+  --glass-card: rgba(14, 22, 43, 0.65);
+  --glass-card-hover: rgba(20, 31, 61, 0.85);
+  --glass-header: rgba(6, 9, 19, 0.88);
 
-  /* Aesthetic Faded Pastel Accent Palette (Zero Neon) */
-  --pastel-periwinkle: #9AB4E8;
-  --pastel-periwinkle-soft: rgba(154, 180, 232, 0.14);
-  --pastel-blush: #E5A4B5;
-  --pastel-blush-soft: rgba(229, 164, 181, 0.14);
-  --pastel-lavender: #BFAEE0;
-  --pastel-lavender-soft: rgba(191, 174, 224, 0.14);
-  --pastel-champagne: #F0D6BF;
-  --pastel-champagne-soft: rgba(240, 214, 191, 0.12);
-  --pastel-sage: #A8CEBE;
-  --pastel-sage-soft: rgba(168, 206, 190, 0.10);
-
-  /* Harmonized Brand Tones */
-  --brand-blue: #4A72C4;
-  --brand-blue-bright: #9AB4E8;
-  --brand-blue-glow: rgba(154, 180, 232, 0.20);
+  /* Vibrant Professional Brand Palette */
+  --brand-blue: #2563EB;
+  --brand-blue-bright: #38BDF8;
+  --brand-blue-glow: rgba(56, 189, 248, 0.35);
   
-  --brand-magenta: #C46D84;
-  --brand-magenta-bright: #E5A4B5;
-  --brand-magenta-glow: rgba(229, 164, 181, 0.20);
+  --brand-magenta: #E11D48;
+  --brand-magenta-bright: #F43F5E;
+  --brand-magenta-glow: rgba(244, 63, 94, 0.35);
   
-  --brand-gold: #DCB487;
-  --brand-gold-bright: #F0D6BF;
-  --brand-gold-glow: rgba(240, 214, 191, 0.18);
+  --brand-gold: #D97706;
+  --brand-gold-bright: #FBBF24;
+  --brand-gold-glow: rgba(251, 191, 36, 0.35);
 
-  --brand-cyan: #79B9BC;
-  --brand-cyan-bright: #A8CEBE;
+  --brand-cyan: #0284C7;
+  --brand-cyan-bright: #06B6D4;
+  --brand-cyan-glow: rgba(6, 182, 212, 0.35);
 
-  /* Typography Colors */
+  --brand-green: #10B981;
+  --brand-green-bright: #22C55E;
+  --brand-green-glow: rgba(34, 197, 94, 0.40);
+
+  /* Vibrant Accent Palette */
+  --pastel-periwinkle: #60A5FA;
+  --pastel-periwinkle-soft: rgba(59, 130, 246, 0.18);
+  --pastel-blush: #FB7185;
+  --pastel-blush-soft: rgba(244, 63, 94, 0.18);
+  --pastel-lavender: #C084FC;
+  --pastel-lavender-soft: rgba(192, 132, 252, 0.18);
+  --pastel-champagne: #FDE047;
+  --pastel-champagne-soft: rgba(253, 224, 71, 0.16);
+  --pastel-sage: #34D399;
+  --pastel-sage-soft: rgba(52, 211, 153, 0.16);
+
+  /* Typography Colors - High-Contrast & Crisp */
   --text-pure: #FFFFFF;
-  --text-platinum: #F1F5F9;
-  --text-muted: #94A3B8;
-  --text-dim: #64748B;
+  --text-platinum: #F8FAFC;
+  --text-muted: #CBD5E1;
+  --text-dim: #94A3B8;
 
-  /* Ultra-Refined Glass Borders */
-  --border-glass: 1px solid rgba(255, 255, 255, 0.08);
-  --border-glass-light: 1px solid rgba(255, 255, 255, 0.14);
-  --border-glow-blue: 1px solid rgba(154, 180, 232, 0.28);
-  --border-glow-magenta: 1px solid rgba(229, 164, 181, 0.28);
+  /* Crisp Luminous Glass Borders */
+  --border-glass: 1px solid rgba(255, 255, 255, 0.12);
+  --border-glass-light: 1px solid rgba(255, 255, 255, 0.20);
+  --border-glow-blue: 1px solid rgba(56, 189, 248, 0.45);
+  --border-glow-magenta: 1px solid rgba(244, 63, 94, 0.45);
 
-  /* Diffuse Atmospheric Shadows (No Sharp Neon Halos) */
-  --glow-blue: 0 10px 30px rgba(154, 180, 232, 0.16);
-  --glow-magenta: 0 10px 30px rgba(229, 164, 181, 0.16);
-  --glow-button: 0 8px 25px rgba(196, 109, 132, 0.25);
-  --shadow-card: 0 20px 45px -10px rgba(0, 0, 0, 0.5);
-  --shadow-card-hover: 0 25px 50px -5px rgba(154, 180, 232, 0.12);
+  /* Vibrant Luminous Shadows & Glows */
+  --glow-blue: 0 12px 35px rgba(37, 99, 235, 0.30);
+  --glow-magenta: 0 12px 35px rgba(225, 29, 72, 0.30);
+  --glow-button: 0 10px 30px rgba(225, 29, 72, 0.45);
+  --shadow-card: 0 20px 45px -10px rgba(0, 0, 0, 0.7);
+  --shadow-card-hover: 0 25px 55px -5px rgba(37, 99, 235, 0.25);
 
   /* Radii - Refined, Sleek, Apple Hardware Style */
   --radius-xs: 4px;
@@ -355,13 +360,13 @@ button {
 }
 
 .section-title .gradient-text {
-  background: linear-gradient(135deg, #F8FAFC 0%, #BFAEE0 40%, #E5A4B5 75%, #F0D6BF 100%);
+  background: linear-gradient(135deg, #FFFFFF 0%, #60A5FA 35%, #F43F5E 70%, #FBBF24 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .section-title .gradient-blue-pink {
-  background: linear-gradient(135deg, #9AB4E8 0%, #E5A4B5 100%);
+  background: linear-gradient(135deg, #38BDF8 0%, #F43F5E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -394,47 +399,47 @@ button {
   overflow: hidden;
 }
 
-/* Primary Flagship Button: Soft Pastel Dual Tone */
+/* Primary Flagship Button: Vibrant Electric Blue to Vivid Magenta */
 .btn-primary {
-  background: linear-gradient(135deg, #4A72C4 0%, #C46D84 100%);
+  background: linear-gradient(135deg, #2563EB 0%, #E11D48 100%);
   color: var(--text-pure);
-  box-shadow: 0 8px 24px rgba(196, 109, 132, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 8px 25px rgba(225, 29, 72, 0.40);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(196, 109, 132, 0.35);
-  filter: brightness(1.08);
+  box-shadow: 0 14px 35px rgba(225, 29, 72, 0.55);
+  filter: brightness(1.15);
 }
 
 /* Frosted Glass Button */
 .btn-glass {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--text-pure);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.20);
   backdrop-filter: blur(14px);
 }
 
 .btn-glass:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.45);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
-/* WhatsApp Soft Mint-Green Button */
+/* WhatsApp Vibrant Emerald Green Button */
 .btn-whatsapp {
-  background: linear-gradient(135deg, #2E8B57 0%, #1B5E3C 100%);
+  background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
   color: #FFFFFF;
-  box-shadow: 0 8px 22px rgba(46, 139, 87, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(34, 197, 94, 0.40);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .btn-whatsapp:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 12px 28px rgba(46, 139, 87, 0.35);
-  filter: brightness(1.08);
+  box-shadow: 0 14px 32px rgba(34, 197, 94, 0.55);
+  filter: brightness(1.12);
 }
 
 .btn-sm {
@@ -2922,4 +2927,338 @@ button {
 
 .toast-notice svg {
   color: #A8CEBE;
+}
+
+/* ==========================================================================
+   ADMIN / OWNER CUSTOMER INQUIRIES & LEADS CRM MODAL
+   ========================================================================== */
+.announcement-leads-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(225, 29, 72, 0.25) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #FFFFFF;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.725rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.announcement-leads-btn:hover {
+  background: linear-gradient(135deg, #2563EB 0%, #E11D48 100%);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+
+.leads-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-spring);
+}
+
+.leads-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.leads-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.85);
+  backdrop-filter: blur(16px);
+}
+
+.leads-modal-container {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  max-height: 85vh;
+  background: #0B1021;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85), 0 0 40px rgba(37, 99, 235, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 10;
+  animation: modalScaleIn 0.3s var(--ease-spring);
+}
+
+@keyframes modalScaleIn {
+  from { transform: scale(0.94); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.leads-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  background: #0E162D;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.leads-modal-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.leads-badge-pulse {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 12px #10B981;
+  animation: pulseDot 2s infinite;
+}
+
+.leads-modal-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.leads-modal-subtitle {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.leads-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.leads-btn-action {
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-full);
+  font-size: 0.775rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.leads-btn-action.export {
+  background: rgba(37, 99, 235, 0.25);
+  color: #60A5FA;
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.leads-btn-action.export:hover {
+  background: #2563EB;
+  color: #FFFFFF;
+}
+
+.leads-btn-action.clear {
+  background: rgba(225, 29, 72, 0.18);
+  color: #FB7185;
+  border-color: rgba(244, 63, 94, 0.35);
+}
+
+.leads-btn-action.clear:hover {
+  background: #E11D48;
+  color: #FFFFFF;
+}
+
+.leads-modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.leads-modal-close:hover {
+  background: #E11D48;
+  border-color: #E11D48;
+  transform: rotate(90deg);
+}
+
+.leads-modal-body {
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.leads-stats-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.leads-stat-pill {
+  background: #141F3D;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.leads-stat-pill strong {
+  color: #38BDF8;
+}
+
+.leads-search-box input {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  background: #0E162D;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  transition: var(--transition-fast);
+}
+
+.leads-search-box input:focus {
+  border-color: #38BDF8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+}
+
+.leads-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lead-item-card {
+  background: #111A35;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  transition: var(--transition-fast);
+}
+
+.lead-item-card:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.lead-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.lead-customer-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.lead-timestamp {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+.lead-item-details {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.lead-item-details strong {
+  color: #F8FAFC;
+}
+
+.lead-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.lead-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #16A34A;
+  color: #FFFFFF;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.775rem;
+  font-weight: 700;
+  transition: var(--transition-fast);
+}
+
+.lead-btn-wa:hover {
+  background: #22C55E;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+}
+
+.lead-btn-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #2563EB;
+  color: #FFFFFF;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.775rem;
+  font-weight: 700;
+  transition: var(--transition-fast);
+}
+
+.lead-btn-call:hover {
+  background: #3B82F6;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+
+.lead-btn-del {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-dim);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  margin-left: auto;
+  transition: var(--transition-fast);
+}
+
+.lead-btn-del:hover {
+  background: rgba(225, 29, 72, 0.2);
+  color: #FB7185;
+}
+
+.leads-empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--text-dim);
+}
+
+.leads-empty-icon {
+  font-size: 3rem;
+  margin-bottom: 0.85rem;
 }
