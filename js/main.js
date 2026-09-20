@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initQuickServiceChips();
   initWorkFilters();
   initLightboxModal();
-  initCostEstimator();
   initQuoteForm();
   initScrollSpy();
   initCardSpotlights();
@@ -1001,33 +1000,132 @@ function exportLeadsToCsv() {
 
 function initLeadsCRM() {
   const modal = document.getElementById('adminLeadsModal');
-  const openButtons = document.querySelectorAll('.openAdminLeadsBtn');
+  const openButtons = document.querySelectorAll('.openAdminLeadsBtn, #openAdminPortalBtn');
   const closeBtn = document.getElementById('closeAdminLeadsBtn');
   const backdrop = document.getElementById('adminLeadsBackdrop');
   const exportBtn = document.getElementById('exportLeadsCsvBtn');
   const clearBtn = document.getElementById('clearAllLeadsBtn');
+  const lockBtn = document.getElementById('lockAdminLeadsBtn');
   const searchInput = document.getElementById('leadsSearchInput');
 
-  if (modal) {
-    openButtons.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal.classList.add('active');
-        modal.setAttribute('aria-hidden', 'false');
-        renderLeadsList();
-      });
-    });
-  }
+  // Passkey Modal Elements
+  const passkeyModal = document.getElementById('adminPasskeyModal');
+  const passkeyForm = document.getElementById('adminPasskeyForm');
+  const passkeyInput = document.getElementById('adminPasskeyInput');
+  const passkeyError = document.getElementById('adminPasskeyError');
+  const passkeyCloseBtn = document.getElementById('closePasskeyModalBtn');
+  const passkeyCancelBtn = document.getElementById('cancelPasskeyBtn');
+  const passkeyBackdrop = document.getElementById('adminPasskeyBackdrop');
+  const passkeyToggleBtn = document.getElementById('passkeyToggleBtn');
+  const passkeyToggleIcon = document.getElementById('passkeyToggleIcon');
 
-  const closeModal = () => {
+  const MASTER_PASSKEY = 'PP@Anoop123';
+  const AUTH_STORAGE_KEY = 'pari_admin_auth';
+
+  const isAuthenticated = () => {
+    return sessionStorage.getItem(AUTH_STORAGE_KEY) === 'true';
+  };
+
+  const openPasskeyModal = () => {
+    if (passkeyModal) {
+      passkeyModal.classList.add('active');
+      passkeyModal.setAttribute('aria-hidden', 'false');
+      if (passkeyInput) {
+        passkeyInput.value = '';
+        setTimeout(() => passkeyInput.focus(), 150);
+      }
+      if (passkeyError) passkeyError.style.display = 'none';
+    }
+  };
+
+  const closePasskeyModal = () => {
+    if (passkeyModal) {
+      passkeyModal.classList.remove('active');
+      passkeyModal.setAttribute('aria-hidden', 'true');
+    }
+  };
+
+  const openCRMModal = () => {
+    if (modal) {
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      renderLeadsList();
+    }
+  };
+
+  const closeCRMModal = () => {
     if (modal) {
       modal.classList.remove('active');
       modal.setAttribute('aria-hidden', 'true');
     }
   };
 
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  if (backdrop) backdrop.addEventListener('click', closeModal);
+  // Open triggers: check auth before opening CRM
+  openButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (isAuthenticated()) {
+        openCRMModal();
+      } else {
+        openPasskeyModal();
+      }
+    });
+  });
+
+  // Passkey Submission Handler
+  if (passkeyForm) {
+    passkeyForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const enteredKey = passkeyInput ? passkeyInput.value.trim() : '';
+      if (enteredKey === MASTER_PASSKEY) {
+        sessionStorage.setItem(AUTH_STORAGE_KEY, 'true');
+        closePasskeyModal();
+        openCRMModal();
+        showToast('🔓 Access Granted! Welcome Anoop Jain.');
+      } else {
+        if (passkeyError) {
+          passkeyError.style.display = 'block';
+          passkeyError.classList.add('shake');
+          setTimeout(() => passkeyError.classList.remove('shake'), 600);
+        }
+        if (passkeyInput) {
+          passkeyInput.classList.add('input-error');
+          setTimeout(() => passkeyInput.classList.remove('input-error'), 600);
+          passkeyInput.select();
+          passkeyInput.focus();
+        }
+      }
+    });
+  }
+
+  // Password Visibility Toggle
+  if (passkeyToggleBtn && passkeyInput) {
+    passkeyToggleBtn.addEventListener('click', () => {
+      const isPass = passkeyInput.getAttribute('type') === 'password';
+      passkeyInput.setAttribute('type', isPass ? 'text' : 'password');
+      if (passkeyToggleIcon) {
+        passkeyToggleIcon.textContent = isPass ? '🙈' : '👁️';
+      }
+    });
+  }
+
+  // Close passkey modal events
+  if (passkeyCloseBtn) passkeyCloseBtn.addEventListener('click', closePasskeyModal);
+  if (passkeyCancelBtn) passkeyCancelBtn.addEventListener('click', closePasskeyModal);
+  if (passkeyBackdrop) passkeyBackdrop.addEventListener('click', closePasskeyModal);
+
+  // Close CRM modal events
+  if (closeBtn) closeBtn.addEventListener('click', closeCRMModal);
+  if (backdrop) backdrop.addEventListener('click', closeCRMModal);
+
+  // Lock CRM and logout session
+  if (lockBtn) {
+    lockBtn.addEventListener('click', () => {
+      sessionStorage.removeItem(AUTH_STORAGE_KEY);
+      closeCRMModal();
+      showToast('🔒 CRM Session Locked.');
+    });
+  }
 
   if (exportBtn) exportBtn.addEventListener('click', exportLeadsToCsv);
 
@@ -1047,9 +1145,14 @@ function initLeadsCRM() {
     });
   }
 
+  // Global ESC key to close any active modal
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
-      closeModal();
+    if (e.key === 'Escape') {
+      if (passkeyModal && passkeyModal.classList.contains('active')) {
+        closePasskeyModal();
+      } else if (modal && modal.classList.contains('active')) {
+        closeCRMModal();
+      }
     }
   });
 

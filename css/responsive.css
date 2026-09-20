@@ -55,10 +55,6 @@
     grid-template-columns: repeat(2, 1fr);
     row-gap: 3rem;
   }
-
-  .estimator-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* --- Tablets & Small Screens (max-width: 768px) --- */
@@ -339,12 +335,24 @@
     grid-template-columns: 1fr;
   }
 
-  .estimator-box {
-    padding: 1.75rem 1.25rem;
+  .passkey-modal-card {
+    padding: 1.75rem 1.25rem 1.25rem;
+    margin: 0 0.5rem;
   }
 
-  .dimension-inputs {
-    grid-template-columns: 1fr;
+  .passkey-modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .passkey-modal-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-admin-btn {
+    width: 100%;
+    max-width: 340px;
+    justify-content: center;
   }
 
   .lightbox-action-row {

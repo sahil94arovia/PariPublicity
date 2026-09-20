@@ -26,7 +26,7 @@ Designed with an **Apple & Samsung Keynote dark luxury aesthetic** (`#030712` ob
   12. Event Backdrops, Standees & Display Branding
   13. Social Media Creative Design
   14. Election, School, Coaching & Real Estate Promotion Material
-- **Interactive Price Estimator**: Instant rate calculator for flex banners (per sq.ft), visiting cards, and promotional flyers with single-click WhatsApp export.
+- **Owner & Management Leads CRM (Passkey Protected)**: Secure, confidential local inquiries dashboard (`PP@Anoop123`) in the footer with 1-click WhatsApp/Call triggers, search filtering, and CSV export.
 - **Interactive Portfolio Showcase**: Filterable gallery with responsive Lightbox modal and direct WhatsApp enquiry.
 - **Direct WhatsApp Quote Generator**: Automatic routing to WhatsApp (`+91 97558 12374`) formatted with customer name, phone, business name, service type, and project details.
 - **Mobile Action Bar**: Floating bottom navigation on mobile devices with instant "Call Anoop Jain", "WhatsApp", and "Get Quote" triggers.

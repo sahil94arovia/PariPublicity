@@ -3250,70 +3250,268 @@ button {
   cursor: pointer;
 }
 
-/* --- Floating Leads CRM Quick Access Pill (Always on Screen) --- */
-.floating-leads-pill {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 950;
+/* --- Protected Footer Admin CRM Access Row --- */
+.footer-admin-row {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.65rem 1.15rem;
-  background: #000000;
-  border: 1px solid rgba(56, 189, 248, 0.5);
+  padding: 1.5rem 0 0.5rem;
+  margin-top: 1.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.footer-admin-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.35);
   border-radius: var(--radius-full);
-  color: #FFFFFF;
-  cursor: pointer;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.95), 0 0 25px rgba(37, 99, 235, 0.35);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.floating-leads-pill:hover {
-  background: linear-gradient(135deg, #2563EB 0%, #E11D48 100%);
-  border-color: rgba(255, 255, 255, 0.6);
-  transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.98), 0 0 30px rgba(244, 63, 94, 0.45);
-}
-
-.leads-live-pulse {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #10B981;
-  box-shadow: 0 0 10px #10B981;
-  animation: pulseDot 1.8s infinite;
-}
-
-.leads-pill-icon {
-  font-size: 1.1rem;
-}
-
-.leads-pill-text {
-  font-size: 0.85rem;
-  font-weight: 700;
+  padding: 0.55rem 1.25rem;
+  color: #E2E8F0;
+  font-size: 0.8125rem;
+  font-weight: 600;
   letter-spacing: 0.3px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+  transition: all 0.25s var(--ease-spring);
 }
 
-.leads-count-bubble {
+.footer-admin-btn:hover {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: rgba(56, 189, 248, 0.7);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+}
+
+.admin-lock-icon {
+  font-size: 0.95rem;
+}
+
+.admin-auth-tag {
+  font-size: 0.6875rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.08);
+  color: #94A3B8;
+  font-weight: 600;
+}
+
+.admin-leads-badge {
   background: #F43F5E;
   color: #FFFFFF;
-  font-size: 0.725rem;
+  font-size: 0.7rem;
   font-weight: 800;
-  padding: 0.15rem 0.55rem;
+  padding: 0.1rem 0.45rem;
   border-radius: var(--radius-full);
-  box-shadow: 0 2px 8px rgba(244, 63, 94, 0.5);
+  min-width: 18px;
+  text-align: center;
 }
 
-@media (max-width: 768px) {
-  .floating-leads-pill {
-    bottom: 20px;
-    right: 15px;
-    padding: 0.55rem 0.9rem;
-  }
-  .floating-leads-pill .leads-pill-text {
-    display: none;
-  }
+/* --- Leads Modal Lock Button --- */
+.leads-btn-action.lock {
+  background: rgba(245, 158, 11, 0.18);
+  color: #FBBF24;
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.leads-btn-action.lock:hover {
+  background: #D97706;
+  color: #FFFFFF;
+}
+
+/* --- Admin Passkey Modal (PP@Anoop123 Verification) --- */
+.passkey-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s var(--ease-spring);
+}
+
+.passkey-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.passkey-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(16px);
+}
+
+.passkey-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: #090D1A;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(37, 99, 235, 0.3);
+  padding: 2.25rem 2rem 1.75rem;
+  z-index: 10;
+  animation: modalScaleIn 0.28s var(--ease-spring);
+}
+
+.passkey-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.passkey-modal-close:hover {
+  background: #E11D48;
+  color: #FFFFFF;
+  border-color: #E11D48;
+}
+
+.passkey-card-header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.passkey-shield-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.35) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: #38BDF8;
+}
+
+.passkey-modal-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.4rem;
+}
+
+.passkey-modal-subtitle {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.passkey-field-wrap {
+  margin-bottom: 1.5rem;
+}
+
+.passkey-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #CBD5E1;
+  margin-bottom: 0.45rem;
+}
+
+.passkey-input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passkey-input {
+  width: 100%;
+  padding: 0.85rem 3rem 0.85rem 1.15rem;
+  background: #050811;
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-md);
+  color: #FFFFFF;
+  font-size: 0.95rem;
+  font-family: monospace, sans-serif;
+  letter-spacing: 1px;
+  transition: var(--transition-fast);
+}
+
+.passkey-input:focus {
+  outline: none;
+  border-color: #38BDF8;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+}
+
+.passkey-input.input-error {
+  border-color: #F43F5E;
+  box-shadow: 0 0 16px rgba(244, 63, 94, 0.4);
+}
+
+.passkey-toggle-btn {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  padding: 6px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.passkey-toggle-btn:hover {
+  opacity: 0.8;
+}
+
+.passkey-error-msg {
+  color: #FB7185;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  padding: 0.35rem 0.65rem;
+  background: rgba(225, 29, 72, 0.15);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid #E11D48;
+}
+
+.shake {
+  animation: shakeAnim 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shakeAnim {
+  10%, 90% { transform: translate3d(-2px, 0, 0); }
+  20%, 80% { transform: translate3d(4px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+.passkey-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.passkey-security-note {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: 0.725rem;
+  color: var(--text-dim);
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .leads-modal {

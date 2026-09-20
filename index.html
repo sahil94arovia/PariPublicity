@@ -137,9 +137,6 @@
         </span>
       </div>
       <div class="announcement-right">
-        <button class="announcement-leads-btn openAdminLeadsBtn" id="openAdminLeadsBtn" title="View Customer Inquiries Received">
-          📥 Leads (<span class="leadsCountSpan" id="topLeadsCount">0</span>)
-        </button>
         <span class="announcement-badge">⚡ Anoop Jain</span>
         <a href="tel:+919755812374" data-config="phone-tel" class="announcement-item" style="color: #FEF08A; font-weight:700;">
           📞 <span data-config="phone">+91 97558 12374</span>
@@ -170,10 +167,6 @@
 
       <!-- Action Buttons -->
       <div class="nav-cta-group">
-        <button type="button" class="btn btn-leads-nav openAdminLeadsBtn" title="Customer Leads CRM Dashboard">
-          <span>📥 Leads</span>
-          <span class="nav-leads-pill leadsCountSpan">0</span>
-        </button>
         <a href="#contact" class="btn btn-secondary btn-sm">Get Quote</a>
         <a href="https://wa.me/919755812374" data-config="whatsapp-link" class="btn btn-whatsapp btn-sm">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.585 1.761.889 2.79.889h.001c3.182 0 5.768-2.587 5.769-5.766.001-3.182-2.585-5.775-5.77-5.775zm0-2c4.28 0 7.768 3.488 7.769 7.771 0 4.284-3.488 7.771-7.77 7.771-1.321 0-2.569-.344-3.666-.948l-4.364 1.144 1.168-4.263c-.689-1.157-1.077-2.502-1.076-3.704 0-4.283 3.488-7.771 7.939-7.771z"/></svg>
@@ -197,13 +190,9 @@
       <li><a href="#about" class="mobile-nav-link">About Us</a></li>
       <li><a href="#why-us" class="mobile-nav-link">Why Choose Us</a></li>
       <li><a href="#work" class="mobile-nav-link">Our Work</a></li>
-      <li><a href="#estimator" class="mobile-nav-link">Instant Cost Calculator</a></li>
       <li><a href="#contact" class="mobile-nav-link">Contact Us</a></li>
     </ul>
     <div class="mobile-drawer-bottom">
-      <button type="button" class="btn btn-leads-drawer openAdminLeadsBtn" style="width: 100%; margin-bottom: 0.65rem;">
-        📥 Customer Leads Portal (<span class="leadsCountSpan">0</span>)
-      </button>
       <a href="#contact" class="btn btn-primary" style="width: 100%;">Get a Free Quote</a>
       <a href="https://wa.me/919755812374" data-config="whatsapp-link" class="btn btn-whatsapp" style="width: 100%;">
         💬 Chat on WhatsApp
@@ -1747,78 +1736,6 @@
     </section>
 
     <!-- ======================================================================
-         INTERACTIVE PRINT & BANNER COST ESTIMATOR (BONUS VALUE-ADD)
-         ====================================================================== -->
-    <section class="estimator-section section-padding" id="estimator">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-badge">Instant Cost Estimator</div>
-          <h2 class="section-title">Calculate Your Approximate <span class="highlight">Print Estimate</span></h2>
-          <p class="section-description">
-            Select your desired material and size to get an instant base estimate. Send it directly to WhatsApp for a confirmed quote!
-          </p>
-        </div>
-
-        <div class="estimator-box">
-          <div class="estimator-grid">
-            <!-- Controls -->
-            <div>
-              <div class="form-group">
-                <label for="estServiceSelect" class="form-label">Select Service / Print Type:</label>
-                <select id="estServiceSelect" class="form-select">
-                  <option value="flex" selected>Flex Banner Printing (Standard)</option>
-                  <option value="star-flex">Star Flex Banner (Glossy / Heavy Duty)</option>
-                  <option value="vinyl">Vinyl Printing &amp; Board Pasting</option>
-                  <option value="glow-board">Glow Sign Board (Frontlit/Backlit Box)</option>
-                  <option value="cards">Visiting Cards (350 GSM Matte)</option>
-                  <option value="pamphlets">Promotional Pamphlets / Handbills</option>
-                </select>
-              </div>
-
-              <!-- Dimensions for Banners / Boards -->
-              <div id="estDimensionGroup" class="dimension-inputs form-group">
-                <div>
-                  <label for="estWidthInput" class="form-label">Width (in Feet):</label>
-                  <input type="number" id="estWidthInput" class="form-input" value="10" min="1" max="100">
-                </div>
-                <div>
-                  <label for="estHeightInput" class="form-label">Height (in Feet):</label>
-                  <input type="number" id="estHeightInput" class="form-input" value="4" min="1" max="50">
-                </div>
-              </div>
-
-              <!-- Quantity for Cards / Pamphlets -->
-              <div id="estQtyGroup" class="form-group" style="display: none;">
-                <label for="estQtyInput" class="form-label">Quantity:</label>
-                <select id="estQtyInput" class="form-select">
-                  <option value="1000">1,000 Copies</option>
-                  <option value="2000">2,000 Copies</option>
-                  <option value="5000">5,000 Copies</option>
-                  <option value="10000">10,000 Copies</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- Result Card -->
-            <div class="estimate-result-card">
-              <div>
-                <span class="estimate-title">Estimated Starting Price</span>
-                <div class="estimate-price-value" id="estPriceDisplay">₹480</div>
-                <p class="estimate-note" id="estNoteDisplay">
-                  Estimated for Flex Banner: 40 Sq.Ft (10ft × 4ft) @ approx ₹12/sq.ft. Final quote may vary with iron frame or installation.
-                </p>
-              </div>
-              <a href="#" id="estSendWaBtn" class="btn btn-whatsapp" style="width: 100%;">
-                <span>Confirm on WhatsApp</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.585 1.761.889 2.79.889h.001c3.182 0 5.768-2.587 5.769-5.766.001-3.182-2.585-5.775-5.77-5.775zm0-2c4.28 0 7.768 3.488 7.769 7.771 0 4.284-3.488 7.771-7.77 7.771-1.321 0-2.569-.344-3.666-.948l-4.364 1.144 1.168-4.263c-.689-1.157-1.077-2.502-1.076-3.704 0-4.283 3.488-7.771 7.939-7.771z"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
          CALL TO ACTION (CTA) SECTION
          ====================================================================== -->
     <section class="cta-section">
@@ -2059,7 +1976,6 @@
             <li><a href="#services" class="footer-link">→ All 14 Services</a></li>
             <li><a href="#work" class="footer-link">→ Our Work / Gallery</a></li>
             <li><a href="#why-us" class="footer-link">→ Why Choose Us</a></li>
-            <li><a href="#estimator" class="footer-link">→ Instant Price Estimator</a></li>
             <li><a href="#contact" class="footer-link">→ Contact &amp; Location</a></li>
           </ul>
         </div>
@@ -2102,6 +2018,16 @@
             <span data-config="hours">Mon - Sat: 10:00 AM - 8:00 PM</span>
           </div>
         </div>
+      </div>
+
+      <!-- Owner / Staff CRM Portal Access (Password Protected) -->
+      <div class="footer-admin-row">
+        <button type="button" class="footer-admin-btn openAdminLeadsBtn" id="openAdminPortalBtn" title="Owner Access - Customer Inquiries CRM">
+          <span class="admin-lock-icon">🔒</span>
+          <span class="admin-label">Owner Portal (Customer Inquiries)</span>
+          <span class="admin-auth-tag">PP@Anoop123 Protected</span>
+          <span class="admin-leads-badge leadsCountSpan">0</span>
+        </button>
       </div>
 
       <!-- Bottom Bar -->
@@ -2194,6 +2120,9 @@
           <button class="leads-btn-action clear" id="clearAllLeadsBtn" title="Clear inquiries history">
             🗑️ Clear
           </button>
+          <button class="leads-btn-action lock" id="lockAdminLeadsBtn" title="Lock CRM & Logout">
+            🔒 Lock
+          </button>
           <button class="leads-modal-close" id="closeAdminLeadsBtn" aria-label="Close modal">✕</button>
         </div>
       </div>
@@ -2215,13 +2144,49 @@
     </div>
   </div>
 
-  <!-- Floating Leads CRM Quick Access Trigger (Always accessible on all devices) -->
-  <button type="button" class="floating-leads-pill openAdminLeadsBtn" id="floatingLeadsBtn" title="Open Customer Enquiries CRM Portal">
-    <span class="leads-live-pulse"></span>
-    <span class="leads-pill-icon">📥</span>
-    <span class="leads-pill-text">Leads Portal</span>
-    <span class="leads-count-bubble leadsCountSpan">0</span>
-  </button>
+  <!-- ========================================================================
+       OWNER / ADMIN PASSKEY VERIFICATION MODAL (PP@Anoop123)
+       ======================================================================== -->
+  <div class="passkey-modal" id="adminPasskeyModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="passkey-modal-backdrop" id="adminPasskeyBackdrop"></div>
+    <div class="passkey-modal-card">
+      <button class="passkey-modal-close" id="closePasskeyModalBtn" aria-label="Close modal">✕</button>
+      <div class="passkey-card-header">
+        <div class="passkey-shield-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <h3 class="passkey-modal-title">Authorized Admin Access</h3>
+        <p class="passkey-modal-subtitle">Customer leads and telephone records are private. Enter the master passkey to unlock the inquiries CRM.</p>
+      </div>
+      <form id="adminPasskeyForm" class="passkey-form" autocomplete="off">
+        <div class="passkey-field-wrap">
+          <label for="adminPasskeyInput" class="passkey-label">Master Passkey</label>
+          <div class="passkey-input-box">
+            <input type="password" id="adminPasskeyInput" class="passkey-input" placeholder="Enter password (e.g. PP@Anoop123)" required autocomplete="current-password">
+            <button type="button" class="passkey-toggle-btn" id="passkeyToggleBtn" aria-label="Toggle password visibility" title="Show/Hide password">
+              <span id="passkeyToggleIcon">👁️</span>
+            </button>
+          </div>
+          <div class="passkey-error-msg" id="adminPasskeyError" style="display: none;">
+            ⚠️ Incorrect passkey. Access denied!
+          </div>
+        </div>
+        <div class="passkey-modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" id="cancelPasskeyBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm" id="submitPasskeyBtn">
+            <span>Unlock CRM</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+      </form>
+      <div class="passkey-security-note">
+        <span>🛡️ Confidential owner portal for Pari Publicity management</span>
+      </div>
+    </div>
+  </div>
 
   <!-- Configuration and Logic Scripts -->
   <script type="module" src="js/main.js"></script>
