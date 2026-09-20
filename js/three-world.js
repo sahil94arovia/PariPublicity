@@ -436,47 +436,47 @@ function createBillboardTexture() {
   // Top Badge
   ctx.fillStyle = '#E5A4B5';
   ctx.beginPath();
-  ctx.roundRect(360, 44, 304, 38, 19);
+  ctx.roundRect(350, 42, 324, 38, 19);
   ctx.fill();
 
   ctx.fillStyle = '#0B0E17';
   ctx.font = 'bold 15px sans-serif';
   ctx.textAlign = 'center';
-  ctx.fillText('PRIME OUTDOOR MEDIA NETWORK', 512, 69);
+  ctx.fillText('PRIME OUTDOOR MEDIA NETWORK', 512, 67);
 
   // Main Brand Name
   ctx.fillStyle = '#FFFFFF';
-  ctx.font = '900 62px sans-serif';
-  ctx.fillText('PARI PUBLICITY', 512, 175);
+  ctx.font = '900 64px sans-serif';
+  ctx.fillText('PARI PUBLICITY', 512, 168);
 
-  // Subtitle
-  const gradText = ctx.createLinearGradient(220, 0, 780, 0);
+  // Subtitle (HIGHWAY UNIPOLES & HOARDINGS)
+  const gradText = ctx.createLinearGradient(200, 0, 824, 0);
   gradText.addColorStop(0, '#9AB4E8');
   gradText.addColorStop(0.5, '#BFAEE0');
   gradText.addColorStop(1, '#F0D6BF');
   ctx.fillStyle = gradText;
-  ctx.font = 'bold 34px sans-serif';
-  ctx.fillText('HIGHWAY UNIPOLES & HOARDINGS', 512, 238);
+  ctx.font = 'bold 36px sans-serif';
+  ctx.fillText('HIGHWAY UNIPOLES & HOARDINGS', 512, 235);
 
   // Highlights
   ctx.fillStyle = '#94A3B8';
-  ctx.font = '500 23px sans-serif';
-  ctx.fillText('NH-44 MORENA • GWALIOR ROAD • PRIME CORRIDORS', 512, 305);
+  ctx.font = '500 22px sans-serif';
+  ctx.fillText('NH-44 MORENA • GWALIOR ROAD • PRIME CORRIDORS', 512, 298);
 
   // CTA Pill (Gentle Sage)
   ctx.fillStyle = '#A8CEBE';
   ctx.beginPath();
-  ctx.roundRect(320, 355, 384, 58, 29);
+  ctx.roundRect(310, 350, 404, 56, 28);
   ctx.fill();
 
   ctx.fillStyle = '#0B0E17';
   ctx.font = 'bold 22px sans-serif';
-  ctx.fillText('CALL / WHATSAPP: 97558 12374', 512, 392);
+  ctx.fillText('CALL / WHATSAPP: +91 97558 12374', 512, 386);
 
   // Bottom trust mark
   ctx.fillStyle = '#64748B';
   ctx.font = '15px sans-serif';
-  ctx.fillText('Direct Machine Rates • 100% In-House • Ganeshpura, Morena', 512, 465);
+  ctx.fillText('Direct Machine Rates • 100% In-House • Ganeshpura, Morena', 512, 458);
 
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
@@ -484,55 +484,117 @@ function createBillboardTexture() {
 }
 
 /* --------------------------------------------------------------------------
-   SCENE 2: PRIME HIGHWAY OUTDOOR HOARDING (Y = -26)
+   SCENE 2: PRIME HIGHWAY OUTDOOR HOARDING (Y = -26) - LUXURY UNIPOLE BILLBOARD
    -------------------------------------------------------------------------- */
+export function updateHoardingPosition() {
+  if (!groupHoarding) return;
+  const isDesktop = window.innerWidth >= 1024;
+  const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+  
+  // Position billboard on the LEFT half (leaving the right side open for text)
+  groupHoarding.position.x = isDesktop ? -4.6 : (isTablet ? -2.6 : 0);
+  groupHoarding.rotation.y = isDesktop ? 0.28 : (isTablet ? 0.16 : 0);
+  
+  if (window.innerWidth < 768) {
+    groupHoarding.scale.set(0.72, 0.72, 0.72);
+  } else if (window.innerWidth < 1024) {
+    groupHoarding.scale.set(0.88, 0.88, 0.88);
+  } else {
+    groupHoarding.scale.set(1, 1, 1);
+  }
+}
+
 function buildScene2HighwayHoarding() {
   groupHoarding = new THREE.Group();
-  groupHoarding.position.set(0, -26, 0);
+  groupHoarding.position.set(-4.6, -26, 0);
+  groupHoarding.rotation.y = 0.28;
 
-  // Uni-Pole Towering Column (Muted Slate)
-  const poleMat = new THREE.MeshStandardMaterial({
-    color: 0x2e3c54,
-    metalness: 0.3,
-    roughness: 0.35,
-    emissive: 0x111724,
-    emissiveIntensity: 0.35
-  });
-  const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.65, 9.6, 24), poleMat);
-  pole.position.set(0, -1.8, -1.6);
-  groupHoarding.add(pole);
-
-  // Rear Lattice Support Truss
-  const trussMat = new THREE.MeshStandardMaterial({
-    color: 0x1d273a,
-    metalness: 0.25,
-    roughness: 0.4
-  });
-  const truss = new THREE.Mesh(new THREE.BoxGeometry(10.2, 4.8, 0.4), trussMat);
-  truss.position.set(0, 2.4, -1.5);
-  groupHoarding.add(truss);
-
-  // Giant Billboard Face Plate
+  // 1. Giant Billboard Face Plate (Y: 0.0 to 4.8, centered at 2.4, Z: -1.25)
   const boardMat = new THREE.MeshStandardMaterial({
     map: createBillboardTexture(),
     emissive: 0x151e30,
-    emissiveIntensity: 0.4,
-    roughness: 0.3,
+    emissiveIntensity: 0.45,
+    roughness: 0.25,
     metalness: 0.12
   });
   const board = new THREE.Mesh(new THREE.PlaneGeometry(9.6, 4.8), boardMat);
   board.position.set(0, 2.4, -1.25);
   groupHoarding.add(board);
 
-  // Soft Periwinkle Bezel Frame
+  // Soft Periwinkle Bezel Outer Frame (Top)
   const frameBorder = new THREE.Mesh(
-    new THREE.BoxGeometry(9.8, 0.12, 0.2),
+    new THREE.BoxGeometry(9.84, 0.14, 0.2),
     new THREE.MeshBasicMaterial({ color: 0x9ab4e8 })
   );
   frameBorder.position.set(0, 4.85, -1.2);
   groupHoarding.add(frameBorder);
 
-  // Overhead Floodlights & Soft Ambient Light Cones
+  // Soft Periwinkle Bezel Outer Frame (Bottom)
+  const frameBottom = new THREE.Mesh(
+    new THREE.BoxGeometry(9.84, 0.14, 0.2),
+    new THREE.MeshBasicMaterial({ color: 0x9ab4e8 })
+  );
+  frameBottom.position.set(0, -0.05, -1.2);
+  groupHoarding.add(frameBottom);
+
+  // Rear Lattice Support Truss (Strictly BEHIND billboard face)
+  const trussMat = new THREE.MeshStandardMaterial({
+    color: 0x1d273a,
+    metalness: 0.35,
+    roughness: 0.4
+  });
+  const truss = new THREE.Mesh(new THREE.BoxGeometry(10.2, 4.8, 0.4), trussMat);
+  truss.position.set(0, 2.4, -1.55);
+  groupHoarding.add(truss);
+
+  // Steel Catwalk Grating along the bottom edge (y = 0.0)
+  const catwalkMat = new THREE.MeshStandardMaterial({
+    color: 0x222d42,
+    metalness: 0.4,
+    roughness: 0.35
+  });
+  const catwalk = new THREE.Mesh(new THREE.BoxGeometry(10.2, 0.22, 0.85), catwalkMat);
+  catwalk.position.set(0, 0.0, -1.1);
+  groupHoarding.add(catwalk);
+
+  // 2. Heavy Structural Uni-Pole Column (STRICTLY UNDERNEATH THE BILLBOARD)
+  // Top of the pole connects at y = 0.0 to the bottom catwalk and truss.
+  // Height = 8.6, center at y = -4.3, z = -1.55.
+  // It NEVER enters y > 0.0, so it NEVER obscures the billboard faceplate or text!
+  const poleMat = new THREE.MeshStandardMaterial({
+    color: 0x2e3c54,
+    metalness: 0.35,
+    roughness: 0.35,
+    emissive: 0x111724,
+    emissiveIntensity: 0.25
+  });
+  const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.72, 8.6, 24), poleMat);
+  pole.position.set(0, -4.3, -1.55);
+  groupHoarding.add(pole);
+
+  // Heavy Structural Collar Flanges
+  const collarMat = new THREE.MeshStandardMaterial({ color: 0x3d4e6b, metalness: 0.4, roughness: 0.3 });
+  const collarTop = new THREE.Mesh(new THREE.CylinderGeometry(0.72, 0.72, 0.35, 24), collarMat);
+  collarTop.position.set(0, -0.18, -1.55);
+  groupHoarding.add(collarTop);
+
+  const collarMid = new THREE.Mesh(new THREE.CylinderGeometry(0.76, 0.76, 0.28, 24), collarMat);
+  collarMid.position.set(0, -3.2, -1.55);
+  groupHoarding.add(collarMid);
+
+  // Diagonal Under-Billboard Steel Outrigger Struts
+  const strutMat = new THREE.MeshStandardMaterial({ color: 0x243048, metalness: 0.35, roughness: 0.4 });
+  const strutLeft = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 3.4, 12), strutMat);
+  strutLeft.position.set(-1.6, -1.0, -1.55);
+  strutLeft.rotation.z = Math.PI / 5.2;
+  groupHoarding.add(strutLeft);
+
+  const strutRight = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.12, 3.4, 12), strutMat);
+  strutRight.position.set(1.6, -1.0, -1.55);
+  strutRight.rotation.z = -Math.PI / 5.2;
+  groupHoarding.add(strutRight);
+
+  // 3. Overhead Industrial Floodlights Rig
   for (let i = -3.4; i <= 3.4; i += 2.25) {
     const fixture = new THREE.Mesh(
       new THREE.BoxGeometry(0.45, 0.25, 0.5),
@@ -548,7 +610,7 @@ function buildScene2HighwayHoarding() {
     lightBulb.position.set(i, 5.0, -0.6);
     groupHoarding.add(lightBulb);
 
-    // Soft Pastel Light Cones
+    // Soft Volumetric Light Cones
     const coneGeom = new THREE.ConeGeometry(1.6, 3.8, 24, 1, true);
     const coneMat = new THREE.MeshBasicMaterial({
       color: 0x9ab4e8,
@@ -567,11 +629,11 @@ function buildScene2HighwayHoarding() {
     groupHoarding.add(floodPoint);
   }
 
-  // Highway Ground Surface with Soft Light Trails
+  // 4. Highway Ground Surface with Soft Light Trails
   const roadMat = new THREE.MeshStandardMaterial({ color: 0x090d16, roughness: 0.6, metalness: 0.15 });
   const road = new THREE.Mesh(new THREE.PlaneGeometry(36, 14), roadMat);
   road.rotation.x = -Math.PI / 2;
-  road.position.set(0, -6.0, 2.5);
+  road.position.set(0, -8.6, 2.5);
   groupHoarding.add(road);
 
   // Dynamic Highway Traffic Light Trails (Muted Ruby & Champagne Amber)
@@ -588,7 +650,7 @@ function buildScene2HighwayHoarding() {
     trail.rotation.z = Math.PI / 2;
     trail.position.set(
       (Math.random() - 0.5) * 32,
-      -5.9,
+      -8.5,
       -2 + Math.random() * 9
     );
     trail.userData = { speed: (isRed ? -0.14 : 0.18) * (0.8 + Math.random() * 0.4) };
@@ -597,6 +659,7 @@ function buildScene2HighwayHoarding() {
   groupHoarding.add(highwayTrails);
 
   scene.add(groupHoarding);
+  updateHoardingPosition();
 }
 
 /* --------------------------------------------------------------------------
@@ -880,6 +943,7 @@ function onWindowResize() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
   updateEmblemPositionToDOM();
+  updateHoardingPosition();
 }
 
 function onScroll() {
