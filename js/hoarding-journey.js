@@ -14,11 +14,10 @@ let isInitialized = false;
 let trackEl, viewportEl, craneRigEl, vanEl, frontWheelEl, rearWheelEl, exhaustPuffEl, milestoneEl;
 let scrollProgress = 0;
 let targetScrollProgress = 0;
-let currentWheelAngle = 0;
 let rafId = null;
 
 export function initHoardingJourney() {
-  trackEl = document.getElementById('heroHoardingTrack');
+  trackEl = document.getElementById('home') || document.getElementById('heroHoardingTrack') || document.querySelector('.hero-hoarding-track');
   viewportEl = document.getElementById('heroHoardingViewport');
   craneRigEl = document.getElementById('hoardingCraneRig');
   vanEl = document.getElementById('cartoonVan');
@@ -86,61 +85,62 @@ function renderJourney(p, delta) {
   if (!craneRigEl) return;
 
   const isMobile = window.innerWidth <= 768;
-  const vh = window.innerHeight;
 
-  // Phase 1: Camera descends down the Unipole (0.0 to 0.55)
-  // Crane rig translates upwards, moving the Hoarding out of top view and bringing the ground into view
-  const maxCraneTravel = isMobile ? vh * 1.15 : vh * 1.05;
-  const craneP = Math.min(1, p / 0.55);
-  // Custom ease-in-out curve for natural camera crane feel
+  // Dynamic crane travel: precisely aligns the highway road with the bottom of the sticky viewport
+  const craneTotalHeight = craneRigEl.offsetHeight;
+  const viewportHeight = viewportEl ? viewportEl.offsetHeight : window.innerHeight;
+  const maxCraneTravel = Math.max(0, craneTotalHeight - viewportHeight);
+
+  // Phase 1: Camera descends down the Unipole (0.0 to 0.52)
+  const craneP = Math.min(1, p / 0.52);
   const craneEase = craneP * craneP * (3 - 2 * craneP);
   const currentCraneY = -craneEase * maxCraneTravel;
 
   craneRigEl.style.transform = `translate3d(0, ${currentCraneY.toFixed(2)}px, 0)`;
 
-  // Subtle parallax tilt on the hoarding faceplate while at top
-  const hoardingBoard = document.getElementById('grandHoardingBoard');
-  if (hoardingBoard && p < 0.4) {
-    const scale = 1 - (p * 0.08);
-    const opacity = 1 - Math.max(0, (p - 0.28) / 0.22);
-    hoardingBoard.style.transform = `scale(${scale.toFixed(3)})`;
-    hoardingBoard.style.opacity = Math.max(0.1, opacity).toFixed(2);
-  } else if (hoardingBoard) {
-    hoardingBoard.style.opacity = '0.1';
+  // Scale and fade on the hoarding assembly so inner board can maintain 3D mouse tilt cleanly
+  const hoardingAssembly = document.querySelector('.grand-hoarding-assembly');
+  if (hoardingAssembly) {
+    if (p < 0.45) {
+      const scale = 1 - (p * 0.08);
+      const opacity = 1 - Math.max(0, (p - 0.28) / 0.22);
+      hoardingAssembly.style.transform = `scale(${scale.toFixed(3)})`;
+      hoardingAssembly.style.opacity = Math.max(0.05, opacity).toFixed(2);
+    } else {
+      hoardingAssembly.style.opacity = '0.05';
+    }
   }
 
   // Phase 2: Ground Road Level & 2D Van Animation (0.35 to 1.0)
   if (vanEl) {
-    // Van starts driving once camera reaches near the road (p >= 0.35)
     const vanP = Math.max(0, Math.min(1, (p - 0.35) / 0.65));
-    // Smooth cubic bezier easing
     const vanEase = Math.sin((vanP * Math.PI) / 2);
 
-    // Van moves across the road: from off-screen left (-35% or -220px) to center/forward
-    const travelDistance = isMobile ? (window.innerWidth + 200) : (window.innerWidth * 0.82 + 250);
+    const travelDistance = isMobile ? (window.innerWidth + 180) : (window.innerWidth * 0.78 + 260);
     const startX = isMobile ? -180 : -260;
     const currentVanX = startX + (vanEase * travelDistance);
 
-    // Van suspension bounce (slight up and down as it drives along road)
-    const bounceY = Math.sin(vanP * 28) * (Math.abs(delta) > 0.0005 ? 3.2 : 0.8);
-    const pitchAngle = (delta * 120); // subtle nose dip / lift on accelerate/brake
+    // Van suspension bounce (subtle up/down on driving) and acceleration pitch
+    const bounceY = Math.sin(vanP * 28) * (Math.abs(delta) > 0.0004 ? 2.8 : 0.6);
+    const pitchAngle = Math.max(-4, Math.min(4, delta * 130));
 
     vanEl.style.transform = `translate3d(${currentVanX.toFixed(1)}px, ${bounceY.toFixed(1)}px, 0) rotate(${pitchAngle.toFixed(2)}deg)`;
 
-    // Rotate Wheels based on movement
-    currentWheelAngle += delta * 1850;
+    // Physically locked wheel rotation:
+    // Wheel radius in SVG = 28 units. Rotation angle = (distance / radius) in radians -> degrees
+    const wheelDeg = (currentVanX / 28) * (180 / Math.PI);
     if (frontWheelEl) {
-      frontWheelEl.style.transform = `rotate(${currentWheelAngle.toFixed(1)}deg)`;
+      frontWheelEl.style.transform = `rotate(${wheelDeg.toFixed(1)}deg)`;
     }
     if (rearWheelEl) {
-      rearWheelEl.style.transform = `rotate(${currentWheelAngle.toFixed(1)}deg)`;
+      rearWheelEl.style.transform = `rotate(${wheelDeg.toFixed(1)}deg)`;
     }
 
     // Dynamic exhaust smoke puff scaling & opacity
     if (exhaustPuffEl) {
-      const isMoving = Math.abs(delta) > 0.0004;
-      const puffScale = isMoving ? (0.9 + Math.sin(vanP * 40) * 0.45) : 0.4;
-      const puffOpacity = isMoving ? (0.7 + Math.sin(vanP * 35) * 0.25) : 0.15;
+      const isMoving = Math.abs(delta) > 0.0003;
+      const puffScale = isMoving ? (0.85 + Math.sin(vanP * 36) * 0.4) : 0.35;
+      const puffOpacity = isMoving ? (0.7 + Math.sin(vanP * 30) * 0.25) : 0.12;
       exhaustPuffEl.style.transform = `scale(${puffScale.toFixed(2)})`;
       exhaustPuffEl.style.opacity = puffOpacity.toFixed(2);
     }
@@ -156,7 +156,7 @@ function renderJourney(p, delta) {
   // Update Scroll Indicator Hint
   const scrollHint = document.getElementById('hoardingScrollHint');
   if (scrollHint) {
-    if (p > 0.15) {
+    if (p > 0.12) {
       scrollHint.classList.add('faded');
     } else {
       scrollHint.classList.remove('faded');

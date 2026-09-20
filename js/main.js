@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollSpy();
   initCardSpotlights();
   initHero3DTilt();
+  initServiceEnquiryClicks();
 });
 
 /* --------------------------------------------------------------------------
@@ -557,7 +558,7 @@ function initScrollSpy() {
    11. APPLE SPOTLIGHT CURSOR GLOW EFFECT ON GLASS CARDS
    -------------------------------------------------------------------------- */
 function initCardSpotlights() {
-  const cards = document.querySelectorAll('.service-card, .why-card, .work-item, .hero-stage-card, .process-step-card');
+  const cards = document.querySelectorAll('.service-card, .why-card, .work-item, .grand-hoarding-board, .process-step-card, .stat-card');
   
   cards.forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -628,10 +629,12 @@ function showToast(message) {
 }
 
 /* --------------------------------------------------------------------------
-   14. 3D REALM CHAPTER HUD NAVIGATION
+   14. 3D REALM CHAPTER HUD NAVIGATION (WITH HERO AUTO-HIDE)
    -------------------------------------------------------------------------- */
 function initChapterHud() {
   const hudBtns = document.querySelectorAll('.hud-btn');
+  const hudAside = document.querySelector('.chapter-hud');
+  const heroTrack = document.getElementById('home') || document.getElementById('heroHoardingTrack');
   if (!hudBtns.length) return;
 
   hudBtns.forEach(btn => {
@@ -642,6 +645,16 @@ function initChapterHud() {
   });
 
   const onScrollHud = () => {
+    // Hide HUD during the Hero Hoarding & Van journey so road and van are 100% visible
+    if (hudAside && heroTrack) {
+      const heroBottom = heroTrack.offsetTop + heroTrack.offsetHeight - 200;
+      if (window.scrollY < heroBottom) {
+        hudAside.classList.add('hud-hidden');
+      } else {
+        hudAside.classList.remove('hud-hidden');
+      }
+    }
+
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     if (maxScroll <= 0) return;
     const p = window.scrollY / maxScroll;
@@ -661,4 +674,25 @@ function initChapterHud() {
 
   window.addEventListener('scroll', onScrollHud, { passive: true });
   onScrollHud();
+}
+
+/* --------------------------------------------------------------------------
+   15. SERVICE CARD "ENQUIRE NOW" DROPDOWN PRE-SELECTION
+   -------------------------------------------------------------------------- */
+function initServiceEnquiryClicks() {
+  const links = document.querySelectorAll('.service-btn-link');
+  const select = document.getElementById('quoteService');
+
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      const card = link.closest('.service-card');
+      if (!card || !select) return;
+
+      const numEl = card.querySelector('.service-number');
+      if (numEl) {
+        const numVal = parseInt(numEl.textContent.trim(), 10).toString();
+        select.value = numVal;
+      }
+    });
+  });
 }

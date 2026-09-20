@@ -142,7 +142,13 @@ body {
   transform: translateX(-50%);
   z-index: 900;
   pointer-events: auto;
-  transition: var(--transition-base);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chapter-hud.hud-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 20px);
 }
 
 .hud-pill {
@@ -516,7 +522,7 @@ button {
 
 .brand-logo-wrap:hover {
   transform: scale(1.02);
-  filter: drop-shadow(0 0 15px rgba(43, 127, 255, 0.4));
+  filter: drop-shadow(0 0 15px rgba(154, 180, 232, 0.35));
 }
 
 .brand-logo-img {
@@ -1383,10 +1389,28 @@ button {
   overflow: visible;
 }
 
+/* Precise Wheel Axle Rotation Origins (ViewBox: 420x220) */
+#vanWheelRear {
+  transform-box: view-box;
+  transform-origin: 112px 162px;
+}
+
+#vanWheelFront {
+  transform-box: view-box;
+  transform-origin: 346px 162px;
+}
+
+#vanExhaustGroup {
+  transform-box: view-box;
+  transform-origin: 18px 160px;
+}
+
 /* Scroll Hint Pill */
 .hoarding-scroll-hint {
   position: absolute;
   bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 0);
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
@@ -1402,11 +1426,12 @@ button {
   z-index: 20;
   transition: opacity 0.4s ease, transform 0.4s ease;
   pointer-events: none;
+  white-space: nowrap;
 }
 
 .hoarding-scroll-hint.faded {
   opacity: 0;
-  transform: translateY(12px);
+  transform: translate(-50%, 12px);
 }
 
 .hint-arrow-bounce {
@@ -1866,9 +1891,9 @@ button {
 
 .why-card:hover {
   background: var(--glass-card-hover);
-  border-color: rgba(43, 127, 255, 0.4);
+  border-color: rgba(154, 180, 232, 0.4);
   transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(43, 127, 255, 0.25);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(154, 180, 232, 0.2);
 }
 
 .why-icon-wrap {
@@ -1970,8 +1995,8 @@ button {
 
 .work-item:hover {
   transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(43, 127, 255, 0.3);
-  border-color: rgba(43, 127, 255, 0.5);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(154, 180, 232, 0.25);
+  border-color: rgba(154, 180, 232, 0.45);
 }
 
 .work-thumb-wrap {
@@ -2247,8 +2272,8 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid rgba(43, 127, 255, 0.35);
-  box-shadow: 0 0 40px rgba(43, 127, 255, 0.2);
+  border: 1px solid rgba(154, 180, 232, 0.3);
+  box-shadow: 0 0 40px rgba(154, 180, 232, 0.15);
   text-align: center;
 }
 
@@ -2266,7 +2291,7 @@ button {
   font-weight: 900;
   color: var(--text-pure);
   margin: 0.75rem 0;
-  text-shadow: 0 0 30px rgba(43, 127, 255, 0.5);
+  text-shadow: 0 0 30px rgba(154, 180, 232, 0.35);
 }
 
 .estimate-note {
