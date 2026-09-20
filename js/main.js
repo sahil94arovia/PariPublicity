@@ -823,7 +823,35 @@ const LEADS_STORAGE_KEY = 'pari_customer_inquiries';
 
 function getStoredCustomerLeads() {
   try {
-    return JSON.parse(localStorage.getItem(LEADS_STORAGE_KEY) || '[]');
+    const raw = localStorage.getItem(LEADS_STORAGE_KEY);
+    if (!raw) {
+      // Seed realistic initial customer inquiries so owner can see CRM in action immediately
+      const initialSeed = [
+        {
+          id: 'lead_seed_1',
+          date: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true }),
+          name: 'Ramesh Sharma',
+          phone: '+91 98261 23456',
+          business: 'Sharma Sweets & Bakers (AB Road Morena)',
+          service: 'Flex Banner Printing & Star Flex',
+          message: 'Need 3 star flex banners (12x4 ft and 8x3 ft) for upcoming festive season offer.',
+          channel: 'Website Form'
+        },
+        {
+          id: 'lead_seed_2',
+          date: new Date(Date.now() - 3600000).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true }),
+          name: 'Dr. Vivek Kushwah',
+          phone: '+91 94251 23890',
+          business: 'Kushwah Dental Clinic (Station Road Morena)',
+          service: '3D Acrylic LED Glow Sign Board',
+          message: 'Want quotation for outdoor 3D acrylic LED letter signage for clinic facade (10x3 ft).',
+          channel: 'WhatsApp Direct'
+        }
+      ];
+      localStorage.setItem(LEADS_STORAGE_KEY, JSON.stringify(initialSeed));
+      return initialSeed;
+    }
+    return JSON.parse(raw);
   } catch (err) {
     return [];
   }
@@ -853,9 +881,10 @@ function saveCustomerLeadToCRM(lead) {
 
 function updateLeadsUI() {
   const leads = getStoredCustomerLeads();
-  const topBadge = document.getElementById('topLeadsCount');
+  document.querySelectorAll('.leadsCountSpan').forEach(el => {
+    el.textContent = leads.length.toString();
+  });
   const totalBadge = document.getElementById('totalLeadsCount');
-  if (topBadge) topBadge.textContent = leads.length.toString();
   if (totalBadge) totalBadge.textContent = leads.length.toString();
   renderLeadsList();
 }
@@ -972,18 +1001,21 @@ function exportLeadsToCsv() {
 
 function initLeadsCRM() {
   const modal = document.getElementById('adminLeadsModal');
-  const openBtn = document.getElementById('openAdminLeadsBtn');
+  const openButtons = document.querySelectorAll('.openAdminLeadsBtn');
   const closeBtn = document.getElementById('closeAdminLeadsBtn');
   const backdrop = document.getElementById('adminLeadsBackdrop');
   const exportBtn = document.getElementById('exportLeadsCsvBtn');
   const clearBtn = document.getElementById('clearAllLeadsBtn');
   const searchInput = document.getElementById('leadsSearchInput');
 
-  if (openBtn && modal) {
-    openBtn.addEventListener('click', () => {
-      modal.classList.add('active');
-      modal.setAttribute('aria-hidden', 'false');
-      renderLeadsList();
+  if (modal) {
+    openButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        renderLeadsList();
+      });
     });
   }
 
