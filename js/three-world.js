@@ -102,10 +102,7 @@ export function initThreeWorld() {
     buildScene3AcrylicSign();
     buildScene4HotlineNexus();
 
-    // 6. Background Aesthetic Pastel Particle Cosmos
-    buildParticleCosmos();
-
-    // 7. Event Listeners & Interaction
+    // 6. Event Listeners & Interaction
     setupEventListeners();
 
     // 8. Animation Loop
@@ -818,49 +815,10 @@ function buildScene4HotlineNexus() {
 }
 
 /* --------------------------------------------------------------------------
-   PARTICLE COSMOS (FLOATING AESTHETIC FADED PASTEL STARDUST)
+   PARTICLE COSMOS - REMOVED (NO PIXEL/MINECRAFT BOXES)
    -------------------------------------------------------------------------- */
 function buildParticleCosmos() {
-  const count = window.innerWidth < 768 ? 700 : 1600;
-  const positions = new Float32Array(count * 3);
-  const colors = new Float32Array(count * 3);
-
-  // Calibrated Vibrant Keynote Jewel Tones on AMOLED Black
-  const palette = [
-    new THREE.Color(0x38bdf8), // Electric Sapphire Cyan
-    new THREE.Color(0xf43f5e), // Vivid Crimson Magenta
-    new THREE.Color(0xfbbf24), // Radiant Amber Gold
-    new THREE.Color(0x22c55e), // Emerald Green
-    new THREE.Color(0xffffff)  // Crisp Diamond White
-  ];
-
-  for (let i = 0; i < count; i++) {
-    // Distribute through vertical canyon of all scenes (Y: +8 to -62)
-    positions[i * 3 + 0] = (Math.random() - 0.5) * 38;
-    positions[i * 3 + 1] = 8 - Math.random() * 68;
-    positions[i * 3 + 2] = -6 + Math.random() * 16;
-
-    const col = palette[Math.floor(Math.random() * palette.length)];
-    colors[i * 3 + 0] = col.r;
-    colors[i * 3 + 1] = col.g;
-    colors[i * 3 + 2] = col.b;
-  }
-
-  const geometry = new THREE.BufferGeometry();
-  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-  const material = new THREE.PointsMaterial({
-    size: 0.22,
-    vertexColors: true,
-    transparent: true,
-    opacity: 0.65,
-    blending: THREE.AdditiveBlending,
-    depthWrite: false
-  });
-
-  particleSystem = new THREE.Points(geometry, material);
-  scene.add(particleSystem);
+  // Completely disabled per user request: clean AMOLED black backdrop with zero floating square boxes
 }
 
 /* --------------------------------------------------------------------------
@@ -1052,18 +1010,7 @@ function animate() {
     }
   }
 
-  // 7. Animate Particle Cosmos
-  if (particleSystem) {
-    particleSystem.rotation.y = time * 0.025;
-    const positions = particleSystem.geometry.attributes.position.array;
-    for (let i = 1; i < positions.length; i += 3) {
-      positions[i] -= delta * 0.8;
-      if (positions[i] < -62) positions[i] = 8;
-    }
-    particleSystem.geometry.attributes.position.needsUpdate = true;
-  }
-
-  // 8. Render Frame
+  // 7. Render Frame
   renderer.render(scene, camera);
 }
 
