@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initStatsCounter();
   initServiceFilters();
+  initServiceSearch();
+  initQuickServiceChips();
   initWorkFilters();
   initLightboxModal();
   initCostEstimator();
@@ -214,7 +216,7 @@ function initStatsCounter() {
 }
 
 /* --------------------------------------------------------------------------
-   5. SERVICE CATEGORY FILTER
+   5. SERVICE CATEGORY FILTER & INSTANT SEARCH ENGINE (MAIN USP)
    -------------------------------------------------------------------------- */
 function initServiceFilters() {
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -227,27 +229,129 @@ function initServiceFilters() {
       btn.classList.add('active');
 
       const filterValue = btn.getAttribute('data-filter');
+      const searchInput = document.getElementById('serviceSearchInput');
+      if (searchInput && searchInput.value.trim() !== '') {
+        searchInput.value = '';
+        const clearBtn = document.getElementById('clearServiceSearchBtn');
+        if (clearBtn) clearBtn.style.display = 'none';
+      }
 
-      serviceCards.forEach(card => {
-        const categories = card.getAttribute('data-category') || '';
-        if (filterValue === 'all' || categories.includes(filterValue)) {
-          card.style.display = 'flex';
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(12px)';
-          setTimeout(() => {
-            card.style.transition = 'opacity 0.35s cubic-bezier(0.16,1,0.3,1), transform 0.35s cubic-bezier(0.16,1,0.3,1)';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-            // Clear inline transform and transition after animation so CSS :hover takes over cleanly
-            setTimeout(() => {
-              card.style.transform = '';
-              card.style.transition = '';
-            }, 360);
-          }, 20);
-        } else {
-          card.style.display = 'none';
+      applyServiceFiltering(filterValue);
+    });
+  });
+}
+
+function applyServiceFiltering(filterValue = 'all') {
+  const serviceCards = document.querySelectorAll('.service-card');
+  const countBadge = document.getElementById('serviceResultsCount');
+  let visibleCount = 0;
+
+  serviceCards.forEach(card => {
+    const categories = card.getAttribute('data-category') || '';
+    if (filterValue === 'all' || categories.includes(filterValue)) {
+      card.style.display = 'flex';
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(10px)';
+      visibleCount++;
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.3s cubic-bezier(0.16,1,0.3,1), transform 0.3s cubic-bezier(0.16,1,0.3,1)';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+        setTimeout(() => {
+          card.style.transform = '';
+          card.style.transition = '';
+        }, 320);
+      }, 10);
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  if (countBadge) {
+    countBadge.textContent = filterValue === 'all'
+      ? `Showing all ${visibleCount} services`
+      : `Showing ${visibleCount} services in this category`;
+  }
+}
+
+function initServiceSearch() {
+  const searchInput = document.getElementById('serviceSearchInput');
+  const clearBtn = document.getElementById('clearServiceSearchBtn');
+  const countBadge = document.getElementById('serviceResultsCount');
+  const serviceCards = document.querySelectorAll('.service-card');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+
+  if (!searchInput || !serviceCards.length) return;
+
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+
+    if (query) {
+      if (clearBtn) clearBtn.style.display = 'block';
+      filterBtns.forEach(b => b.classList.remove('active'));
+    } else {
+      if (clearBtn) clearBtn.style.display = 'none';
+      const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+      if (allBtn) allBtn.classList.add('active');
+    }
+
+    let matchCount = 0;
+    serviceCards.forEach(card => {
+      const title = (card.querySelector('.service-title') ? card.querySelector('.service-title').textContent : '').toLowerCase();
+      const benefit = (card.querySelector('.service-benefit') ? card.querySelector('.service-benefit').textContent : '').toLowerCase();
+      const keywords = (card.getAttribute('data-search-keywords') || '').toLowerCase();
+      const category = (card.getAttribute('data-category') || '').toLowerCase();
+
+      const matches = !query || title.includes(query) || benefit.includes(query) || keywords.includes(query) || category.includes(query);
+
+      if (matches) {
+        card.style.display = 'flex';
+        card.style.opacity = '1';
+        matchCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (countBadge) {
+      if (!query) {
+        countBadge.textContent = `Showing all ${serviceCards.length} services`;
+      } else if (matchCount === 0) {
+        countBadge.textContent = `No services found for "${query}". Try searching 'flex', 'hoarding', or 'board'`;
+      } else {
+        countBadge.textContent = `Found ${matchCount} matching service${matchCount > 1 ? 's' : ''}`;
+      }
+    }
+  });
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      clearBtn.style.display = 'none';
+      const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+      if (allBtn) {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        allBtn.classList.add('active');
+      }
+      applyServiceFiltering('all');
+      searchInput.focus();
+    });
+  }
+}
+
+function initQuickServiceChips() {
+  const chips = document.querySelectorAll('.quick-service-chip');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const targetCategory = chip.getAttribute('data-category-target');
+      if (targetCategory) {
+        const filterBtn = document.querySelector(`.filter-btn[data-filter="${targetCategory}"]`);
+        if (filterBtn) {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          filterBtn.classList.add('active');
+          applyServiceFiltering(targetCategory);
         }
-      });
+      }
     });
   });
 }

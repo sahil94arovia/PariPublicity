@@ -324,6 +324,28 @@
                   </a>
                 </div>
 
+                <!-- Quick Services Instant Navigation Bar (Main USP) -->
+                <div class="hoarding-quick-services">
+                  <div class="quick-services-label">⚡ OUR SERVICES • हमारी सेवाएं:</div>
+                  <div class="quick-services-chips">
+                    <a href="#services" class="quick-service-chip" data-category-target="flex">
+                      <span class="chip-icon">🏷️</span> Flex Banners • फ्लैक्स बैनर
+                    </a>
+                    <a href="#services" class="quick-service-chip" data-category-target="outdoor">
+                      <span class="chip-icon">🛣️</span> Highway Hoardings • हाईवे होर्डिंग्स
+                    </a>
+                    <a href="#services" class="quick-service-chip" data-category-target="branding">
+                      <span class="chip-icon">💡</span> 3D Glow Signs • 3D साइन बोर्ड
+                    </a>
+                    <a href="#services" class="quick-service-chip" data-category-target="stationery">
+                      <span class="chip-icon">📇</span> Visiting Cards • विज़िटिंग कार्ड
+                    </a>
+                    <a href="#services" class="quick-service-chip" data-category-target="flex">
+                      <span class="chip-icon">🏬</span> Shop Vinyl • शॉप ब्रांडिंग
+                    </a>
+                  </div>
+                </div>
+
                 <!-- 4 Flagship Feature Indicators -->
                 <div class="hoarding-spec-pills">
                   <div class="spec-pill">
@@ -670,12 +692,12 @@
 
         </div>
 
-        <!-- Scroll Indicator Hint Pill -->
+        <!-- Scroll Indicator Hint Pill (Smooth & Intuitive Navigation) -->
         <div class="hoarding-scroll-hint" id="hoardingScrollHint">
           <div class="hint-arrow-bounce">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
           </div>
-          <span>Scroll down to travel down the Unipole &amp; drive the van</span>
+          <span>Scroll down to drive van &bull; Or <a href="#services" class="hint-jump-link">Explore All Services ↓</a></span>
         </div>
       </div>
     </section>
@@ -730,363 +752,518 @@
          ====================================================================== -->
     <section class="services-section section-padding" id="services">
       <div class="container">
+        <!-- Upgraded Section Header -->
         <div class="section-header">
-          <div class="section-badge">Complete Branding &amp; Print Solutions</div>
+          <div class="section-badge">🌟 Main Speciality • हमारी 14 मुख्य सेवाएं</div>
           <h2 class="section-title">Everything Your Brand Needs to <span class="highlight">Command Attention</span></h2>
           <p class="section-description">
-            From single visiting cards to massive 40-foot outdoor highway hoardings across Morena, 
-            we provide end-to-end design, high-definition printing, and on-site installation.
+            Morena’s flagship one-stop hub for high-speed flex banner printing, prime highway hoardings across NH-44, 
+            LED 3D acrylic signboards, premium stationery, and complete outdoor advertising — all with in-house machinery and factory rates.
           </p>
+        </div>
+
+        <!-- Live Instant Service Finder & Search Bar -->
+        <div class="service-search-wrap">
+          <div class="service-search-box">
+            <span class="service-search-icon">🔍</span>
+            <input type="text" id="serviceSearchInput" placeholder="Search any service (e.g. Flex, Hoarding, Visiting Card, 3D Board, Canopy, Vinyl...)" aria-label="Search all services">
+            <button type="button" id="clearServiceSearchBtn" class="service-search-clear" style="display:none;" title="Clear search">✕</button>
+          </div>
+          <div class="service-count-badge" id="serviceResultsCount">Showing all 14 services</div>
         </div>
 
         <!-- Service Category Filters -->
         <div class="service-filter-bar">
           <button class="filter-btn active" data-filter="all">All Services (14)</button>
-          <button class="filter-btn" data-filter="outdoor">Outdoor &amp; Hoardings</button>
-          <button class="filter-btn" data-filter="flex">Flex &amp; Vinyl</button>
-          <button class="filter-btn" data-filter="stationery">Stationery &amp; Print</button>
-          <button class="filter-btn" data-filter="branding">Branding &amp; Digital</button>
+          <button class="filter-btn" data-filter="outdoor">🛣️ Outdoor &amp; Hoardings</button>
+          <button class="filter-btn" data-filter="flex">🏷️ Flex &amp; Vinyl</button>
+          <button class="filter-btn" data-filter="branding">💡 Signage &amp; 3D Letters</button>
+          <button class="filter-btn" data-filter="stationery">📇 Stationery &amp; Print</button>
         </div>
 
-        <!-- 14 Service Cards Grid -->
+        <!-- 14 Service Cards Grid (Bilingual & High-Conversion) -->
         <div class="services-grid" id="servicesGrid">
 
           <!-- 1. Logo Design & Brand Identity -->
-          <div class="service-card" data-category="branding all">
+          <div class="service-card" data-category="branding all" data-search-keywords="logo brand identity vector cdr symbol design लोगो डिज़ाइन">
             <div class="service-top-row">
               <div class="service-icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>
               </div>
               <span class="service-number">01</span>
             </div>
-            <span class="service-category-tag">Branding &amp; Identity</span>
-            <h3 class="service-title">Logo Design &amp; Brand Identity</h3>
+            <div class="service-badge-row">
+              <span class="service-category-tag">Branding &amp; Identity</span>
+              <span class="service-usp-pill">✨ Custom Concepts</span>
+            </div>
+            <h3 class="service-title">Logo Design &amp; Brand Identity <span class="service-title-hi">लोगो डिज़ाइन व ब्रांड पहचान</span></h3>
             <p class="service-benefit">
-              Unique, memorable logos and brand visual guidelines that build instant trust and command market authority.
+              Unique, memorable logos and brand visual guidelines that build instant customer trust and command market authority.
             </p>
             <ul class="service-highlights">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Multiple Custom Concepts</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Res Vector (AI, CDR, PDF, PNG)</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Brand Color Palette &amp; Fonts</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Multiple Custom Design Concepts</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Res Vectors (AI, CDR, PDF, PNG)</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Brand Color Palette &amp; Font Kit</li>
             </ul>
             <div class="service-card-action">
               <span class="service-price-hint">Custom Package</span>
-              <a href="#contact" class="service-btn-link">Enquire Now →</a>
+              <div class="service-action-btns">
+                <a href="https://wa.me/919755812374?text=Namaste%20Anoop%20ji!%20I%20want%20rates%20and%20details%20for%20Logo%20Design%20%26%20Brand%20Identity." target="_blank" class="service-btn-wa" title="Order on WhatsApp">
+                  💬 WhatsApp
+                </a>
+                <a href="#contact" class="service-btn-link" data-service-select="Logo Design">Get Quote →</a>
+              </div>
             </div>
           </div>
 
           <!-- 2. Flex Banner Printing -->
-          <div class="service-card" data-category="flex outdoor all">
+          <div class="service-card" data-category="flex outdoor all" data-search-keywords="flex banner printing large format hoarding shop banner banner printing फ्लैक्स बैनर प्रिंटिंग">
             <div class="service-top-row">
               <div class="service-icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
               </div>
               <span class="service-number">02</span>
             </div>
-            <span class="service-category-tag">Large Format Printing</span>
-            <h3 class="service-title">Flex Banner Printing</h3>
+            <div class="service-badge-row">
+              <span class="service-category-tag">Large Format Printing</span>
+              <span class="service-usp-pill">⚡ Same-Day Delivery</span>
+            </div>
+            <h3 class="service-title">Flex Banner Printing <span class="service-title-hi">फ्लैक्स बैनर प्रिंटिंग</span></h3>
             <p class="service-benefit">
-              High-speed, vibrant flex printing on heavy GSM media for shops, festive offers, and urgent announcements.
+              High-speed, ultra-vibrant flex printing on heavy GSM media for shops, festive sales, and urgent announcements.
             </p>
             <ul class="service-highlights">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Same-Day Printing Turnaround</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Same-Day Printing Turnaround in Morena</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Weather &amp; Sunlight Resistant Inks</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Brass Eyelets &amp; Stitched Edges</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Heavy GSM Media with Brass Eyelets</li>
             </ul>
             <div class="service-card-action">
-              <span class="service-price-hint">Starting from ₹12/sq.ft</span>
-              <a href="#contact" class="service-btn-link">Enquire Now →</a>
+              <span class="service-price-hint">From ₹12/sq.ft</span>
+              <div class="service-action-btns">
+                <a href="https://wa.me/919755812374?text=Namaste%20Anoop%20ji!%20I%20want%20rates%20and%20order%20for%20Flex%20Banner%20Printing." target="_blank" class="service-btn-wa" title="Order on WhatsApp">
+                  💬 WhatsApp
+                </a>
+                <a href="#contact" class="service-btn-link" data-service-select="Flex Banner Printing">Get Quote →</a>
+              </div>
             </div>
           </div>
 
           <!-- 3. Star Flex Banners -->
-          <div class="service-card" data-category="flex outdoor all">
+          <div class="service-card" data-category="flex outdoor all" data-search-keywords="star flex high gloss banner 340 gsm premium outdoor star banner स्टार फ्लैक्स">
             <div class="service-top-row">
               <div class="service-icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
               </div>
               <span class="service-number">03</span>
             </div>
-            <span class="service-category-tag">Premium Outdoor Media</span>
-            <h3 class="service-title">Star Flex Banners</h3>
+            <div class="service-badge-row">
+              <span class="service-category-tag">Premium Outdoor Media</span>
+              <span class="service-usp-pill">💎 340+ GSM High-Gloss</span>
+            </div>
+            <h3 class="service-title">Star Flex Banners <span class="service-title-hi">स्टार फ्लैक्स (हाई-ग्लॉस)</span></h3>
             <p class="service-benefit">
               Heavy-duty, high-gloss star flex with superior tear-resistance and ultra-vivid photorealistic color reproduction.
             </p>
             <ul class="service-highlights">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Extra Thick 340+ GSM Material</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Glossy Premium Finish</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Ideal for Showrooms &amp; Long Term</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Extra Thick 340+ GSM Tear-Proof Media</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Brilliant Glossy Photographic Finish</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Ideal for Showrooms &amp; Long-Term Displays</li>
             </ul>
             <div class="service-card-action">
-              <span class="service-price-hint">Starting from ₹22/sq.ft</span>
-              <a href="#contact" class="service-btn-link">Enquire Now →</a>
+              <span class="service-price-hint">From ₹22/sq.ft</span>
+              <div class="service-action-btns">
+                <a href="https://wa.me/919755812374?text=Namaste%20Anoop%20ji!%20I%20want%20rates%20and%20order%20for%20Star%20Flex%20Banners." target="_blank" class="service-btn-wa" title="Order on WhatsApp">
+                  💬 WhatsApp
+                </a>
+                <a href="#contact" class="service-btn-link" data-service-select="Star Flex Banner">Get Quote →</a>
+              </div>
             </div>
           </div>
 
           <!-- 4. Hoardings & Outdoor Advertising -->
-          <div class="service-card" data-category="outdoor all">
+          <div class="service-card" data-category="outdoor all" data-search-keywords="hoardings unipole billboard outdoor advertising highway ab road nh44 gwalior road मोरैना होर्डिंग्स">
             <div class="service-top-row">
               <div class="service-icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
               </div>
               <span class="service-number">04</span>
             </div>
-            <span class="service-category-tag">Mass Media Visibility</span>
-            <h3 class="service-title">Hoardings &amp; Outdoor Advertising</h3>
+            <div class="service-badge-row">
+              <span class="service-category-tag">Mass Media Visibility</span>
+              <span class="service-usp-pill">📍 Prime Highway Sites</span>
+            </div>
+            <h3 class="service-title">Hoardings &amp; Outdoor Advertising <span class="service-title-hi">हाईवे यूनीपोल होर्डिंग्स</span></h3>
             <p class="service-benefit">
-              Prime highway and Morena city center outdoor billboard sites that capture maximum footfall and commuter attention.
+              Prime highway and Morena city center outdoor billboard sites that capture maximum commuter attention 24/7.
             </p>
             <ul class="service-highlights">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Prime Locations (AB Road, Station Rd, Bypass)</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Night Illumination &amp; Spotlights</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Complete Fabrication &amp; Mounting</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Prime Sites: AB Road, Station Rd, Bypass &amp; NH-44</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Intensity Night Floodlight Illumination</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Complete Steel Fabrication, Mounting &amp; Maintenance</li>
             </ul>
             <div class="service-card-action">
               <span class="service-price-hint">Monthly &amp; Campaign Leases</span>
-              <a href="#contact" class="service-btn-link">Enquire Now →</a>
+              <div class="service-action-btns">
+                <a href="https://wa.me/919755812374?text=Namaste%20Anoop%20ji!%20I%20want%20to%20book%20a%20Highway%20Hoarding%20in%20Morena." target="_blank" class="service-btn-wa" title="Order on WhatsApp">
+                  💬 WhatsApp
+                </a>
+                <a href="#contact" class="service-btn-link" data-service-select="Hoardings & Outdoor Advertising">Book Site →</a>
+              </div>
             </div>
           </div>
 
           <!-- 5. Vinyl Printing & Shop Branding -->
-          <div class="service-card" data-category="flex branding all">
+          <div class="service-card" data-category="flex branding all" data-search-keywords="vinyl printing shop branding glass film one way vision frosted storefront विनाइल शॉप ब्रांडिंग">
             <div class="service-top-row">
               <div class="service-icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
               </div>
               <span class="service-number">05</span>
             </div>
-            <span class="service-category-tag">Storefront Branding</span>
-            <h3 class="service-title">Vinyl Printing &amp; Shop Branding</h3>
+            <div class="service-badge-row">
+              <span class="service-category-tag">Storefront Branding</span>
+              <span class="service-usp-pill">🏢 High-End Retail</span>
+            </div>
+            <h3 class="service-title">Vinyl Printing &amp; Shop Branding <span class="service-title-hi">विनाइल प्रिंटिंग व शॉप ब्रांडिंग</span></h3>
             <p class="service-benefit">
-              Glossy and matte vinyl prints, frosted film, one-way vision, and custom glass graphics for high-end retail interiors.
+              Glossy and matte vinyl prints, frosted films, one-way vision, and glass graphics that transform retail storefronts.
             </p>
             <ul class="service-highlights">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Matte &amp; Gloss Lamination</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> One-Way Vision for Glass Facades</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Bubble-Free Professional Pasting</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Matte &amp; Gloss Lamination with Bubble-Free Pasting</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> One-Way Vision Film for Showroom Glass Facades</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Resolution 1440 DPI Eco-Solvent Printing</li>
             </ul>
             <div class="service-card-action">
-              <span class="service-price-hint">Starting from ₹35/sq.ft</span>
-              <a href="#contact" class="service-btn-link">Enquire Now →</a>
+              <span class="service-price-hint">From ₹35/sq.ft</span>
+              <div class="service-action-btns">
+                <a href="https://wa.me/919755812374?text=Namaste%20Anoop%20ji!%20I%20want%20rates%20for%20Vinyl%20Printing%20%26%20Shop%20Branding." target="_blank" class="service-btn-wa" title="Order on WhatsApp">
+                  💬 WhatsApp
+                </a>
+                <a href="#contact" class="service-btn-link" data-service-select="Vinyl Printing">Get Quote →</a>
+              </div>
             </div>
           </div>
 
           <!-- 6. Brochure Design & Printing -->
-          <div class="service-card" data-category="stationery branding all">
+          <div class="service-card" data-category="stationery branding all" data-search-keywords="brochure catalogue pamphlet booklet corporate collateral bi fold tri fold ब्रोशर व कैटलॉग">
             <div class="service-top-row">
               <div class="service-icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
               </div>
               <span class="service-number">06</span>
             </div>
-            <span class="service-category-tag">Corporate Collateral</span>
-            <h3 class="service-title">Brochure Design &amp; Printing</h3>
+            <div class="service-badge-row">
+              <span class="service-category-tag">Corporate Collateral</span>
+              <span class="service-usp-pill">📖 Bi-Fold &amp; Tri-Fold</span>
+            </div>
+            <h3 class="service-title">Brochure Design &amp; Printing <span class="service-title-hi">ब्रोशर व कॉर्पोरेट कैटलॉग</span></h3>
             <p class="service-benefit">
-              Professional bi-fold and tri-fold brochures that tell your brand story and convert prospective buyers into loyal customers.
+              Professional bi-fold and tri-fold brochures that present your products and services with elegance and convert buyers.
             </p>
             <ul class="service-highlights">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Art Paper (170 - 300 GSM)</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Velvet / Thermal Lamination</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Real Estate, School &amp; Hospital Catalogues</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Premium Art Paper (170 – 300 GSM)</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Velvet Thermal Touch Lamination &amp; Spot UV</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Perfect for Schools, Hospitals &amp; Real Estate</li>
             </ul>
             <div class="service-card-action">
               <span class="service-price-hint">Custom Bulk Rates</span>
-              <a href="#contact" class="service-btn-link">Enquire Now →</a>
+              <div class="service-action-btns">
+                <a href="https://wa.me/919755812374?text=Namaste%20Anoop%20ji!%20I%20want%20enquiry%20for%20Brochure%20Design%20%26%20Printing." target="_blank" class="service-btn-wa" title="Order on WhatsApp">
+                  💬 WhatsApp
+                </a>
+                <a href="#contact" class="service-btn-link" data-service-select="Brochure Design & Printing">Get Quote →</a>
+              </div>
             </div>
           </div>
 
           <!-- 7. Flyers, Pamphlets & Posters -->
-          <div class="service-card" data-category="stationery all">
+          <div class="service-card" data-category="stationery all" data-search-keywords="flyers pamphlets posters handbills distribution newspaper inserts पंपलेट पोस्टर">
             <div class="service-top-row">
               <div class="service-icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="14 2 18 6 7 17 3 17 3 13 14 2"></polygon><line x1="3" y1="22" x2="21" y2="22"></line></svg>
               </div>
               <span class="service-number">07</span>
             </div>
-            <span class="service-category-tag">Mass Distribution</span>
-            <h3 class="service-title">Flyers, Pamphlets &amp; Posters</h3>
+            <div class="service-badge-row">
+              <span class="service-category-tag">Mass Distribution</span>
+              <span class="service-usp-pill">📢 Quick Footfall</span>
+            </div>
+            <h3 class="service-title">Flyers, Pamphlets &amp; Posters <span class="service-title-hi">पंपलेट, पोस्टर व हैंडबिल</span></h3>
             <p class="service-benefit">
-              Cost-effective, mass-distribution marketing material that drives quick footfall for sales, events, and institute admissions.
+              Cost-effective mass marketing material that drives quick footfall for sales offers, events, and institute admissions.
             </p>
             <ul class="service-highlights">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Speed Offset &amp; Digital Print</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Single &amp; Multi-Color Available</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Newspaper Insert Friendly</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Speed Offset &amp; Digital Production</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Single &amp; Full-Color Gloss/Matte Options</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Ready for Newspaper Distribution Inserts</li>
             </ul>
             <div class="service-card-action">
-              <span class="service-price-hint">Starting ₹350/1000 copies</span>
-              <a href="#contact" class="service-btn-link">Enquire Now →</a>
+              <span class="service-price-hint">From ₹350 / 1000 copies</span>
+              <div class="service-action-btns">
+                <a href="https://wa.me/919755812374?text=Namaste%20Anoop%20ji!%20I%20want%20to%20order%20Pamphlets%20and%20Flyers." target="_blank" class="service-btn-wa" title="Order on WhatsApp">
+                  💬 WhatsApp
+                </a>
+                <a href="#contact" class="service-btn-link" data-service-select="Flyers, Pamphlets & Posters">Get Quote →</a>
+              </div>
             </div>
           </div>
 
           <!-- 8. Visiting Cards & Business Stationery -->
-          <div class="service-card" data-category="stationery branding all">
+          <div class="service-card" data-category="stationery branding all" data-search-keywords="visiting cards business cards letterheads envelopes spot uv metallic gold foil embossed विज़िटिंग कार्ड">
             <div class="service-top-row">
               <div class="service-icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="6" y1="9" x2="18" y2="9"></line><line x1="6" y1="13" x2="14" y2="13"></line></svg>
               </div>
               <span class="service-number">08</span>
             </div>
-            <span class="service-category-tag">Executive Stationery</span>
-            <h3 class="service-title">Visiting Cards &amp; Business Stationery</h3>
+            <div class="service-badge-row">
+              <span class="service-category-tag">Executive Stationery</span>
+              <span class="service-usp-pill">⭐ 350+ GSM Ivory/Art</span>
+            </div>
+            <h3 class="service-title">Visiting Cards &amp; Stationery <span class="service-title-hi">विज़िटिंग कार्ड व बिज़नेस स्टेशनरी</span></h3>
             <p class="service-benefit">
-              Premium matte, velvet touch, and spot UV embossed business cards, letterheads, and envelopes that leave lasting impressions.
+              Premium matte, velvet touch, gold metallic foil, and spot UV embossed business cards that leave lasting impressions.
             </p>
             <ul class="service-highlights">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> 350+ GSM Premium Ivory/Art Card</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Gold &amp; Silver Metallic Foil Stamping</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Spot UV &amp; Rounded Corner Die-Cut</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> 350+ GSM Heavy Ivory &amp; Velvet Cards</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Metallic Gold/Silver Stamping &amp; Spot UV</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Matching Letterheads, Envelopes &amp; Folders</li>
             </ul>
             <div class="service-card-action">
-              <span class="service-price-hint">From ₹450 / 1000 Cards</span>
-              <a href="#contact" class="service-btn-link">Enquire Now →</a>
+              <span class="service-price-hint">From ₹450 / 1000 cards</span>
+              <div class="service-action-btns">
+                <a href="https://wa.me/919755812374?text=Namaste%20Anoop%20ji!%20I%20want%20to%20order%20Visiting%20Cards." target="_blank" class="service-btn-wa" title="Order on WhatsApp">
+                  💬 WhatsApp
+                </a>
+                <a href="#contact" class="service-btn-link" data-service-select="Visiting Cards">Get Quote →</a>
+              </div>
             </div>
           </div>
 
           <!-- 9. Stickers, Labels & Promotional Printing -->
-          <div class="service-card" data-category="stationery flex all">
+          <div class="service-card" data-category="stationery flex all" data-search-keywords="stickers labels die cut packaging labels waterproof adhesive chrome transparent stickers डाई-कट स्टीकर">
             <div class="service-top-row">
               <div class="service-icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
               </div>
               <span class="service-number">09</span>
             </div>
-            <span class="service-category-tag">Packaging &amp; Merchandising</span>
-            <h3 class="service-title">Stickers, Labels &amp; Promotional Printing</h3>
+            <div class="service-badge-row">
+              <span class="service-category-tag">Packaging &amp; Merchandising</span>
+              <span class="service-usp-pill">🏷️ Die-Cut Precision</span>
+            </div>
+            <h3 class="service-title">Stickers &amp; Packaging Labels <span class="service-title-hi">डाई-कट स्टीकर व प्रोडक्ट लेबल्स</span></h3>
             <p class="service-benefit">
-              Custom die-cut product packaging stickers, barcode labels, and promotional tags with strong water-resistant adhesive.
+              Custom die-cut product packaging stickers, barcode labels, and promotional tags with water-resistant adhesive.
             </p>
             <ul class="service-highlights">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Transparent, Chrome &amp; Paper Stickers</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom Precision Plotter Cut</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Food Packaging, Jars &amp; Box Labels</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Transparent, Chrome, Gloss &amp; Matte Stickers</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Precision Plotter Cut in Any Custom Shape</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Food Packaging, Sweet Boxes &amp; Bottle Labels</li>
             </ul>
             <div class="service-card-action">
               <span class="service-price-hint">Custom Shapes &amp; Sizes</span>
-              <a href="#contact" class="service-btn-link">Enquire Now →</a>
+              <div class="service-action-btns">
+                <a href="https://wa.me/919755812374?text=Namaste%20Anoop%20ji!%20I%20want%20to%20order%20Product%20Stickers%20and%20Labels." target="_blank" class="service-btn-wa" title="Order on WhatsApp">
+                  💬 WhatsApp
+                </a>
+                <a href="#contact" class="service-btn-link" data-service-select="Stickers & Labels">Get Quote →</a>
+              </div>
             </div>
           </div>
 
-          <!-- 10. Shop Boards & Signage -->
-          <div class="service-card" data-category="outdoor branding all">
+          <!-- 10. Glow Sign Boards & LED Acrylic 3D Letters -->
+          <div class="service-card" data-category="outdoor branding all" data-search-keywords="glow sign board 3d acrylic letters led signage acp panel storefront lights shop board साइन बोर्ड 3d अक्षर">
             <div class="service-top-row">
               <div class="service-icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
               </div>
               <span class="service-number">10</span>
             </div>
-            <span class="service-category-tag">Architectural Signage</span>
-            <h3 class="service-title">Shop Boards &amp; Signage</h3>
+            <div class="service-badge-row">
+              <span class="service-category-tag">Architectural Signage</span>
+              <span class="service-usp-pill">💡 Samsung LED 3D Letters</span>
+            </div>
+            <h3 class="service-title">Glow Sign Boards &amp; 3D Letters <span class="service-title-hi">3D एक्रेलिक एलईडी साइन बोर्ड</span></h3>
             <p class="service-benefit">
-              Glow sign boards, LED 3D acrylic letters, ACP panel facades, and front-lit signboards that illuminate your storefront 24/7.
+              Glow sign boards, LED 3D acrylic letters, ACP panel facades, and back-lit signboards that illuminate your shop 24/7.
             </p>
             <ul class="service-highlights">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> 3D Acrylic Letter Cutting</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Lumen Samsung LED Modules</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Weatherproof Heavy ACP Cladding</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> CNC/Laser 3D Acrylic Letter Cutting</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Lumen Samsung LED Modules &amp; Power Supply</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Heavy-Gauge Rust-Proof ACP Cladding</li>
             </ul>
             <div class="service-card-action">
               <span class="service-price-hint">Custom Fabrication</span>
-              <a href="#contact" class="service-btn-link">Enquire Now →</a>
+              <div class="service-action-btns">
+                <a href="https://wa.me/919755812374?text=Namaste%20Anoop%20ji!%20I%20need%20rates%20for%203D%20Acrylic%20LED%20Glow%20Sign%20Board." target="_blank" class="service-btn-wa" title="Order on WhatsApp">
+                  💬 WhatsApp
+                </a>
+                <a href="#contact" class="service-btn-link" data-service-select="Glow Sign Board & Signage">Get Quote →</a>
+              </div>
             </div>
           </div>
 
           <!-- 11. Vehicle Branding -->
-          <div class="service-card" data-category="outdoor flex all">
+          <div class="service-card" data-category="outdoor flex all" data-search-keywords="vehicle branding auto branding van branding fleet advertising mobile ads bus branding वाहन ब्रांडिंग">
             <div class="service-top-row">
               <div class="service-icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
               </div>
               <span class="service-number">11</span>
             </div>
-            <span class="service-category-tag">Mobile Transit Advertising</span>
-            <h3 class="service-title">Vehicle Branding</h3>
+            <div class="service-badge-row">
+              <span class="service-category-tag">Mobile Transit Advertising</span>
+              <span class="service-usp-pill">🚐 City-Wide Reach</span>
+            </div>
+            <h3 class="service-title">Vehicle Branding <span class="service-title-hi">वाहन प्रचार (ऑटो, वैन, बस)</span></h3>
             <p class="service-benefit">
               Auto-rickshaw hoods, delivery vans, school buses, and commercial transport fleet vinyl wraps that turn every trip into publicity.
             </p>
             <ul class="service-highlights">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Cast Vehicle Grade Vinyl</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Scratch &amp; High-Pressure Wash Resistant</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Complete City-Wide Mobile Visibility</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Cast Automotive Grade Vinyl with UV Overlaminate</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Pressure Wash &amp; Scratch Resistant</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Complete Morena &amp; Chambal Transit Visibility</li>
             </ul>
             <div class="service-card-action">
               <span class="service-price-hint">Full &amp; Partial Wraps</span>
-              <a href="#contact" class="service-btn-link">Enquire Now →</a>
+              <div class="service-action-btns">
+                <a href="https://wa.me/919755812374?text=Namaste%20Anoop%20ji!%20I%20want%20to%20brand%20my%20Vehicles%20(Auto/Van/Bus)." target="_blank" class="service-btn-wa" title="Order on WhatsApp">
+                  💬 WhatsApp
+                </a>
+                <a href="#contact" class="service-btn-link" data-service-select="Vehicle Branding">Get Quote →</a>
+              </div>
             </div>
           </div>
 
-          <!-- 12. Event Backdrops, Standees & Display Branding -->
-          <div class="service-card" data-category="outdoor stationery all">
+          <!-- 12. Roll-up Standees & Event Canopies -->
+          <div class="service-card" data-category="outdoor stationery all" data-search-keywords="standee roll up canopy event backdrop exhibition booth promotion tent स्टेंडी कैनोपी">
             <div class="service-top-row">
               <div class="service-icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="6 2 18 2 18 6 6 6 6 2"></polygon><rect x="3" y="6" width="18" height="12" rx="2"></rect><line x1="12" y1="18" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg>
               </div>
               <span class="service-number">12</span>
             </div>
-            <span class="service-category-tag">Exhibitions &amp; Events</span>
-            <h3 class="service-title">Event Backdrops, Standees &amp; Display Branding</h3>
+            <div class="service-badge-row">
+              <span class="service-category-tag">Exhibitions &amp; Events</span>
+              <span class="service-usp-pill">🎪 Portable &amp; Reusable</span>
+            </div>
+            <h3 class="service-title">Roll-up Standees &amp; Canopies <span class="service-title-hi">रोल-अप स्टेंडी व प्रमोशन कैनोपी</span></h3>
             <p class="service-benefit">
-              Aluminum roll-up standees, exhibition stage backdrops, selfie photo booths, and wedding entrance displays.
+              Aluminum roll-up luxury standees, portable outdoor promotion canopies, event stage backdrops, and exhibition displays.
             </p>
             <ul class="service-highlights">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Portable Roll-Up Luxury Standees</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Seamless Wrinkle-Free Stage Backdrops</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Fast On-Site Setup in Morena Venues</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Heavy Aluminum Base Standees with Carry Bag</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> 6x6 &amp; 4x4 Weatherproof Promotion Canopies</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Seamless Wrinkle-Free Matte Media</li>
             </ul>
             <div class="service-card-action">
-              <span class="service-price-hint">Ready-to-Assemble Units</span>
-              <a href="#contact" class="service-btn-link">Enquire Now →</a>
+              <span class="service-price-hint">Ready-to-Use Units</span>
+              <div class="service-action-btns">
+                <a href="https://wa.me/919755812374?text=Namaste%20Anoop%20ji!%20I%20need%20Roll-up%20Standees%20or%20Promotion%20Canopies." target="_blank" class="service-btn-wa" title="Order on WhatsApp">
+                  💬 WhatsApp
+                </a>
+                <a href="#contact" class="service-btn-link" data-service-select="Event Display & Standees">Get Quote →</a>
+              </div>
             </div>
           </div>
 
           <!-- 13. Social Media Creative Design -->
-          <div class="service-card" data-category="branding all">
+          <div class="service-card" data-category="branding all" data-search-keywords="social media creatives festival posts instagram ads facebook banners graphic design सोशल मीडिया डिज़ाइन">
             <div class="service-top-row">
               <div class="service-icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </div>
               <span class="service-number">13</span>
             </div>
-            <span class="service-category-tag">Digital Promotion</span>
-            <h3 class="service-title">Social Media Creative Design</h3>
+            <div class="service-badge-row">
+              <span class="service-category-tag">Digital Promotion</span>
+              <span class="service-usp-pill">📱 Daily/Festival Posts</span>
+            </div>
+            <h3 class="service-title">Social Media Creatives <span class="service-title-hi">सोशल मीडिया व फेस्टिवल पोस्टर्स</span></h3>
             <p class="service-benefit">
-              Eye-catching festival creatives, Instagram promotional posters, WhatsApp status banners, and digital advertising collateral.
+              Eye-catching festival creatives, Instagram promotional posters, WhatsApp status banners, and digital advertising graphics.
             </p>
             <ul class="service-highlights">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Festival Greetings with Your Shop Logo</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Engagement Product Posts</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Monthly Retainer Packages Available</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Custom Festival Posters with Your Shop Logo &amp; Number</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> High-Engagement Product Promotional Creatives</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Affordable Monthly Retainer Plans for Local Businesses</li>
             </ul>
             <div class="service-card-action">
-              <span class="service-price-hint">Monthly Subscriptions</span>
-              <a href="#contact" class="service-btn-link">Enquire Now →</a>
+              <span class="service-price-hint">Monthly Packages</span>
+              <div class="service-action-btns">
+                <a href="https://wa.me/919755812374?text=Namaste%20Anoop%20ji!%20I%20want%20Social%20Media%20Creatives%20for%20my%20business." target="_blank" class="service-btn-wa" title="Order on WhatsApp">
+                  💬 WhatsApp
+                </a>
+                <a href="#contact" class="service-btn-link" data-service-select="Social Media Creative Design">Get Quote →</a>
+              </div>
             </div>
           </div>
 
-          <!-- 14. Election, School, Coaching & Real Estate Promotion Material -->
-          <div class="service-card" data-category="outdoor flex all">
+          <!-- 14. Election, School & Mega Campaign Material -->
+          <div class="service-card" data-category="outdoor flex all" data-search-keywords="election campaign school coaching real estate cutouts sunpack caps flags bulk printing चुनाव प्रचार सामग्री">
             <div class="service-top-row">
               <div class="service-icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
               </div>
               <span class="service-number">14</span>
             </div>
-            <span class="service-category-tag">Mega Campaigns</span>
-            <h3 class="service-title">Election, School, Coaching &amp; Real Estate Material</h3>
+            <div class="service-badge-row">
+              <span class="service-category-tag">Mega Campaigns</span>
+              <span class="service-usp-pill">🏭 Factory Bulk Rates</span>
+            </div>
+            <h3 class="service-title">Election &amp; Mega Campaigns <span class="service-title-hi">चुनाव, स्कूल व कोचिंग प्रचार सामग्री</span></h3>
             <p class="service-benefit">
-              High-volume campaign printing, leader cutouts, admission banners, promotional canopies, badges, and ground rally branding.
+              High-volume fast printing for election rallies, institute admissions, real estate launches, cutouts, and ground branding.
             </p>
             <ul class="service-highlights">
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Heavy Volume Fast Delivery in Morena</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> MDF &amp; Sunpack Sheet Cutouts</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Canopies, Caps, Badges &amp; Flags</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Heavy Volume Fast Delivery Across Morena &amp; Chambal</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Life-Size Leader Cutouts &amp; Sunpack Sheet Printing</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg> Promotional Canopies, Caps, Badges &amp; Vehicle Flags</li>
             </ul>
             <div class="service-card-action">
-              <span class="service-price-hint">Wholesale Factory Rates</span>
-              <a href="#contact" class="service-btn-link">Enquire Now →</a>
+              <span class="service-price-hint">Wholesale Bulk Rates</span>
+              <div class="service-action-btns">
+                <a href="https://wa.me/919755812374?text=Namaste%20Anoop%20ji!%20I%20have%20bulk%20requirement%20for%20Campaign%20or%20Election%20materials." target="_blank" class="service-btn-wa" title="Order on WhatsApp">
+                  💬 WhatsApp
+                </a>
+                <a href="#contact" class="service-btn-link" data-service-select="Complete Campaign Management">Get Quote →</a>
+              </div>
             </div>
           </div>
 
+        </div>
+
+        <!-- 4-Pillar Trust & Quality Guarantee Ribbon (The Main USP Reinforcement) -->
+        <div class="service-guarantee-ribbon">
+          <div class="guarantee-card">
+            <div class="guarantee-icon">🏭</div>
+            <div class="guarantee-content">
+              <h4>In-House Heavy Machinery</h4>
+              <p>Self-owned Roland &amp; Star heavy solvent flex printers. Zero middleman margins, 100% direct factory rates in Morena.</p>
+            </div>
+          </div>
+          <div class="guarantee-card">
+            <div class="guarantee-icon">⚡</div>
+            <div class="guarantee-content">
+              <h4>Express Same-Day Delivery</h4>
+              <p>Need urgent shop banners or event flex? We print, finish with brass eyelets, and dispatch within 2 to 4 hours.</p>
+            </div>
+          </div>
+          <div class="guarantee-card">
+            <div class="guarantee-icon">🌧️</div>
+            <div class="guarantee-content">
+              <h4>Weatherproof UV Guarantee</h4>
+              <p>Heavy GSM outdoor media with weather-resistant inks tested against intense summer sunlight and heavy monsoon rains.</p>
+            </div>
+          </div>
+          <div class="guarantee-card">
+            <div class="guarantee-icon">🤝</div>
+            <div class="guarantee-content">
+              <h4>10+ Years Trust &amp; Local Care</h4>
+              <p>Led personally by Anoop Jain (+91 97558 12374) with accurate on-site fitting &amp; installation across Morena &amp; Chambal.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

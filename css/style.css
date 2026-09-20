@@ -7,18 +7,18 @@
 
 /* --- CSS Variables: Vibrant Luxury Keynote Palette (Professional, High-Contrast, Rich) --- */
 :root {
-  /* Rich Obsidian Midnight Backgrounds */
-  --bg-space: #060913;
-  --bg-deep: #0A0F20;
-  --bg-surface-1: #0E162B;
-  --bg-surface-2: #141F3D;
-  --bg-surface-3: #1B2950;
+  /* True AMOLED Black & Deep Onyx Backgrounds */
+  --bg-space: #000000;
+  --bg-deep: #000000;
+  --bg-surface-1: #050507;
+  --bg-surface-2: #0b0b10;
+  --bg-surface-3: #121218;
   
-  /* Glassmorphism Layers */
-  --glass-bg: rgba(10, 15, 32, 0.78);
-  --glass-card: rgba(14, 22, 43, 0.65);
-  --glass-card-hover: rgba(20, 31, 61, 0.85);
-  --glass-header: rgba(6, 9, 19, 0.88);
+  /* High-Contrast Glassmorphism Layers on Pure Black */
+  --glass-bg: rgba(0, 0, 0, 0.90);
+  --glass-card: rgba(8, 8, 12, 0.85);
+  --glass-card-hover: rgba(15, 15, 22, 0.95);
+  --glass-header: rgba(0, 0, 0, 0.94);
 
   /* Vibrant Professional Brand Palette */
   --brand-blue: #2563EB;
@@ -134,7 +134,7 @@ body {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: radial-gradient(130% 100% at 50% 50%, transparent 60%, rgba(11, 14, 23, 0.45) 100%);
+  background: radial-gradient(130% 100% at 50% 50%, transparent 50%, rgba(0, 0, 0, 0.75) 100%);
 }
 
 /* ==========================================================================
@@ -470,8 +470,8 @@ button {
 }
 
 .top-announcement-bar {
-  background: linear-gradient(90deg, rgba(154, 180, 232, 0.12) 0%, rgba(191, 174, 224, 0.12) 50%, rgba(229, 164, 181, 0.12) 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: #000000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text-platinum);
   font-size: 0.775rem;
   padding: 0.4rem 0;
@@ -707,7 +707,7 @@ button {
   height: 100%;
   pointer-events: none;
   z-index: 1;
-  background: radial-gradient(circle at 50% 20%, #131b2e 0%, #0c101c 65%, #080c14 100%);
+  background: radial-gradient(circle at 50% 20%, #090a14 0%, #040407 55%, #000000 100%);
 }
 
 .sky-stars {
@@ -987,6 +987,71 @@ button {
   padding: 0.75rem 1.65rem;
   font-size: 0.9375rem;
   border-radius: var(--radius-full);
+}
+
+/* --- Grand Hoarding Quick Services Strip (Hero Instant USP) --- */
+.hoarding-quick-services {
+  margin: 1.15rem 0 1.35rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.quick-services-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #FBBF24;
+  text-transform: uppercase;
+}
+
+.quick-services-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.quick-service-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+  font-size: 0.8rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.quick-service-chip:hover {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.55) 0%, rgba(225, 29, 72, 0.55) 100%);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+  color: #FFFFFF;
+}
+
+.quick-service-chip .chip-icon {
+  font-size: 0.95rem;
+}
+
+.hint-jump-link {
+  color: #FBBF24;
+  font-weight: 700;
+  text-decoration: underline;
+  transition: var(--transition-fast);
+}
+
+.hint-jump-link:hover {
+  color: #FFFFFF;
 }
 
 /* Spec Pills */
@@ -1521,11 +1586,83 @@ button {
 }
 
 /* ==========================================================================
-   SERVICES SECTION (ALL 14 FLAGSHIP DARK GLASS CARDS)
+   SERVICES SECTION (FLAGSHIP DARK GLASS CARDS & INSTANT FINDER)
    ========================================================================== */
 .services-section {
   position: relative;
   background: transparent;
+}
+
+/* --- Live Instant Service Finder --- */
+.service-search-wrap {
+  max-width: 650px;
+  margin: 0 auto 2.25rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.service-search-box {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-full);
+  padding: 0.55rem 1.35rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(56, 189, 248, 0.12);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-search-box:focus-within {
+  border-color: var(--brand-blue-bright);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.9), 0 0 25px rgba(56, 189, 248, 0.35);
+}
+
+.service-search-icon {
+  font-size: 1.15rem;
+  margin-right: 0.65rem;
+  opacity: 0.75;
+}
+
+#serviceSearchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  outline: none;
+}
+
+#serviceSearchInput::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.875rem;
+}
+
+.service-search-clear {
+  color: var(--text-dim);
+  font-size: 0.875rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.service-search-clear:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.service-count-badge {
+  font-size: 0.8rem;
+  color: #38BDF8;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .service-filter-bar {
@@ -1556,9 +1693,9 @@ button {
 
 .filter-btn.active {
   color: #FFFFFF;
-  background: linear-gradient(135deg, rgba(154, 180, 232, 0.35) 0%, rgba(229, 164, 181, 0.35) 100%);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 18px rgba(229, 164, 181, 0.2);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.45) 0%, rgba(225, 29, 72, 0.45) 100%);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 18px rgba(37, 99, 235, 0.25);
 }
 
 .services-grid {
@@ -1568,8 +1705,8 @@ button {
 }
 
 .service-card {
-  background: var(--glass-card);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-lg);
   padding: 2.25rem 2rem;
   display: flex;
@@ -1578,11 +1715,10 @@ button {
   transition: var(--transition-base);
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(20px);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.9);
 }
 
-/* Subtle Pastel Gradient Top Accent */
+/* Subtle Gradient Top Accent */
 .service-card::after {
   content: '';
   position: absolute;
@@ -1590,16 +1726,16 @@ button {
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent 0%, #9AB4E8 50%, #E5A4B5 100%);
+  background: linear-gradient(90deg, transparent 0%, #38BDF8 50%, #F43F5E 100%);
   opacity: 0;
   transition: var(--transition-base);
 }
 
 .service-card:hover {
   transform: translateY(-6px);
-  background: var(--glass-card-hover);
-  border-color: rgba(229, 164, 181, 0.35);
-  box-shadow: 0 25px 55px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(229, 164, 181, 0.15);
+  background: #07070a;
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 25px 55px -10px rgba(0, 0, 0, 0.95), 0 0 30px rgba(37, 99, 235, 0.2);
 }
 
 .service-card:hover::after {
@@ -1610,15 +1746,15 @@ button {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .service-icon-box {
   width: 58px;
   height: 58px;
   border-radius: var(--radius-md);
-  background: rgba(154, 180, 232, 0.12);
-  border: 1px solid rgba(154, 180, 232, 0.25);
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
   color: var(--brand-blue-bright);
   display: flex;
   align-items: center;
@@ -1632,16 +1768,24 @@ button {
 }
 
 .service-card:hover .service-icon-box {
-  background: linear-gradient(135deg, #4A72C4 0%, #C46D84 100%);
+  background: linear-gradient(135deg, #2563EB 0%, #E11D48 100%);
   color: #FFFFFF;
-  box-shadow: 0 6px 20px rgba(196, 109, 132, 0.3);
+  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.35);
 }
 
 .service-number {
   font-family: 'Outfit', sans-serif;
   font-size: 1.35rem;
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.service-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .service-category-tag {
@@ -1651,7 +1795,16 @@ button {
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--brand-magenta-bright);
-  margin-bottom: 0.5rem;
+}
+
+.service-usp-pill {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: rgba(244, 63, 94, 0.15);
+  color: #F43F5E;
+  border: 1px solid rgba(244, 63, 94, 0.3);
 }
 
 .service-title {
@@ -1660,6 +1813,15 @@ button {
   color: var(--text-pure);
   margin-bottom: 0.85rem;
   line-height: 1.3;
+}
+
+.service-title-hi {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #94A3B8;
+  margin-top: 0.25rem;
+  letter-spacing: 0;
 }
 
 .service-benefit {
@@ -1689,7 +1851,7 @@ button {
 .service-highlights li svg {
   width: 15px;
   height: 15px;
-  color: var(--brand-cyan-bright);
+  color: #38BDF8;
   flex-shrink: 0;
 }
 
@@ -1703,29 +1865,113 @@ button {
 }
 
 .service-price-hint {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--brand-gold-bright);
   font-weight: 700;
 }
 
+.service-action-btns {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.service-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: #FFFFFF;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  transition: var(--transition-fast);
+}
+
+.service-btn-wa:hover {
+  background: linear-gradient(135deg, #22C55E 0%, #10B981 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(34, 197, 94, 0.45);
+  color: #FFFFFF;
+}
+
 .service-btn-link {
-  font-size: 0.85rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   color: var(--text-pure);
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.45rem 0.9rem;
+  gap: 0.35rem;
+  padding: 0.45rem 0.85rem;
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   transition: var(--transition-fast);
 }
 
 .service-btn-link:hover {
-  background: linear-gradient(135deg, #4A72C4, #C46D84);
+  background: linear-gradient(135deg, #2563EB, #E11D48);
   color: #FFFFFF;
-  box-shadow: 0 4px 15px rgba(196, 109, 132, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);
+}
+
+/* --- 4-Pillar Trust & Quality Guarantee Ribbon --- */
+.service-guarantee-ribbon {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 4.5rem;
+  padding: 2.25rem;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(37, 99, 235, 0.15);
+}
+
+.guarantee-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.guarantee-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  padding: 0.65rem;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.guarantee-content h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.4rem;
+}
+
+.guarantee-content p {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .service-guarantee-ribbon {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .service-guarantee-ribbon {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
 }
 
 /* ==========================================================================

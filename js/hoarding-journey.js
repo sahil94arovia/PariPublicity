@@ -74,7 +74,7 @@ function animateLoop() {
 
   // Smooth lerp interpolation for silky 60fps video-scrubber feel
   const prevProgress = scrollProgress;
-  scrollProgress += (targetScrollProgress - scrollProgress) * 0.085;
+  scrollProgress += (targetScrollProgress - scrollProgress) * 0.15;
 
   const delta = scrollProgress - prevProgress;
 

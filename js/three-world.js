@@ -81,9 +81,10 @@ export function initThreeWorld() {
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.35;
 
-    // 2. Scene & Subtle Atmospheric Fog (Calm Twilight Slate)
+    // 2. Scene & Subtle Atmospheric Fog (AMOLED Pure Black)
     scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x0b0e17, 0.007);
+    scene.fog = new THREE.FogExp2(0x000000, 0.008);
+    renderer.setClearColor(0x000000, 0.0);
 
     // 3. Camera
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.3, 200);
@@ -824,13 +825,13 @@ function buildParticleCosmos() {
   const positions = new Float32Array(count * 3);
   const colors = new Float32Array(count * 3);
 
-  // 5 Calibrated Aesthetic Faded Pastels (Zero Neon)
+  // Calibrated Vibrant Keynote Jewel Tones on AMOLED Black
   const palette = [
-    new THREE.Color(0xbfaee0), // Muted Lavender
-    new THREE.Color(0xe5a4b5), // Dusty Blush Rose
-    new THREE.Color(0x9ab4e8), // Soft Periwinkle Mist
-    new THREE.Color(0xf0d6bf), // Warm Champagne Cream
-    new THREE.Color(0xa8cebe)  // Gentle Sage
+    new THREE.Color(0x38bdf8), // Electric Sapphire Cyan
+    new THREE.Color(0xf43f5e), // Vivid Crimson Magenta
+    new THREE.Color(0xfbbf24), // Radiant Amber Gold
+    new THREE.Color(0x22c55e), // Emerald Green
+    new THREE.Color(0xffffff)  // Crisp Diamond White
   ];
 
   for (let i = 0; i < count; i++) {
